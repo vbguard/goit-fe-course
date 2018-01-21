@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>module-05-task-01</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Dorsa|Open+Sans+Condensed:300,700|Pathway+Gothic+One" rel="stylesheet">
+</head>
+
+<body>
+  <header class="header" id="top">
+    <nav class="navigation">
+      <ul class="menu">
+        <li class="menu-item">
+          <a href="#" class="menu-link">home</a>
+        </li>
+        <li class="menu-item">
+          <a href="#" class="menu-link">about</a>
+          <ul class="submenu">
+            <li class="submenu-item">
+              <a href="#" class="submenu-link">agency</a>
+            </li>
+            <li class="submenu-item">
+              <a href="#" class="submenu-link">news</a>
+            </li>
+            <li class="submenu-item">
+              <a href="#" class="submenu-link">team</a>
+            </li>
+          </ul>
+        </li>
+        <li class="menu-item">
+          <a href="#" class="menu-link">gallery</a>
+        </li>
+        <li class="menu-item">
+          <a href="#" class="menu-link">tours</a>
+        </li>
+        <li class="menu-item">
+          <a href="#" class="menu-link">blog</a>
+        </li>
+        <li class="menu-item">
+          <a href="#" class="menu-link">contacts</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="logo">
+      <a href="index.html" class="logo-link">journey</a>
+    </div>
+  </header>
+  <main class="wrapper">
+    <div class="slider">
+      <div class="slider-text">
+        <span class="text-first">there are plenty of places</span>
+        <span class="text-second">that are worth seeing</span>
+      </div>
+      <div class="slider-controll">
+        <a class="ctrl-left" href="#" onclick="prevImg(); return false;"><i class="mdi mdi-arrow-left"></i></a>
+        <a class="ctrl-right" href="#" onclick="nextImg(); return false;"><i class="mdi mdi-arrow-right"></i></a>
+      </div>
+      <img class="slider-img" id="imageHolder" src="img/image-1.jpg" alt="other image">
+    </div>
+    <section class="top-dest">
+      <h2 class="top-dest-title">top destinations</h2>
+      <div class="top-dest-card">
+        <img class="card-img" src="img/venice.png" alt="Venice">
+        <div class="description">
+          <h2 class="card-title">venice</h2>
+          <p class="card-descr">Lorem ipsum dolor site geril amet, consectetur cing eliti. Suspendisse nulla leo mew dignissim eu velite a rew
+            qw vehicula lacinia arcufasecro. Aenean lacinia ucibusy fase tortor ut feugiat. Rabitur oliti aliquam bibendum
+            olor quis malesuadivamu.</p>
+          <button class="card-btn">Details</button>
+        </div>
+      </div>
+      <div class="top-dest-card">
+        <img class="card-img" src="img/newyork.png" alt="Venice">
+        <div class="description">
+          <h2 class="card-title">new york</h2>
+          <p class="card-descr">Lorem ipsum dolor site geril amet, consectetur cing eliti. Suspendisse nulla leo mew dignissim eu velite a rew
+            qw vehicula lacinia arcufasecro. Aenean lacinia ucibusy fase tortor ut feugiat. Rabitur oliti aliquam bibendum
+            olor quis malesuadivamu.</p>
+          <button class="card-btn">Details</button>
+        </div>
+      </div>
+      <div class="top-dest-card">
+        <img class="card-img" src="img/paris.png" alt="Venice">
+        <div class="description">
+          <h2 class="card-title">paris</h2>
+          <p class="card-descr">Lorem ipsum dolor site geril amet, consectetur cing eliti. Suspendisse nulla leo mew dignissim eu velite a rew qw vehicula lacinia arcufasecro. Aenean lacinia ucibusy fase tortor ut feugiat. Rabitur oliti aliquam bibendum olor quis malesuadivamu.</p>
+          <button class="card-btn">Details</button>
+        </div>
+      </div>
+    </section>
+    <div class="return-top">
+      <a href="#top" class="return-top-link">
+        <i class="mdi mdi-chevron-up"></i>
+      </a>
+    </div>
+  </main>
+<script src="js/script.js"></script>
+</body>
+
+</html>
