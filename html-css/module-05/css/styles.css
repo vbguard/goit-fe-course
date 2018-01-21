@@ -1,8 +1,9 @@
 body {
+  padding-bottom: 238px;
   font-family: 'Open Sans Condensed', 'Pathway Gothic One', 'Dorsa', Arial, sans-serif;
   background-image: url(../img/bg-page.jpg);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover;  
 }
 
 
