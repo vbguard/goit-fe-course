@@ -1,0 +1,363 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-content: center;
+  align-items: center;
+  background-image: url(../img/about/about-page-bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+/* Header */
+
+.header {
+  max-width: 1024px;
+  min-width: 1024px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  padding-top: 90px;
+  padding-bottom: 100px;
+}
+
+.logo {
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -35%);
+}
+
+.logo-link {
+  display: inline-block;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  color: rgb(38, 53, 85);
+  width: 138px;
+  height: 138px;
+  line-height: 138px;
+  font-size: 60px;
+  font-family: "Dorsa", sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+}
+
+.navigation {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-evenly;
+  width: 90%;
+}
+
+.menu-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 3;
+  position: relative;
+}
+
+.menu-item:nth-child(3) {
+  margin-right: 190px;
+}
+
+.menu-link {
+  padding: 10px;
+  font-size: 28px;
+  font-family: 'Pathway Gothic One', sans-serif;
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.submenu {
+  display: none;
+}
+
+.menu-item:hover>.submenu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 48px;
+  padding: 10px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  /* border: 1px solid #000000; */
+}
+
+.submenu::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  display: inline-block;
+  border-style: solid;
+  border-width: 0 4px 4px 4px;
+  border-color: transparent transparent #ffffff transparent;
+}
+
+.submenu-item {
+  margin-bottom: 5px;
+}
+
+.submenu-item:nth-last-child(1) {
+  margin-bottom: 0;
+}
+
+.submenu-link {
+  display: inline-block;
+  font-size: 20px;
+  font-family: 'PathwayGothicOne';
+  color: rgb(107, 116, 136);
+  text-transform: uppercase;
+  font-family: 'Pathway Gothic One', sans-serif;
+  text-decoration: none;
+}
+
+.menu-link:hover,
+.submenu-link:hover {
+  color: #263555;
+}
+
+/* Main */
+
+.main {
+  min-width: 1024px;
+  max-width: 1024px;
+  background-color: #ffffff;
+  padding-top: 117px;
+  padding-left: 61px;
+  padding-right: 61px;
+  padding-bottom: 70px;
+}
+
+.title {
+  font-family: 'Pathway Gothic One', sans-serif;
+  margin-bottom: 46px;
+  color: #263555;
+  font-size: 32px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.subtitle-name {
+  font-family: 'Arial', sans-serif;
+}
+
+.subtitle {
+  font-family: 'Arial', sans-serif;
+  font-size: 15px;
+  color: #263555;
+  line-height: 19px;
+}
+
+.text {
+  font-family: 'Arial', sans-serif;
+  font-size: 13px;
+  font-family: Arial, sans-serif;
+  -webkit-font-smoothing: none;
+  color: #4e5050;
+  line-height: 19px;
+}
+
+
+/* FIRST ROW */
+
+.row-first {
+  margin-bottom: 50px;
+  border-bottom: 1px solid #d2d3d5;
+  padding-bottom: 50px;
+  vertical-align: text-top;
+}
+
+
+/* CONTENT */
+
+.colum-left {
+  display: inline-block;
+  width: 643px;
+  margin-right: 50px;
+}
+
+.colum-left h5 {
+  margin-bottom: 11px;
+}
+
+.colum-left p {
+  line-height: 19px;
+}
+
+.row-first img {
+  float: left;
+  margin-right: 24px;
+  margin-bottom: 18px;
+}
+
+.colum-right {
+  display: inline-block;
+  width: 205px;
+  vertical-align: top;
+}
+
+
+/* List Our Principles */
+
+.list {
+  list-style: none;
+  counter-reset: list;
+}
+
+.list-item {
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.list-item .subtitle {
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.list-item .text {
+  margin-left: 40px;
+}
+
+.list-item::before {
+  display: inline-block;
+  color: #eee;
+  width: 28px;
+  margin-right: 11px;
+  background-color: #38afe5;
+  border: 2px solid #369ac8;
+  border-radius: 50%;
+  counter-increment: list;
+  content: counter(list);
+  font-size: 15px;
+  line-height: 24px;
+  text-align: center;
+}
+
+.list-item:last-child {
+    margin-bottom: 0;
+}
+/* CONTENT SECOND ROW */
+
+.row-second .colum-left .title {
+  margin-bottom: 66px;
+}
+
+.row-second .colum-left .subtitle {
+    margin-bottom: 26px;
+}
+
+.row-second .colum-left .text {
+  margin-bottom: 30px;
+}
+
+.list-subtitle {
+  display: inline-block;
+  width: 270px;
+  list-style: none;
+}
+.list-subtitle-second {
+    display: inline-block;
+    width: 270px;
+    vertical-align: top;
+}
+
+.list-subtitle-item {
+  margin-bottom: 22px;
+  display: inline-block;
+}
+/* .list-subtitle-item:nth-child(5n) {margin-bottom: 0;} */
+.list-subtitle-item:last-child {margin-bottom: 0;}
+
+
+.arrow-icon::before {
+  content: url(../img/arrow.png);
+  margin-right: 12px;
+  width: 12px;
+  height: 7px;
+}
+
+.row-second .colum-left .list-subtitle-item h5 {
+  display: inline-block;
+  margin: 0;
+}
+
+.row-second .colum-right .title {
+    margin-bottom: 22px;
+}
+
+.quote {
+  margin-bottom: 55px;
+  position: relative;
+  padding: 22px;
+  background: #fcfafa;
+  border: 1px solid #dedbdb;
+  border-radius: 1%;
+}
+
+.quote:after,
+.quote:before {
+  top: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: "";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.quote:after {
+  border-color: rgba(252, 250, 250, 0);
+  border-top-color: #fcfafa;
+  border-width: 25px;
+  margin-left: -25px;
+}
+
+.quote:before {
+  border-color: rgba(222, 219, 219, 0);
+  border-top-color: #dedbdb;
+  border-width: 28px;
+  margin-left: -29px;
+}
+
+.quote .text {
+    font-size: 15px;
+    line-height: 19px;
+}
+.quote p::before {
+  content: '\201C';
+  margin-right: 4px;
+}
+
+.quote p::after {
+  content: '\201D';
+  margin-left: 4px;
+}
+
+
+.subtitle-name {
+  font-size: 16px;
+  line-height: 22.8px;
+  margin-bottom: 8px;
+  text-align: center;
+  color: #263555;
+}
+
+.decription-sub-name {
+  text-align: center;
+  line-height: 19px;
+  font-size: 13px;
+  font-family: Arial, sans-serif;
+  -webkit-font-smoothing: none;
+  color: #4e5050;
+}
