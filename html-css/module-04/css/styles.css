@@ -148,6 +148,7 @@ body {
 .list-subtitle {
   display: inline-block;
   width: 270px;
+  list-style: none;
 }
 .list-subtitle-second {
     display: inline-block;
