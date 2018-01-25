@@ -166,66 +166,64 @@ body {
   color: #4e5050;
   line-height: 19px;
 }
+/* Column width for all section */
 
+.colum-left {
+  flex: 0 0 calc(100%-30%);
+  margin-right: 50px;
+}
 
-/* FIRST ROW */
+.colum-right {
+  flex: 0 0 calc(100% - 75%);
+}
+
+/*            */
+/* Section A  */
+/*            */
 
 .row-first {
+  display: flex;
+  flex-basis: 100%;
   margin-bottom: 50px;
   border-bottom: 1px solid #d2d3d5;
   padding-bottom: 50px;
   vertical-align: text-top;
 }
 
+/*  Section Aa Agency */
 
-/* CONTENT */
-
-.colum-left {
-  display: inline-block;
-  width: 643px;
-  margin-right: 50px;
-}
-
-.colum-left h5 {
+.section-aa .subtitle {
   margin-bottom: 11px;
 }
 
-.colum-left p {
-  line-height: 19px;
-}
-
-.row-first img {
+.section-aa img {
   float: left;
   margin-right: 24px;
   margin-bottom: 18px;
 }
 
-.colum-right {
-  display: inline-block;
-  width: 205px;
-  vertical-align: top;
-}
-
-
-/* List Our Principles */
+/* Section Ab (ab) Principles */
 
 .list {
+  display: flex;
+  flex-direction: column;
   list-style: none;
   counter-reset: list;
 }
 
 .list-item {
-  display: inline-block;
+  display: flex;
+  align-items: flex-start;
   margin-bottom: 20px;
+}
+.article-list {
+  display: inline-block;
+  width: calc(100% - 43px);
 }
 
 .list-item .subtitle {
   display: inline-block;
   margin-bottom: 5px;
-}
-
-.list-item .text {
-  margin-left: 40px;
 }
 
 .list-item::before {
