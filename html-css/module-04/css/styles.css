@@ -149,6 +149,8 @@ body {
   display: inline-block;
   width: 270px;
   list-style: none;
+  columns: 2;
+  column-gap: 270px;
 }
 .list-subtitle-second {
     display: inline-block;
@@ -157,12 +159,10 @@ body {
 }
 
 .list-subtitle-item {
-  margin-bottom: 22px;
+  width: 270px;
+  padding: 11px 0;
   display: inline-block;
 }
-/* .list-subtitle-item:nth-child(5n) {margin-bottom: 0;} */
-.list-subtitle-item:last-child {margin-bottom: 0;}
-
 
 .arrow-icon::before {
   content: url(../img/arrow.png);
