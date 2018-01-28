@@ -16,6 +16,7 @@ body {
   min-width: 1024px;
   display: flex;
   justify-content: center;
+  align-items: center;
   position: relative;
   padding-top: 90px;
   padding-bottom: 100px;
@@ -23,8 +24,6 @@ body {
 
 .logo {
   position: absolute;
-  left: 50%;
-  transform: translate(-50%, -35%);
   display: inline-block;
   border-radius: 50%;
   background-color: rgb(255, 255, 255);
@@ -375,7 +374,7 @@ body {
   width: 100%;
   display: flex;
   max-height: 133px;
-  padding: 41px 130px;
+  padding: 44px 130px;
 }
 
 .footer-nav-menu {

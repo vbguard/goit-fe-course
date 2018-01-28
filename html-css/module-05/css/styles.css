@@ -18,15 +18,11 @@ body {
   text-align: center;
 }
 
-.navigation {
-  display: inline-block;
-  /* transform: translateY(-10px); */
-}
-
 .logo {
   display: inline-block;
   position: absolute;
   left: 50%;
+  top: 41%;
   transform: translate(-50%, -40%);
 }
 
