@@ -130,7 +130,25 @@ body {
   padding: 58px 61px 136px 61px;
 }
 
+/* Arrow Return to TOP Page */
 
+.return-top {
+  position: fixed;
+  right: 170px;
+  bottom: 50px;
+  text-align: center;
+  line-height: 30px;
+}
+
+.return-top-link {
+  display: block;
+  color: #ffffff;
+  width: 30px;
+  height: 30px;
+  font-size: 24px;
+  background-color: #38afe5;
+  border-radius: 50%;
+}
 /* SLIDER */
 
 .slider {
@@ -294,22 +312,3 @@ body {
 }
 
 
-/* Arrow Return to TOP Page */
-
-.return-top {
-  position: fixed;
-  right: 24%;
-  bottom: 10%;
-  text-align: center;
-  line-height: 30px;
-}
-
-.return-top-link {
-  display: block;
-  color: #ffffff;
-  width: 30px;
-  height: 30px;
-  font-size: 24px;
-  background-color: #38afe5;
-  border-radius: 50%;
-}
