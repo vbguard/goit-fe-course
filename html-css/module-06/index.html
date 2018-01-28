@@ -1,13 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>module-06-task-01</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link href="css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Dorsa" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Pathway+Gothic+One" rel="stylesheet">
 </head>
+
 <body>
-  <a href="about.html">ABOUT</a>
-  <a href="gallery.html">GALLERY</a>
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <!-- NAVIGATION MENU -->
+    <!-- to add submenu for another element in menu, add ul.submenu>li.submenu-item*n -->
+    <!--           in li.menu-item after tag <a>team(or another name)</a>             -->
+    <!--                n - number how much you want add element's in submenu         -->
+    <nav class="navigation">
+      <ul class="menu">
+        <li class="menu-item">
+          <a href="index.html" class="menu-link">home</a>
+        </li>
+        <li class="menu-item">
+          <a href="about.html" class="menu-link">about</a>
+          <ul class="submenu">
+            <li class="submenu-item">
+              <a href="#" class="submenu-link">agency</a>
+            </li>
+            <li class="submenu-item">
+              <a href="#" class="submenu-link">news</a>
+            </li>
+            <li class="submenu-item">
+              <a href="#" class="submenu-link">team</a>
+            </li>
+          </ul>
+        </li>
+        <li class="menu-item">
+          <a href="gallery.html" class="menu-link">gallery</a>
+        </li>
+        <li class="menu-item">
+          <a href="#" class="menu-link">tours</a>
+        </li>
+        <li class="menu-item">
+          <a href="#" class="menu-link">blog</a>
+        </li>
+        <li class="menu-item">
+          <a href="#" class="menu-link">contacts</a>
+        </li>
+      </ul>
+    </nav>
+    <!-- LOGO -->
+    <a href="index.html" class="logo">journey</a>
+  </header>
+  <!-- MAIN -->
+  <main class="main">
+    <div class="slider">
+      <div class="slider-text">
+        <span class="text-first">there are plenty of places</span>
+        <span class="text-second">that are worth seeing</span>
+      </div>
+      <div class="slider-controll">
+        <a class="ctrl-left" href="#" onclick="prevImg(); return false;">
+          <i class="mdi mdi-arrow-left"></i>
+        </a>
+        <a class="ctrl-right" href="#" onclick="nextImg(); return false;">
+          <i class="mdi mdi-arrow-right"></i>
+        </a>
+      </div>
+      <img class="slider-img" id="imageHolder" src="img/image-1.jpg" alt="other image">
+    </div>
+    <section class="top-dest">
+      <h2 class="top-dest-title">top destinations</h2>
+      <div class="top-dest-card">
+        <img class="card-img" src="img/venice.png" alt="Venice">
+        <div class="description">
+          <h2 class="card-title">venice</h2>
+          <p class="card-descr">Lorem ipsum dolor site geril amet, consectetur cing eliti. Suspendisse nulla leo mew dignissim eu velite a rew
+            qw vehicula lacinia arcufasecro. Aenean lacinia ucibusy fase tortor ut feugiat. Rabitur oliti aliquam bibendum
+            olor quis malesuadivamu.</p>
+          <button class="card-btn">Details</button>
+        </div>
+      </div>
+      <div class="top-dest-card">
+        <img class="card-img" src="img/newyork.png" alt="New York">
+        <div class="description">
+          <h2 class="card-title">new york</h2>
+          <p class="card-descr">Lorem ipsum dolor site geril amet, consectetur cing eliti. Suspendisse nulla leo mew dignissim eu velite a rew
+            qw vehicula lacinia arcufasecro. Aenean lacinia ucibusy fase tortor ut feugiat. Rabitur oliti aliquam bibendum
+            olor quis malesuadivamu.</p>
+          <button class="card-btn">Details</button>
+        </div>
+      </div>
+      <div class="top-dest-card">
+        <img class="card-img" src="img/paris.png" alt="Paris">
+        <div class="description">
+          <h2 class="card-title">paris</h2>
+          <p class="card-descr">Lorem ipsum dolor site geril amet, consectetur cing eliti. Suspendisse nulla leo mew dignissim eu velite a rew
+            qw vehicula lacinia arcufasecro. Aenean lacinia ucibusy fase tortor ut feugiat. Rabitur oliti aliquam bibendum
+            olor quis malesuadivamu.</p>
+          <button class="card-btn">Details</button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <nav class="footer-nav">
+      <ul class="footer-nav-menu">
+        <li class="footer-nav-menu-item">
+          <a href="#" class="footer-nav-menu-link">faqs page</a>
+        </li>
+        <li class="footer-nav-menu-item">
+          <a href="#" class="footer-nav-menu-link">people say</a>
+        </li>
+        <li class="footer-nav-menu-item">
+          <a href="#" class="footer-nav-menu-link">useful links</a>
+        </li>
+        <li class="footer-nav-menu-item">
+          <a href="#" class="footer-nav-menu-link">partners</a>
+        </li>
+        <li class="footer-nav-menu-item">
+          <a href="#" class="footer-nav-menu-link">insurance</a>
+        </li>
+        <li class="footer-nav-menu-item">
+          <a href="#" class="footer-nav-menu-link">family travel</a>
+        </li>
+        <li class="footer-nav-menu-item">
+          <span class="footer-nav-menu-link">contact us:</span>
+        </li>
+        <li class="footer-nav-menu-item">
+          <address class="tel-email">TEL: 1-800-234-5678 info@demolink.org</address>
+        </li>
+      </ul>
+    </nav>
+    <nav class="footer-nav-social">
+      <ul class="social-list-menu">
+        <li class="social-list-item">
+          <a href="https://twitter.com" class="social-list-link twitter"></a>
+        </li>
+        <li class="social-list-item">
+          <a href="https://facebook.com" class="social-list-link facebook"></a>
+        </li>
+        <li class="social-list-item">
+          <a href="https://plus.google.com/?hl=uk/" class="social-list-link google-plus"></a>
+        </li>
+        <li class="social-list-item">
+          <a href="https://www.linkedin.com" class="social-list-link linkedin"></a>
+        </li>
+      </ul>
+    </nav>
+    <nav class="copy">
+      <ul class="policy-list">
+        <li class="policy-list-item">
+          <a href="#" class="policy-list-link">Journey &copy; 2018</a>
+        </li>
+        <li class="policy-list-item">
+          <a href="#" class="policy-list-link">Privacy Policy</a>
+        </li>
+        <li class="policy-list-item">
+          <a href="#" class="policy-list-link">Website designed by TemplateMonster.com</a>
+        </li>
+      </ul>
+    </nav>
+  </footer>
+  <!-- Button to top -->
+  <button onclick="topFunction()" id="myBtn" title="Go to top" class="mdi mdi-chevron-up"></button>
+  <script src="js/scripts.js"></script>
+
 </body>
+
 </html>

@@ -1,0 +1,161 @@
+/* SLIDER */
+
+.slider {
+  position: relative;
+  width: 100%;
+  height: 579px;
+  margin-bottom: 58px;
+}
+
+.slider-text {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.text-first {
+  display: block;
+  background-color: #ffffff;
+  width: 225px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  font-size: 23px;
+  font-family: 'Pathway Gothic One', sans-serif;
+  color: rgb(38, 53, 85);
+  text-transform: uppercase;
+}
+
+.text-second {
+  display: block;
+  background-color: #38afe5;
+  width: 275px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  font-size: 36px;
+  font-family: 'Pathway Gothic One', sans-serif;
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+}
+
+.slider-img {
+  width: 100%;
+  height: 100%;
+}
+
+.slider-controll {
+  position: absolute;
+  left: 37px;
+  bottom: 37px;
+  width: 90px;
+  height: 90px;
+  font-size: 0;
+}
+
+.ctrl-left,
+.ctrl-right {
+  display: inline-block;
+  line-height: 90px;
+  width: 45px;
+  font-size: 20px;
+  color: #ffffff;
+  background-color: #38afe5;
+}
+
+.ctrl-left:hover,
+.ctrl-right:hover {
+  background-color: #263555;
+}
+
+.ctrl-left {
+  padding-right: 6px;
+  text-align: right;
+  border-radius: 100px 0 0 100px;
+}
+
+.ctrl-right {
+  padding-left: 6px;
+  border-radius: 0 100px 100px 0;
+}
+
+
+/* Top Destinations */
+
+.top-dest {
+  font-size: 0;
+}
+
+.top-dest-title {
+  font-size: 30px;
+  font-family: 'Pathway Gothic One';
+  color: rgb(38, 53, 85);
+  text-transform: uppercase;
+  line-height: 1.2;
+  margin-bottom: 47px;
+}
+
+.top-dest-card {
+  position: relative;
+  display: inline-block;
+  width: 32%;
+  margin-right: 2%;
+  font-size: 0;
+}
+
+.top-dest-card:hover>.description {
+  display: block;
+}
+
+.top-dest-card:nth-last-child(1) {
+  margin-right: 0;
+}
+
+.description {
+  position: absolute;
+  display: none;
+  left: 0;
+  top: 0;
+  padding: 21px 8px;
+  background-color: #193149;
+  width: 147px;
+  height: 270px;
+}
+
+.description:last-child {
+  text-align: right;
+}
+
+.card-title {
+  margin-bottom: 21px;
+  font-size: 30px;
+  font-family: 'Open Sans Condensed';
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.card-descr {
+  text-align: justify;
+  text-justify: inter-word;
+  font-size: 10px;
+  font-family: Arial;
+  color: rgb(203, 198, 198);
+  line-height: 15px;
+  -webkit-font-smoothing: none;
+}
+
+.card-btn {
+  margin-top: 12px;
+  padding: 1px 12px;
+  font-size: 12.5px;
+  font-family: Arial;
+  color: rgb(0, 0, 0);
+  line-height: 1.52;
+  border: 1px solid #9f9696;
+  border-radius: 8%;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}

@@ -1,0 +1,42 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-content: center;
+  align-items: center;
+  background-image: url(../img/about/about-page-bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.main {
+  min-width: 1024px;
+  max-width: 1024px;
+  background-color: #ffffff;
+  padding-top: 117px;
+  padding-left: 61px;
+  padding-right: 61px;
+  padding-bottom: 70px;
+}
+
+#myBtn {
+  display: none;
+  position: fixed;
+  width: 35px;
+  height: 35px;
+  bottom: 30px;
+  right: 251px;
+  z-index: 99;
+  font-size: 1.5rem;
+  border: none;
+  outline: none;
+  background-color: #38afe5;
+  color: white;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+#myBtn:hover {
+  background-color: #555;
+}

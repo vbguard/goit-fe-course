@@ -1,0 +1,48 @@
+
+/*                         */
+/*    <--- GALLERY --->    */
+/*                         */
+
+.title {
+  font-family: 'Pathway Gothic One', sans-serif;
+  margin-bottom: 46px;
+  color: #263555;
+  font-size: 32px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.gallery-item {
+  position: relative;
+  margin-bottom: 40px;
+  flex: 0 0 30%;
+}
+.gallery-item:nth-last-child(1), .gallery-item:nth-last-child(2), .gallery-item:nth-last-child(3) {
+  margin-bottom: 0;
+}
+.img-card:hover>.preview {
+  display: flex;
+}
+.preview {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 98%;
+  position: absolute;
+  background-color: rgba(68, 68, 68, 0.556);
+}
+
+.icon-zoom {
+  color: #fff;
+  font-size: 50px;
+  opacity: .7;
+}

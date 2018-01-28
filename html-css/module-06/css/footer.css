@@ -1,0 +1,140 @@
+/*-------------------------------------*/
+/* -------------FOOTER--------------- */
+/* ----------------------------------- */
+
+.footer {
+  width: 64rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* <--- footer navigation ---> */
+
+.footer-nav {
+  background-color: #30455b;
+  width: 100%;
+  display: flex;
+  max-height: 133px;
+  padding: 44px 130px;
+}
+
+.footer-nav-menu {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: space-between;
+}
+
+.footer-nav-menu-link {
+  display: inline-block;
+  font-size: 16px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 300;
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+  line-height: 0.875;
+  text-decoration: none;
+}
+
+.tel-email {
+  display: inline-block;
+  width: 115px;
+  font-size: 10px;
+  font-family: "Arial";
+  color: rgb(255, 255, 255);
+}
+
+/* <--- social ---> */
+
+.footer-nav-social {
+  width: 64rem;
+  margin-bottom: 25px;
+  margin-top: 25px;
+}
+
+.social-list-menu {
+  display: flex;
+  justify-content: center;
+}
+
+.social-list-item {
+  display: flex;
+  justify-content: center;
+  margin-right: .75rem;
+}
+
+.social-list-item:last-child {
+  margin-right: 0;
+}
+
+.social-list-link:hover {
+    filter: drop-shadow(0px 0px 3px #000);
+}
+
+.twitter {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-image: url(../img/social.png);
+  background-position: -190px -10px;
+  background-repeat: no-repeat;
+}
+
+.facebook {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background: url(https://vbguard.github.io/goit-fe-course/html-css/module-06/img/social.png) -10px -10px;
+}
+
+.google-plus {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background: url(https://vbguard.github.io/goit-fe-course/html-css/module-06/img/social.png) -70px -10px;
+}
+
+.linkedin {
+  display: inline-block;
+  width: 40px; height: 40px;
+  background: url(https://vbguard.github.io/goit-fe-course/html-css/module-06/img/social.png) -130px -10px;
+}
+
+/* ---> term & copyright <--- */
+
+.copy {
+  width: 1024px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.policy-list {
+  display: flex;
+}
+
+.policy-list-item {
+  margin-left: 5px;
+  padding-right: 5px;
+  border-right: 1px solid rgb(255, 255, 255);
+}
+
+.policy-list-link {
+  font-size: 12px;
+  font-family: "Arial";
+  color: rgb(255, 255, 255);
+  line-height: 1.5;
+  text-decoration: none;
+}
+
+.policy-list-item:nth-child(1) {
+  margin-left: 0;
+}
+
+.policy-list-item:nth-last-child(1) {
+  padding-right: 0;
+  border-right: 0;
+}
