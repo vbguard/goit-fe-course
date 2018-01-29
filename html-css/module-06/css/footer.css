@@ -39,13 +39,23 @@
   text-decoration: none;
 }
 
+.address {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 120px;
+  align-items: flex-start;
+}
+
 .tel-email {
   display: inline-block;
-  width: 115px;
+  text-decoration: none;
   font-size: 10px;
   font-family: "Arial";
   color: rgb(255, 255, 255);
 }
+
 
 /* <--- social ---> */
 
