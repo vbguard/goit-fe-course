@@ -1,0 +1,222 @@
+
+/* Main */
+
+.title {
+  font-family: 'Pathway Gothic One', sans-serif;
+  margin-bottom: 46px;
+  color: #263555;
+  font-size: 32px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.subtitle-name {
+  font-family: 'Arial', sans-serif;
+}
+
+.subtitle {
+  font-family: 'Arial', sans-serif;
+  font-size: 15px;
+  color: #263555;
+  line-height: 19px;
+}
+
+.text {
+  font-family: 'Arial', sans-serif;
+  font-size: 13px;
+  font-family: Arial, sans-serif;
+  -webkit-font-smoothing: none;
+  color: #4e5050;
+  line-height: 19px;
+}
+
+/* Column width for all section */
+
+.colum-left {
+  flex: 0 0 calc(100%-23%);
+  margin-right: 50px;
+}
+
+.colum-right {
+  flex: 0 0 calc(100% - 77%);
+}
+
+/*            */
+/* Section A  */
+/*            */
+
+.row-first {
+  display: flex;
+  flex-basis: 100%;
+  margin-bottom: 50px;
+  border-bottom: 1px solid #d2d3d5;
+  padding-bottom: 50px;
+}
+
+/*  Section Aa Agency */
+
+.section-aa .subtitle {
+  margin-bottom: 11px;
+}
+
+.section-aa img {
+  float: left;
+  margin-right: 24px;
+  margin-bottom: 18px;
+}
+
+/* Section Ab (ab) Principles */
+
+.list {
+  display: flex;
+  flex-direction: column;
+  counter-reset: list;
+}
+
+.list-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.article-list {
+  display: flex;
+  flex-direction: column;
+  flex-basis: calc(100% - 43px);
+}
+
+.list-item .subtitle {
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.list-item::before {
+  display: inline-block;
+  color: #eee;
+  width: 28px;
+  margin-right: 11px;
+  background-color: #38afe5;
+  border: 2px solid #369ac8;
+  border-radius: 50%;
+  counter-increment: list;
+  content: counter(list);
+  font-size: 15px;
+  line-height: 24px;
+  text-align: center;
+}
+
+.list-item:last-child {
+  margin-bottom: 0;
+}
+
+/*                      */
+/* SECTION B second row */
+/*                      */
+
+.row-second {
+  display: flex;
+}
+
+.article-offer .title {
+  margin-bottom: 66px;
+}
+
+.article-offer .subtitle {
+  margin-bottom: 26px;
+}
+
+.article-offer .text {
+  margin-bottom: 30px;
+}
+
+.list-subtitle {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.list-subtitle-item {
+  display: flex;
+  align-content: center;
+  flex-basis: 270px;
+  padding: 11px 0;
+}
+
+.arrow-icon::before {
+  content: url(../img/about/arrow.png);
+  margin-right: 12px;
+  width: 12px;
+  height: 7px;
+}
+
+.list-subtitle-item h5 {
+  display: inline-block;
+  margin: 0;
+}
+
+.section-bb .title {
+  margin-bottom: 22px;
+}
+
+.quote {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 55px;
+  position: relative;
+  padding: 22px;
+  background: #fcfafa;
+  border: 1px solid #dedbdb;
+  border-radius: 1%;
+}
+
+.quote:after {
+  content: '';
+  position: absolute;
+  top: 99%;
+  display: inline-block;
+  border-style: solid;
+  border-width: 35px 25px 0px 25px;
+  border-color: #fcfafa transparent transparent transparent;
+}
+
+.quote:before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  display: inline-block;
+  border-style: solid;
+  border-width: 35px 25px 0px 25px;
+  border-color: #dedbdb transparent transparent transparent;
+}
+
+.quote .text {
+  font-size: 15px;
+  line-height: 19px;
+}
+
+.quote p::before {
+  content: '\201C';
+  margin-right: 4px;
+}
+
+.quote p::after {
+  content: '\201D';
+  margin-left: 4px;
+}
+
+.subtitle-name {
+  font-size: 16px;
+  line-height: 22.8px;
+  margin-bottom: 8px;
+  text-align: center;
+  color: #263555;
+}
+
+.decription-sub-name {
+  text-align: center;
+  line-height: 19px;
+  font-size: 13px;
+  font-family: Arial, sans-serif;
+  -webkit-font-smoothing: none;
+  color: #4e5050;
+}

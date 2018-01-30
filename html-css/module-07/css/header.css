@@ -1,0 +1,118 @@
+
+/* Header */
+
+.header {
+  max-width: 1024px;
+  min-width: 1024px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding-top: 90px;
+  padding-bottom: 100px;
+}
+
+.logo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-block;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  color: rgb(38, 53, 85);
+  width: 138px;
+  height: 138px;
+  line-height: 138px;
+  font-size: 60px;
+  font-family: "Dorsa", sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+}
+
+.navigation {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.menu-item {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.menu-item:nth-child(3) {
+  margin-right: 190px;
+}
+
+.menu-link {
+  padding: 10px;
+  font-size: 28px;
+  font-family: 'Pathway Gothic One', sans-serif;
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.submenu {
+  display: none;
+}
+
+.menu-item:hover>.submenu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 48px;
+  background-color: #ffffff;
+  border-radius: 4px;
+}
+
+.submenu::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  display: inline-block;
+  border-style: solid;
+  border-width: 0 4px 4px 4px;
+  border-color: transparent transparent #ffffff transparent;
+}
+
+.submenu-item {
+  display: flex;
+  flex-basis: 100%;
+}
+
+.submenu-item:nth-last-child(1)>.submenu-link {
+  padding-bottom: 10px;
+}
+
+.submenu-link {
+  display: inline-block;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 7px;
+  font-size: 20px;
+  font-family: 'PathwayGothicOne';
+  color: rgb(107, 116, 136);
+  text-transform: uppercase;
+  font-family: 'Pathway Gothic One', sans-serif;
+  text-decoration: none;
+}
+
+.submenu-item:first-child>.submenu-link {
+  padding-top: 10px;
+}
+
+.menu-link:hover,
+.submenu-link:hover {
+  color: #263555;
+}

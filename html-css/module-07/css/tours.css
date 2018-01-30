@@ -1,0 +1,31 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  font-size: 2.5rem;
+  max-height: 675px;
+
+}
+.item-1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 500px;
+  min-height: 450px;
+  flex-basis: 75%;
+  background-color: #a1a1a1;
+}
+.item-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 0 50%;
+  background-color: #9191ee;
+}
+.item-3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 0 50%;
+  background-color: #31fefe;
+}
