@@ -2,30 +2,36 @@
 /* -------------FOOTER--------------- */
 /* ----------------------------------- */
 
-.footer {
-  width: 64rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 /* <--- footer navigation ---> */
 
-.footer-nav {
-  background-color: #30455b;
-  width: 100%;
+.section-navigate-contact {
   display: flex;
-  max-height: 133px;
-  padding: 44px 130px;
+  align-items: center;
+  background-color: #30455b;
+  padding: 40px 130px;
 }
+
+.footer-nav {
+  flex: 1 0 80%;
+}
+
+.contact-us {
+  padding-top: 15px;
+}
+
+
 
 .footer-nav-menu {
   display: flex;
-  width: 100%;
   flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: space-between;
-  align-content: space-between;
+}
+
+.footer-nav-menu-item {
+  flex: 1 0 30%;
+  margin-bottom: 15px;
+}
+.footer-nav-menu-item:nth-last-child(-n+3) {
+  margin-bottom: 0;
 }
 
 .footer-nav-menu-link {
@@ -39,22 +45,31 @@
   text-decoration: none;
 }
 
-.address {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  width: 120px;
-  align-items: flex-start;
+.contact-us-title {
+  display: inline-block;
+  margin-bottom: 15px;
+  font-size: 16px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 300;
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+  line-height: 0.875;
+  text-decoration: none;
 }
 
 .tel-email {
-  display: inline-block;
+  flex: 1 0 18px;
   text-decoration: none;
   font-size: 10px;
   font-family: "Arial";
   color: rgb(255, 255, 255);
 }
+.address {
+  display: flex;
+  flex-direction: column;
+}
+
+
 
 
 /* <--- social ---> */
@@ -70,7 +85,7 @@
   justify-content: center;
 }
 
-.social-list-item {
+.social-list-link {
   display: flex;
   justify-content: center;
   margin-right: .75rem;
