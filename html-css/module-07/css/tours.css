@@ -1,31 +1,90 @@
 .main {
   display: flex;
-  flex-direction: column;
   flex-wrap: wrap;
-  font-size: 2.5rem;
-  max-height: 675px;
+  align-items: flex-start;
+}
 
-}
-.item-1 {
+.section-a {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  max-height: 500px;
-  min-height: 450px;
-  flex-basis: 75%;
-  background-color: #a1a1a1;
+  flex-direction: column;
+  flex: 1 0 75%;
+  /* background-color: #a1a1a1; */
 }
-.item-2 {
+
+.section-b {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex: 1 0 50%;
+  flex-direction: column;
+  flex: 1 0 25%;
   background-color: #9191ee;
 }
-.item-3 {
+
+/*                */
+
+/* TOURS SPECIALS */
+
+/*                */
+
+.suggestions-list {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-wrap: wrap;
+}
+
+.list-item {
   flex: 1 0 50%;
-  background-color: #31fefe;
+}
+
+/* <<-- suggestions card -->> */
+
+.card {
+  display: flex;
+}
+
+.card-img {
+  margin-right: 20px;
+  width: 133px;
+  height: 114px;
+  object-fit: cover;
+}
+
+.card-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.card-text .subtitle {
+  margin-bottom: 12px;
+}
+
+.discount-text {
+  font-size: 12.499px;
+  font-family: "Arial", sans-serif;
+  color: rgb(78, 80, 80);
+  -webkit-font-smoothing: none;
+  margin-bottom: 8px;
+}
+
+.discount-price {
+  font-size: 16px;
+  font-family: "Arial", sans-serif;
+  color: rgb(56, 175, 229);
+  text-transform: uppercase;
+}
+
+.first-price {
+  margin-bottom: 12px;
+}
+
+.btn-card {
+  margin-top: 10px;
+  align-self: flex-end;
+  display: inline-block;
+  padding: 3px 15px;
+  font-size: 12px;
+  font-family: "Arial";
+  color: rgb(0, 0, 0);
+  line-height: 1.658;
+  border: 1px solid #9f9696;
+  border-radius: 5px;
+  background-image: linear-gradient(to top, rgba(201, 177, 235, 0.2) 0%, rgba(231, 179, 168, 0.2) 100%);
 }
