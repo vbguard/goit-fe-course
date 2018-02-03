@@ -1,5 +1,7 @@
 /*-------------------------------------*/
+
 /* -------------FOOTER--------------- */
+
 /* ----------------------------------- */
 
 /* <--- footer navigation ---> */
@@ -19,8 +21,6 @@
   padding-top: 15px;
 }
 
-
-
 .footer-nav-menu {
   display: flex;
   flex-wrap: wrap;
@@ -30,6 +30,7 @@
   flex: 1 0 30%;
   margin-bottom: 15px;
 }
+
 .footer-nav-menu-item:nth-last-child(-n+3) {
   margin-bottom: 0;
 }
@@ -64,13 +65,11 @@
   font-family: "Arial";
   color: rgb(255, 255, 255);
 }
+
 .address {
   display: flex;
   flex-direction: column;
 }
-
-
-
 
 /* <--- social ---> */
 
@@ -88,7 +87,15 @@
 .social-list-link {
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-right: .75rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-family: "Material Design Icons";
+  background-color: #fff;
+  color: rgb(255, 145, 0);
+  text-decoration: none;
+  border-radius: 50%;
 }
 
 .social-list-item:last-child {
@@ -96,41 +103,13 @@
 }
 
 .social-list-link:hover {
-    filter: drop-shadow(0px 0px 3px #000);
-}
-
-.twitter {
-  display: inline-block;
-  width: 40px;
-  height: 40px;
-  background-image: url(../img/social.png);
-  background-position: -190px -10px;
-  background-repeat: no-repeat;
-}
-
-.facebook {
-  display: inline-block;
-  width: 40px;
-  height: 40px;
-  background: url(https://vbguard.github.io/goit-fe-course/html-css/module-06/img/social.png) -10px -10px;
-}
-
-.google-plus {
-  display: inline-block;
-  width: 40px;
-  height: 40px;
-  background: url(https://vbguard.github.io/goit-fe-course/html-css/module-06/img/social.png) -70px -10px;
-}
-
-.linkedin {
-  display: inline-block;
-  width: 40px; height: 40px;
-  background: url(https://vbguard.github.io/goit-fe-course/html-css/module-06/img/social.png) -130px -10px;
+  background-color: rgb(255, 145, 0);
+  color: #fff;
 }
 
 /* ---> term & copyright <--- */
 
-.copy {
+.footer-copy {
   width: 1024px;
   margin-bottom: 30px;
   display: flex;

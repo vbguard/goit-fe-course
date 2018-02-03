@@ -61,7 +61,11 @@
   font-size: 20px;
   color: #ffffff;
   background-color: #38afe5;
+  font-family: 'Material Design Icons';
+  text-decoration: none;
 }
+
+
 
 .ctrl-left:hover,
 .ctrl-right:hover {
