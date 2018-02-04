@@ -1,8 +1,6 @@
 body {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  align-content: center;
   align-items: center;
   background-image: url(../img/about/about-page-bg.jpg);
   background-repeat: no-repeat;
@@ -22,21 +20,52 @@ body {
 #myBtn {
   display: none;
   position: fixed;
+  line-height: 0;
   width: 35px;
   height: 35px;
   bottom: 30px;
-  right: 455px;
+  right: 13%;
   z-index: 99;
-  font-size: 1.5rem;
+  font-size: 24px;
   border: none;
   outline: none;
   background-color: #38afe5;
-  color: white;
+  color: #ffffff;
   cursor: pointer;
   padding: 5px;
   border-radius: 50%;
 }
 
 #myBtn:hover {
-  background-color: #555;
+  background-color: #38afe5;
+  color: #ffffff;
+}
+
+.title {
+  font-family: 'Pathway Gothic One', sans-serif;
+  margin-bottom: 46px;
+  color: #263555;
+  font-size: 32px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.subtitle-name {
+  font-family: 'Arial', sans-serif;
+}
+
+.subtitle {
+  font-family: 'Arial', sans-serif;
+  font-size: 15px;
+  color: #263555;
+  line-height: 19px;
+}
+
+.text {
+  font-family: 'Arial', sans-serif;
+  font-size: 13px;
+  font-family: Arial, sans-serif;
+  -webkit-font-smoothing: none;
+  color: #4e5050;
+  line-height: 19px;
 }
