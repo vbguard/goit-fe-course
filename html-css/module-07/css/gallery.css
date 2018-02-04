@@ -46,6 +46,25 @@
   background-color: rgba(68, 68, 68, 0.556);
 }
 
+img {
+  transition: -webkit-transform 0.25s ease;
+  transition: transform 0.25s ease;
+  position: relative;
+}
+
+img:active {
+  -webkit-transform: scale(2);
+  transform: scale(2);
+}
+img:hover > img::after {
+  display: inline-block;
+position: absolute;
+font-family: 'Material Design Icons';
+content: '&#xF6EC;';
+background-color: rgba(0, 0, 0, 0.4);
+
+}
+
 .icon-zoom {
   font-family: 'Material Design Icons';
   color: #fff;
