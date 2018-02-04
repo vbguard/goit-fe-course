@@ -1,0 +1,139 @@
+.main {
+  display: flex;
+
+}
+
+.section-a {
+flex: 1 0 75%;
+}
+
+.section-b {
+  flex: 1 0 25%;
+}
+
+/* First section - Stay in Touch */
+
+/*  Maps and Contacts  */
+
+.location {
+  display: flex;
+}
+
+.location iframe {
+  margin-right: 20px;
+}
+
+.contacts {
+  width: 27%;
+}
+/* Contacts Table */
+
+.contact-card {
+  border-collapse: collapse;
+  border-spacing:0;
+  margin-bottom: 50px;
+  width: 100%;
+}
+.contact-card:nth-last-child(1) {
+  margin-bottom: 0;
+}
+
+.caption {
+  padding-bottom: 20px;
+  text-align: left;
+  font-size: 14px;
+  line-height: 19px;
+  font-family: "Arial";
+  color: rgb(102, 101, 101);
+ }
+
+.contact-card-title {
+  font-size: 13px;
+  font-family: "Arial";
+  color: rgb(102, 101, 101);
+  line-height: 1.462;
+}
+.contact-card-tel {
+  text-align: right;
+}
+.contact-card-link {
+
+  font-size: 13px;
+  font-family: "Arial";
+  color: rgb(102, 101, 101);
+  line-height: 1.462;
+  text-decoration: none;
+}
+.contact-card-email {
+  color: #fa7e7e;
+  text-decoration: none;
+}
+
+/* Contacts US */
+
+.form input {
+  display: block;
+  margin-bottom: 16px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(212, 208, 208);
+  background-color: rgb(252, 250, 250);
+  width: 100%;
+  height: 30px;
+}
+
+.form input[placeholder] {
+  font-size: 13px;
+  font-family: 'Arial';
+  font-weight: bold;
+  color: rgb(38, 53, 85);
+  /* text-transform: uppercase; */
+  padding-left: 5px;
+}
+.form textarea {
+  padding: 10px 5px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(212, 208, 208);
+  background-color: rgb(252, 250, 250);
+  width: 100%;
+  height: 235px;
+  margin-bottom: 22px;
+}
+.form textarea[placeholder] {
+  font-size: 13px;
+  font-family: "Arial";
+  font-weight: bold;
+  color: rgb(38, 53, 85);
+  text-transform: uppercase;
+}
+
+input[type=submit], input[type=reset] {
+  display: inline-block;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(177, 170, 170);
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 1px 1px 3px rgba(222, 219, 219, 0.8);
+  width: 76px;
+  padding: 5px;
+  cursor: pointer;
+  color: black;
+  font-family: Arial;
+  font-size: 15px;
+  font-weight: 400;
+}
+input[type=reset] {
+  margin-right: 20px;
+  margin-left: 20%;
+}
+
+.form input:nth-last-child(-n+2) {
+  margin-bottom: 0;
+}
