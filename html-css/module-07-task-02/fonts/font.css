@@ -1,0 +1,11 @@
+@font-face {
+	font-family: 'WisdomScriptAJ';
+	src: url('./WisdomScriptAJ.eot');
+	src: local('WisdomScriptAJ'), url('./WisdomScriptAJ.woff') format('woff'), url('./WisdomScriptAJ.ttf') format('truetype');
+}
+/* use this class to attach this font to any element i.e. <p class="fontsforweb_fontid_31244">Text with this font applied</p> */
+.fontsforweb_fontid_31244 {
+	font-family: 'WisdomScriptAJ' !important;
+}
+
+/* Font downloaded from FontsForWeb.com */
