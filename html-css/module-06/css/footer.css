@@ -8,17 +8,13 @@
 
 .section-navigate-contact {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   background-color: #30455b;
-  padding: 40px 130px;
+  padding: 40px 130px 25px 130px;
 }
 
 .footer-nav {
   flex: 1 0 80%;
-}
-
-.contact-us {
-  padding-top: 15px;
 }
 
 .footer-nav-menu {
