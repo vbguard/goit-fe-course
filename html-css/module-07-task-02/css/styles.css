@@ -1,5 +1,4 @@
 @import url('vars.css');
-@import url('../fonts/font.css');
 /* for all tag a-text-decoration: none */
 
 a {
@@ -43,7 +42,7 @@ a {
   color: var(--logo-color);
   font-size: 1.625rem;
   line-height: 2.5625rem;
-  font-family: 'WisdomScriptAJ';
+  font-family: 'Pacifico';
   font-weight: 400;
 }
 
@@ -219,56 +218,83 @@ a {
   background-size: 41%;
   background-position-x: 100%;
   background-position-y: 100%;
- 
- 
 }
 
 /* header change color */
+
 .contact-wrap .section-header-title,
 .section-header-subtitle {
   color: var(--white-color);
 }
 
 /* FORM in contact */
-.form-list {
-  
-  max-height: 13.1875rem;
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.form-list-item {
-  
-  }
+.contact-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: space-between;
+  max-width: 58.875rem;
+  min-height: 19.125rem;
+}
+
+.input-textarea {
+  display: flex;
+  justify-content: space-between;
+  min-width: 58.875rem;
+}
+
+.input-only {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  justify-content: space-between;
+}
 
 .contact-form-input {
-  display: inline-block;
+  display: block;
+  padding: 1.25rem;
   width: 28.5625rem;
   height: 3.25rem;
-  border: 1px solid #ccc;
+  border: 1px solid #cccccc;
   border-radius: .1875rem;
+  box-shadow: inset 0 0 5px #ccc;
 }
 
 .textarea {
+  display: inline-block;
+  padding: 1.25rem;
+  width: 28.5625rem;
   height: 13.1875rem;
+  resize: none;
 }
 
-input[placeholder],
-textarea[placeholder] {
+.contact-form-input[placeholder],
+.textarea[placeholder] {
+  color: var(--input-pl-color);
   font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
+  font-size: .875rem;
   font-weight: 700;
   text-transform: uppercase;
   vertical-align: middle;
 }
 
-. {
+button[type="submit"] {
+  flex: 0 0 auto;
+  color: var(--white-color);
+  width: 15rem;
+  height: 4.0625rem;
+  background-color: var(--btn-color);
+  border-radius: .1875rem;
+  border: none;
   font-family: 'Montserrat', sans-serif;
-  . {
-    font-family: droid-serif, serif;
-    font-style: italic;
-    font-weight: 400;
-    . {
-      font-family: roboto-slab, serif;
-      font-style: normal;
-      font-weight: 400;
-    }
-  }
+  font-size: 1.125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}

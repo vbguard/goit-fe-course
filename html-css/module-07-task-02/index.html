@@ -6,10 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>module-07-task-02</title>
+  <link rel="stylesheet" href="https://use.typekit.net/pmx6vpt.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Pacifico" rel="stylesheet">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="https://use.typekit.net/pmx6vpt.css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+
 </head>
 
 <body>
@@ -92,18 +93,16 @@
         <h3 class="section-header-subtitle">Proin iaculis purus consequat sem cure.</h3>
       </header>
       <form action="#" class="contact-form">
-        <ul class="form-list">
-          <li class="form-list-item"><input type="text" class="contact-form-input name" placeholder="your name &lowast;"></li>
-          <li class="form-list-item"><input type="email" class="contact-form-input email" placeholder="your e-mail &lowast;"></li>
-          <li class="form-list-item"><input type="text" class="contact-form-input subject" placeholder="subject"></li>
-          <li class="form-list-item"><textarea name="massege" class="contact-form-input textarea" placeholder="your message &lowast;"></textarea></li>
-          <li class="form-list-item"><input type="button" value="send message"></li>
-        </ul>
-          
-          
-          
-          
-        </form>
+        <div class="input-textarea">
+          <div class="input-only">
+            <input type="text" class="contact-form-input" name="user-name" placeholder="your name &lowast;">
+            <input type="email" class="contact-form-input" name="user-email" placeholder="your e-mail &lowast;">
+            <input type="text" class="contact-form-input" name="user-subject" placeholder="subject">
+          </div>
+          <textarea name="massege" name="user-text" class="contact-form-input textarea" placeholder="your message &lowast;"></textarea>
+        </div>
+        <button type="submit" name="form-submit">send message</button>
+      </form>
     </section>
   </div>
 </body>
