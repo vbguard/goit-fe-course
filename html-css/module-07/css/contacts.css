@@ -113,7 +113,7 @@ flex: 1 0 75%;
   text-transform: uppercase;
 }
 
-input[type=submit], input[type=reset] {
+button[type=submit], button[type=reset] {
   display: inline-block;
   border-style: solid;
   border-width: 1px;
@@ -129,11 +129,8 @@ input[type=submit], input[type=reset] {
   font-size: 15px;
   font-weight: 400;
 }
-input[type=reset] {
+button[type=reset] {
   margin-right: 20px;
   margin-left: 20%;
 }
 
-.form input:nth-last-child(-n+2) {
-  margin-bottom: 0;
-}
