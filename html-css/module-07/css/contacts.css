@@ -1,14 +1,14 @@
 .main {
   display: flex;
-
+justify-content: space-between;
 }
 
 .section-a {
-flex: 1 0 75%;
+flex: 0 0 73%;
 }
 
 .section-b {
-  flex: 1 0 25%;
+  flex: 0 0 25%;
 }
 
 /* First section - Stay in Touch */
@@ -17,10 +17,11 @@ flex: 1 0 75%;
 
 .location {
   display: flex;
+  justify-content: space-between;
 }
 
 .location iframe {
-  margin-right: 20px;
+  flex-basis: 70%;
 }
 
 .contacts {
