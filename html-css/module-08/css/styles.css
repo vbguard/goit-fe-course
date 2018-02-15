@@ -261,6 +261,7 @@ img {
     justify-content: flex-end;
   }
   .hero-title {
+    max-width: 48rem;
     font-size: 3.25rem;
     margin-bottom: 2.5rem;
   }
@@ -297,9 +298,6 @@ img {
     margin-bottom: 20%;
     max-width: 100%;
     flex-direction: row;
-  }
-  .hero-title {
-    max-width: 48rem;
   }
   .partner-list {
     max-width: 58.75rem;
