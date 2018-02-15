@@ -146,7 +146,17 @@ img {
 }
 
 .partner-list {
-  margin-bottom: 3.5625rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.875rem;
+  text-align: center;
+}
+
+.partner-list-item {
+  display: inline-block;
+  vertical-align: top;
+  max-width: 14.6875rem;
 }
 
 .partner-list-item:not(:last-child) {
@@ -231,4 +241,73 @@ img {
 .parnter-list-btn:hover {
   background-color: #ff4e50;
   color: #fff;
+}
+
+@media screen and (min-width:768px) {
+  .section {
+    padding: 0;
+  }
+  .masthead {
+    margin: auto;
+    margin-bottom: 20%;
+    max-width: 87%;
+    flex-direction: row;
+  }
+  .logo {
+    font-size: 1.25rem;
+  }
+  .user-sing {
+    margin: 0;
+    justify-content: flex-end;
+  }
+  .hero-title {
+    font-size: 3.25rem;
+    margin-bottom: 2.5rem;
+  }
+  .hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2.125rem;
+  }
+  .partner {
+    padding-bottom: 2.5rem;
+  }
+  .section-title {
+    padding-top: 4.4375rem;
+    margin-bottom: 1.9375rem;
+  }
+  .partner-list {
+    margin: auto;
+    margin-bottom: 2.5rem;
+    max-width: 30.75rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .partner-list-item {
+    align-self: flex-start;
+    margin-bottom: 3.5625rem;
+  }
+  .partner-list-item:nth-last-child(-n+2) {
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width:940px) {
+  .masthead {
+    margin-bottom: 20%;
+    max-width: 100%;
+    flex-direction: row;
+  }
+  .hero-title {
+    max-width: 48rem;
+  }
+  .partner-list {
+    max-width: 58.75rem;
+  }
+  .partner-list-item {
+    flex-basis: 23.4042%;
+  }
+  .section-title {
+    font-weight: 400;
+  }
 }
