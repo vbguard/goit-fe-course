@@ -148,7 +148,7 @@ img {
 .partner-list-item {
   display: inline-block;
   vertical-align: top;
-  max-width: 14.6875rem;
+  max-width: 14.75rem;
 }
 .partner-list-item {
   margin-bottom: 1.875rem;
@@ -272,7 +272,6 @@ img {
   .partner-list {
     margin: auto;
     margin-bottom: 2.5rem;
-    max-width: 30.75rem;
   }
   .partner-list-item {
     margin-bottom: 3.5625rem;
@@ -282,18 +281,12 @@ img {
   }
 }
 
-@media screen and (min-width:940px) {
+@media screen and (min-width:992px) {
   .masthead {
     margin-bottom: 20%;
     max-width: 100%;
   }
-  .partner-list {
-    max-width: 58.75rem;
-  }
-  .partner-list-item {
-    flex-basis: 23.4042%;
-    
-  }
+
   .partner-list-item:nth-last-child(-n+4) {
     margin: 0;
   }
