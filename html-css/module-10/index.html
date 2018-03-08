@@ -51,11 +51,21 @@
               </a>
             </li>
             <li class="user-navigation__item">
-              <a href="#" class="user-navigation__link">
+              <a href="#" class="user-navigation__link search">
                 <svg width="18" height="18" class="user-navigation__icon">
                   <use href="img/svg-sprite.svg#magnify-icon"></use>
                 </svg>
               </a>
+              <form action="#" class="search-form">
+                <div class="search-form--position">
+                  <input type="text" name="searach" id="search" class="search-form__input" placeholder="search">
+                  <button type="submit" class="search-form__btn btn--reset">
+                      <svg width="14" height="14" class="magnify-icon-btn">
+                          <use href="img/svg-sprite.svg#magnify-icon"></use>
+                        </svg>
+                  </button>
+                </div>
+              </form>
             </li>
           </ul>
         </nav>
@@ -258,8 +268,9 @@
   </section>
   <footer class="section container mastfoot">
     <div class="mastfoot__copy copy">
-      <span class="copy__text">© 2016 MoGo free PSD template by <a href="#" class="copy__design-link">Laaqiq</a>
-    </span>
+      <span class="copy__text">© 2016 MoGo free PSD template by
+        <a href="#" class="copy__design-link">Laaqiq</a>
+      </span>
     </div>
     <form action="#" class="mastfoot__form subcribe">
       <input type="email" name="user-email" id="user-email" class="subscribe__input" placeholder="Your Email..." required>

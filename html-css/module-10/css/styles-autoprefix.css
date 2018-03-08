@@ -207,6 +207,52 @@ img {
   fill: #fce38a;
 }
 
+/* option search FORM */
+
+.search {
+  position: relative;
+}
+
+.search:focus+.search-form {
+  display: block;
+}
+
+.search-form {
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: 65px;
+}
+
+.search-form--position {
+  position: relative;
+}
+
+.search-form__input {
+  border: 1px solid #fff;
+  border-radius: 25px;
+  padding-left: 10px;
+  padding-right: 25px;
+  outline: 0;
+}
+
+.search-form__input::placeholder {
+  color: #f38181;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.search-form__btn {
+  position: absolute;
+  top: 3px;
+  right: 7px;
+}
+
+.magnify-icon-btn {
+  fill: #999;
+}
+
 /* Hero */
 
 .hero {
