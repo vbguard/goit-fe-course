@@ -28,11 +28,28 @@ gulp.task('html', () => {
     }));
 });
 
+
+// gulp.task('sass', function () {
+//   gulp.src('path/to/input.scss')
+//     .pipe(sass({
+//       // includePaths: require('node-normalize-scss').with('other/path', 'another/path')
+//       // - or -
+//       includePaths: require('node-normalize-scss').includePaths
+//     }))
+//     .pipe(gulp.dest('path/to/output.css'));
+// });
+
+
 // Создаем таск для сборки css файлов
 gulp.task('css', () => {
   // Берем только файл styles.scss в папке src, в который импортируеются паршалы
   return gulp.src('./src/sass/main.scss')
     // Преобразовываем sass в css
+    .pipe(sass({
+      // includePaths: require('node-normalize-scss').with('other/path', 'another/path')
+      // - or -
+      includePaths: require('node-normalize-scss').includePaths
+    }))
     .pipe(sass().on('error', sass.logError))
     // Создаем вендорные префиксы
     .pipe(autoprefixer({

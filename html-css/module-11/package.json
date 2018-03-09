@@ -26,6 +26,12 @@
     "gulp-imagemin": "^3.4.0",
     "gulp-merge-media-queries": "^0.2.1",
     "gulp-rigger": "^0.5.8",
-    "gulp-sass": "^3.1.0"
+    "gulp-sass": "^3.1.0",
+    "install": "^0.10.4",
+    "node-normalize-scss": "^3.0.0",
+    "npm": "^5.7.1"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.0"
   }
 }
