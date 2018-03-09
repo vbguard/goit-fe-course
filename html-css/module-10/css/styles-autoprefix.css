@@ -397,7 +397,7 @@ img {
 }
 
 .services__icons {
-  display: inline-block;
+  display: block;
   float: left;
   margin-right: 30px;
 }

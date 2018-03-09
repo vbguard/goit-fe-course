@@ -1,7 +1,7 @@
 /*
    Import partials below
 */
-@import 'normalize.css';
+@import '../../node_modules/normalize.css/normalize.css';
 @import '_reset.scss';
 @import 'vars.scss';
 
@@ -327,7 +327,7 @@
 }
 
 .services__icons {
-  display: inline-block;
+  display: block;
   float: left;
   margin-right: 30px;
 }
