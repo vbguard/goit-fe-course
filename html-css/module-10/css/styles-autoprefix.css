@@ -65,6 +65,10 @@ img {
     background: -webkit-linear-gradient(bottom, rgba(252, 227, 138, 0.81) 0%, rgba(243, 129, 129, 0.81) 100%), url("../img/masthead-bg@1,5x.png");
     background: -o-linear-gradient(bottom, rgba(252, 227, 138, 0.81) 0%, rgba(243, 129, 129, 0.81) 100%), url("../img/masthead-bg@1,5x.png");
     background-image: linear-gradient(to top, rgba(252, 227, 138, 0.81) 0%, rgba(243, 129, 129, 0.81) 100%), url("../img/masthead-bg@1,5x.png");
+    background-blend-mode: normal;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 }
 
@@ -77,6 +81,10 @@ img {
     background: -webkit-linear-gradient(bottom, rgba(252, 227, 138, 0.81) 0%, rgba(243, 129, 129, 0.81) 100%), url("../img/masthead-bg@2x.png");
     background: -o-linear-gradient(bottom, rgba(252, 227, 138, 0.81) 0%, rgba(243, 129, 129, 0.81) 100%), url("../img/masthead-bg@2x.png");
     background: linear-gradient(to top, rgba(252, 227, 138, 0.81) 0%, rgba(243, 129, 129, 0.81) 100%), url("../img/masthead-bg@2x.png");
+    background-blend-mode: normal;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 }
 
@@ -89,6 +97,10 @@ img {
     background: -webkit-linear-gradient(bottom, rgba(252, 227, 138, 0.81) 0%, rgba(243, 129, 129, 0.81) 100%), url("../img/masthead-bg@5x.png");
     background: -o-linear-gradient(bottom, rgba(252, 227, 138, 0.81) 0%, rgba(243, 129, 129, 0.81) 100%), url("../img/masthead-bg@5x.png");
     background: linear-gradient(to top, rgba(252, 227, 138, 0.81) 0%, rgba(243, 129, 129, 0.81) 100%), url("../img/masthead-bg@5x.png");
+    background-blend-mode: normal;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 }
 
