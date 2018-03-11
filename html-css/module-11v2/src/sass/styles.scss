@@ -1,0 +1,20 @@
+/*
+   Import partials below
+*/
+// import Normalize.css
+// @import 'normalize';
+// @import '../../node_modules/normalize.css/normalize.css';
+// import Simple reset.css
+@import '_reset.scss';
+// import Variable
+@import 'vars.scss';
+// import Mixin (tamplates)
+@import 'mixin.scss';
+
+
+// Styling for Page
+@import 'main.scss';
+@import 'masthead.scss';
+@import 'services.scss';
+@import 'team.scss';
+@import 'mastfoot.scss';
