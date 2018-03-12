@@ -12,20 +12,18 @@
 
   &__caption {
     display: block;
-    color: #333;
-    font-family: 'Kaushan Script', cursive;
-    font-size: 24px;
-    font-weight: 400;
+    color: $heading-caption-color;
     margin-bottom: 23px;
+    @include text-decor($heading-caption-font-famiy, 24px, 400);
   }
+
   &__title {
     margin: 0;
-    color: #333;
-    font-family: "Montserrat", sans-serif;
-    font-size: 30px;
-    font-weight: 700;
+    color: $heading-title-color;
     text-transform: uppercase;
+    @include text-decor($heading-title-font-family, 30px, 700);
   }
+
   &__title::after {
     display: block;
     content: '';
@@ -36,13 +34,12 @@
     margin-top: 43px;
     background-color: #f38181;
   }
+  
   &__text {
     margin: 0;
     margin-top: 46px;
-    color: #999;
-    font-family: "Roboto", sans-serif;
-    font-size: 15px;
-    font-weight: 400;
+    color: $heading-text-color;
     line-height: 24px;
+    @include text-decor($hrading-text-font-family, 15px, 400);
   }
 }
