@@ -1,0 +1,62 @@
+/*
+   Import partials below
+*/
+@import 'normalize';
+@import 'base';
+@import 'cart';
+@import 'search-form';
+@import 'site-nav';
+
+.logo {
+  display: inline-block;
+  margin-right: 50px;
+}
+
+.box {
+  position: relative;
+  width: 264px;
+  height: 100px;
+  border: 1px solid #b7b7b7;
+  transform: translate(150px, 150px);
+
+  &::before,
+  &::after {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: inline-block;
+    content: '';
+    border: 1px solid #b7b7b7;
+    border-radius: 50%;
+    background-color: #fff;
+  }
+
+  &::before {
+    width: 76px;
+    height: 76px;
+  }
+
+  &::after {
+    width: 62px;
+    height: 62px;
+    background-image: url('../img/icon-category.png');
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+/* visually-hidden helper */
+.visually-hidden:not(:focus):not(:active),
+input[type='checkbox'].visually-hidden,
+input[type='radio'].visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
