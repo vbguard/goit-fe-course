@@ -1,6 +1,21 @@
 /**
-*
-*
 * MASTHEAD Section
 */
+
+//--Top Masthead
+.top-mastheader {
+  width: 100vw;
+  background-color: $header-top-bgc;
+}
+
+.middle-mastheader {
+  width: 100vw;
+  background-color: $header-middle-bgc;
+}
+
+.main-menu {
+  width: 100vw;
+  background-color: $main-menu-bgc;
+  box-shadow: 0px 4px 6px 0px rgba(1, 2, 2, 0.2);
+}
 

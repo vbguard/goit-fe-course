@@ -171,7 +171,7 @@ textarea {
    */
 
 button,
-input { /* 1 */
+input {
 	overflow: visible;
 }
 
@@ -181,7 +181,7 @@ input { /* 1 */
    */
 
 button,
-select { /* 1 */
+select {
 	text-transform: none;
 }
 
@@ -355,45 +355,69 @@ html {
 	box-sizing: inherit;
 }
 
-body {
-	font-family: 'Poppins', sans-serif;
+h1 {
+	margin: 0;
 }
 
 img {
 	display: block;
-	max-width: 100%;
+	width: 100%;
 	height: auto;
 }
 
-.cart {
-	position: relative;
-	display: inline-block;
-	width: 51px;
-	height: 49px;
-	background-color: #d58e32;
-	border-radius: 3px;
-	background-image: url("../img/cart-icon.png");
-	background-repeat: no-repeat;
-	background-position: center;
+a {
+	text-decoration: none;
+	color: #fff;
 }
 
-.cart-count {
-	position: absolute;
-	left: 43px;
-	top: 50%;
-	-webkit-transform: translateY(-50%);
-	transform: translateY(-50%);
-	display: inline-block;
-	width: 28px;
-	height: 27px;
+.list--reset {
+	list-style: none;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #fff;
+}
+
+.container {
+	max-width: 1170px;
+}
+
+.flex {
+	display: flex;
+}
+
+.none {
+	display: none;
+}
+
+.inline {
+	display: inline;
+}
+
+.block {
+	display: block;
+}
+
+/**
+* MASTHEAD Section
+*/
+
+.top-mastheader {
+	width: 100vw;
+	background-color: #434343;
+}
+
+.middle-mastheader {
+	width: 100vw;
 	background-color: #363636;
-	color: #e0e3ed;
-	font-family: Poppins;
-	font-size: 14px;
-	font-weight: 500;
-	border-radius: 50%;
-	text-align: center;
-	line-height: 27px;
+}
+
+.main-menu {
+	width: 100vw;
+	background-color: #fff;
+	box-shadow: 0px 4px 6px 0px rgba(1, 2, 2, 0.2);
 }
 
 .search-form {
