@@ -1,11 +1,12 @@
 /*
    Import partials below
 */
-@import 'normalize.scss';
-@import '_variables.scss';
+@import 'normalize';
+@import '_variables';
 @import '_reset.scss';
-@import 'main.scss';
-@import 'masthead.scss';
+@import '_helpers';
+@import 'main';
+@import 'masthead';
 @import 'search-form';
 @import 'site-nav';
 

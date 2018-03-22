@@ -8,13 +8,13 @@ html {
   box-sizing: inherit;
 }
 
-//margin reset for h1,h2,h3,h4,h5,h6 
+//margin reset for h1,h2,h3,h4,h5,h6
 
 h1 {
   margin: 0;
 }
 
-//all image fix 
+//all image fix
 
 img{
   display: block;
@@ -26,10 +26,4 @@ img{
 
 a {
   text-decoration: none;
-  color: $default-white-color;
-}
-// reset for list styling
-
-.list--reset {
-  list-style: none;
 }
