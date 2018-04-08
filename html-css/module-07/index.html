@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>module-07-task-01</title>
+  <title>module-06-task-01</title>
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/header.css">
@@ -18,154 +18,158 @@
 </head>
 
 <body>
-  <!-- HEADER -->
-  <header class="header" id="header">
-    <!-- NAVIGATION MENU -->
-    <!-- to add submenu for another element in menu, add ul.submenu>li.submenu-item*n -->
-    <!--  in li.menu-item after tag <a class.submenu-link>team(or another name)</a>   -->
-    <!--                n - number how much you want add element's in submenu         -->
-    <nav class="navigation">
-      <ul class="menu">
-        <li class="menu-item">
-          <a href="index.html" class="menu-link">home</a>
-        </li>
-        <li class="menu-item">
-          <a href="about.html" class="menu-link">about</a>
-          <ul class="submenu">
-            <li class="submenu-item">
-              <a href="#" class="submenu-link">agency</a>
-            </li>
-            <li class="submenu-item">
-              <a href="#" class="submenu-link">news</a>
-            </li>
-            <li class="submenu-item">
-              <a href="#" class="submenu-link">team</a>
-            </li>
-          </ul>
-        </li>
-        <li class="menu-item">
-          <a href="gallery.html" class="menu-link">gallery</a>
-        </li>
-        <li class="menu-item">
-          <a href="tours.html" class="menu-link">tours</a>
-        </li>
-        <li class="menu-item">
-          <a href="#" class="menu-link">blog</a>
-        </li>
-        <li class="menu-item">
-          <a href="contacts.html" class="menu-link">contacts</a>
-        </li>
-      </ul>
-    </nav>
-    <!-- LOGO -->
-    <a href="index.html" class="logo">journey</a>
-  </header>
-  <!-- MAIN -->
-  <main class="main">
-    <div class="slider">
-      <div class="slider-text">
-        <span class="text-first">there are plenty of places</span>
-        <span class="text-second">that are worth seeing</span>
-      </div>
-      <div class="slider-controll">
-        <a class="ctrl-left" href="#" onclick="prevImg(); return false;">
-          <i class="mdi mdi-arrow-left"></i>
-        </a>
-        <a class="ctrl-right" href="#" onclick="nextImg(); return false;">
-          <i class="mdi mdi-arrow-right"></i>
-        </a>
-      </div>
-      <img class="slider-img" id="imageHolder" src="img/image-1.jpg" alt="other image">
-    </div>
-    <section class="top-dest">
-      <h2 class="top-dest-title">top destinations</h2>
-      <div class="top-dest-card">
-        <img class="card-img" src="img/venice.png" alt="Venice">
-        <div class="description">
-          <h2 class="card-title">venice</h2>
-          <p class="card-descr">Lorem ipsum dolor site geril amet, consectetur cing eliti. Suspendisse nulla leo mew dignissim eu velite a rew
-            qw vehicula lacinia arcufasecro. Aenean lacinia ucibusy fase tortor ut feugiat. Rabitur oliti aliquam bibendum
-            olor quis malesuadivamu.</p>
-          <button class="card-btn">Details</button>
-        </div>
-      </div>
-      <div class="top-dest-card">
-        <img class="card-img" src="img/newyork.png" alt="New York">
-        <div class="description">
-          <h2 class="card-title">new york</h2>
-          <p class="card-descr">Lorem ipsum dolor site geril amet, consectetur cing eliti. Suspendisse nulla leo mew dignissim eu velite a rew
-            qw vehicula lacinia arcufasecro. Aenean lacinia ucibusy fase tortor ut feugiat. Rabitur oliti aliquam bibendum
-            olor quis malesuadivamu.</p>
-          <button class="card-btn">Details</button>
-        </div>
-      </div>
-      <div class="top-dest-card">
-        <img class="card-img" src="img/paris.png" alt="Paris">
-        <div class="description">
-          <h2 class="card-title">paris</h2>
-          <p class="card-descr">Lorem ipsum dolor site geril amet, consectetur cing eliti. Suspendisse nulla leo mew dignissim eu velite a rew
-            qw vehicula lacinia arcufasecro. Aenean lacinia ucibusy fase tortor ut feugiat. Rabitur oliti aliquam bibendum
-            olor quis malesuadivamu.</p>
-          <button class="card-btn">Details</button>
-        </div>
-      </div>
-    </section>
-  </main>
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="section-navigate-contact">
-      <nav class="footer-nav">
-        <ul class="footer-nav-menu">
-          <li class="footer-nav-menu-item">
-            <a href="#" class="footer-nav-menu-link">faqs page</a>
+  <div class="container">
+    <!-- HEADER -->
+    <header class="header" id="header">
+      <!-- NAVIGATION MENU -->
+      <!-- to add submenu for another element in menu, add ul.submenu>li.submenu-item*n -->
+      <!--           in li.menu-item after tag <a>team(or another name)</a>             -->
+      <!--                n - number how much you want add element's in submenu         -->
+      <nav class="navigation">
+        <ul class="menu">
+          <li class="menu-item">
+            <a href="index.html" class="menu-link">home</a>
           </li>
-          <li class="footer-nav-menu-item">
-            <a href="#" class="footer-nav-menu-link">people say</a>
+          <li class="menu-item">
+            <a href="about.html" class="menu-link">about</a>
+            <ul class="submenu">
+              <li class="submenu-item">
+                <a href="#" class="submenu-link">agency</a>
+              </li>
+              <li class="submenu-item">
+                <a href="#" class="submenu-link">news</a>
+              </li>
+              <li class="submenu-item">
+                <a href="#" class="submenu-link">team</a>
+              </li>
+            </ul>
           </li>
-          <li class="footer-nav-menu-item">
-            <a href="#" class="footer-nav-menu-link">useful links</a>
+          <li class="menu-item">
+            <a href="gallery.html" class="menu-link">gallery</a>
           </li>
-          <li class="footer-nav-menu-item">
-            <a href="#" class="footer-nav-menu-link">partners</a>
+          <li class="menu-item">
+            <a href="tours.html" class="menu-link">tours</a>
           </li>
-          <li class="footer-nav-menu-item">
-            <a href="#" class="footer-nav-menu-link">insurance</a>
+          <li class="menu-item">
+            <a href="#" class="menu-link">blog</a>
           </li>
-          <li class="footer-nav-menu-item">
-            <a href="#" class="footer-nav-menu-link">family travel</a>
+          <li class="menu-item">
+            <a href="contacts.html" class="menu-link">contacts</a>
           </li>
         </ul>
       </nav>
-      <div class="contact-us">
-        <span class="contact-us-title">contact us:</span>
-        <address class="address">
-          <a href="tel:+18002345678" class="tel-email">TEL: 1-800-234-5678</a>
-          <a href="mailto:info@demolink.org" class="tel-email">info@demolink.org</a>
-        </address>
+      <!-- LOGO -->
+      <a href="index.html" class="logo">journey</a>
+    </header>
+    <!-- MAIN -->
+    <main class="main">
+      <div class="slider">
+        <div class="slider-text">
+          <span class="text-first">there are plenty of places</span>
+          <span class="text-second">that are worth seeing</span>
+        </div>
+        <div class="slider-controll">
+          <a class="ctrl-left" href="#" onclick="prevImg(); return false;">
+            <i class="mdi mdi-arrow-left"></i>
+          </a>
+          <a class="ctrl-right" href="#" onclick="nextImg(); return false;">
+            <i class="mdi mdi-arrow-right"></i>
+          </a>
+        </div>
+        <img class="slider-img" id="imageHolder" src="img/image-1.jpg" alt="other image">
       </div>
-    </div>
-    <div class="footer-nav-social">
-      <div class="social-list-menu">
-        <a href="https://twitter.com" class="social-list-link twitter"></a>
-        <a href="https://facebook.com" class="social-list-link facebook"></a>
-        <a href="https://plus.google.com/?hl=uk/" class="social-list-link google-plus"></a>
-        <a href="https://www.linkedin.com" class="social-list-link linkedin"></a>
+      <section class="top-dest">
+        <h2 class="top-dest-title">top destinations</h2>
+        <div class="card-list">
+          <div class="top-dest-card">
+            <img class="card-img" src="img/venice.png" alt="Venice">
+            <div class="description">
+              <h2 class="card-title">venice</h2>
+              <p class="card-descr">Lorem ipsum dolor site geril amet, consectetur cing eliti. Suspendisse nulla leo mew dignissim eu velite a
+                rew qw vehicula lacinia arcufasecro. Aenean lacinia ucibusy fase tortor ut feugiat. Rabitur oliti aliquam
+                bibendum olor quis malesuadivamu.</p>
+              <button class="card-btn">Details</button>
+            </div>
+          </div>
+          <div class="top-dest-card">
+            <img class="card-img" src="img/newyork.png" alt="New York">
+            <div class="description">
+              <h2 class="card-title">new york</h2>
+              <p class="card-descr">Lorem ipsum dolor site geril amet, consectetur cing eliti. Suspendisse nulla leo mew dignissim eu velite a
+                rew qw vehicula lacinia arcufasecro. Aenean lacinia ucibusy fase tortor ut feugiat. Rabitur oliti aliquam
+                bibendum olor quis malesuadivamu.</p>
+              <button class="card-btn">Details</button>
+            </div>
+          </div>
+          <div class="top-dest-card">
+            <img class="card-img" src="img/paris.png" alt="Paris">
+            <div class="description">
+              <h2 class="card-title">paris</h2>
+              <p class="card-descr">Lorem ipsum dolor site geril amet, consectetur cing eliti. Suspendisse nulla leo mew dignissim eu velite a
+                rew qw vehicula lacinia arcufasecro. Aenean lacinia ucibusy fase tortor ut feugiat. Rabitur oliti aliquam
+                bibendum olor quis malesuadivamu.</p>
+              <button class="card-btn">Details</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="section-navigate-contact">
+        <nav class="footer-nav">
+          <ul class="footer-nav-menu">
+            <li class="footer-nav-menu-item">
+              <a href="#" class="footer-nav-menu-link">faqs page</a>
+            </li>
+            <li class="footer-nav-menu-item">
+              <a href="#" class="footer-nav-menu-link">people say</a>
+            </li>
+            <li class="footer-nav-menu-item">
+              <a href="#" class="footer-nav-menu-link">useful links</a>
+            </li>
+            <li class="footer-nav-menu-item">
+              <a href="#" class="footer-nav-menu-link">partners</a>
+            </li>
+            <li class="footer-nav-menu-item">
+              <a href="#" class="footer-nav-menu-link">insurance</a>
+            </li>
+            <li class="footer-nav-menu-item">
+              <a href="#" class="footer-nav-menu-link">family travel</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="contact-us">
+          <span class="contact-us-title">contact us:</span>
+          <address class="address">
+            <a href="tel:+18002345678" class="tel-email">TEL: 1-800-234-5678</a>
+            <a href="mailto:info@demolink.org" class="tel-email">info@demolink.org</a>
+          </address>
+        </div>
       </div>
-    </div>
-    <nav class="copy">
-      <ul class="policy-list">
-        <li class="policy-list-item">
-          <a href="#" class="policy-list-link">Journey &copy; 2018</a>
-        </li>
-        <li class="policy-list-item">
-          <a href="#" class="policy-list-link">Privacy Policy</a>
-        </li>
-        <li class="policy-list-item">
-          <a href="#" class="policy-list-link">Website designed by TemplateMonster.com</a>
-        </li>
-      </ul>
-    </nav>
-  </footer>
+      <div class="footer-nav-social">
+        <div class="social-list-menu">
+          <a href="https://twitter.com" class="social-list-link twitter">&#xF544;</a>
+          <a href="https://facebook.com" class="social-list-link">&#xF20C;</a>
+          <a href="https://plus.google.com/?hl=uk/" class="social-list-link">&#xF2BD;</a>
+          <a href="https://www.linkedin.com" class="social-list-link">&#xF33B;</a>
+        </div>
+      </div>
+      <div class="footer-copy">
+        <ul class="policy-list">
+          <li class="policy-list-item">
+            <a href="index.html" class="policy-list-link">Journey &copy; 2018</a>
+          </li>
+          <li class="policy-list-item">
+            <a href="#" class="policy-list-link">Privacy Policy</a>
+          </li>
+          <li class="policy-list-item">
+            <a href="#" class="policy-list-link">Website designed by TemplateMonster.com</a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </div>
   <!-- Button to top -->
   <button onclick="topFunction()" id="myBtn" title="Go to top" class="mdi mdi-chevron-up"></button>
   <script src="js/scripts.js"></script>

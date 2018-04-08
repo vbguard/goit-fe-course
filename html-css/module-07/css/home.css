@@ -61,7 +61,11 @@
   font-size: 20px;
   color: #ffffff;
   background-color: #38afe5;
+  font-family: 'Material Design Icons';
+  text-decoration: none;
 }
+
+
 
 .ctrl-left:hover,
 .ctrl-right:hover {
@@ -95,11 +99,14 @@
   margin-bottom: 47px;
 }
 
+.card-list {
+  display: flex;
+  justify-content: space-between;
+}
+
 .top-dest-card {
   position: relative;
-  display: inline-block;
-  width: 32%;
-  margin-right: 2%;
+  flex-basis: 32%;
   font-size: 0;
   transition: all 1s linear;
 }
@@ -107,10 +114,6 @@
 .top-dest-card:hover>.description {
   display: block;
   transition: all 1s linear;
-}
-
-.top-dest-card:nth-last-child(1) {
-  margin-right: 0;
 }
 
 .description {

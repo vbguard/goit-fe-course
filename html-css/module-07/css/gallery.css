@@ -1,6 +1,7 @@
-
 /*                         */
+
 /*    <--- GALLERY --->    */
+
 /*                         */
 
 .title {
@@ -20,20 +21,28 @@
 
 .gallery-item {
   position: relative;
-  height: 155px;
+  height: auto;
   margin-bottom: 40px;
   flex: 0 0 30%;
 }
-.gallery-item:nth-last-child(1), .gallery-item:nth-last-child(2), .gallery-item:nth-last-child(3) {
+
+.gallery-item:nth-last-child(1),
+.gallery-item:nth-last-child(2),
+.gallery-item:nth-last-child(3) {
   margin-bottom: 0;
 }
+
 .img-card {
-  width: 100%;
-  height: 100%;
+  width: 288px;
+  height: 154px;
+  overflow: hidden;
+  display: flex;
 }
+
 .img-card:hover>.preview {
   display: flex;
 }
+
 .preview {
   display: none;
   justify-content: center;
@@ -46,7 +55,30 @@
   background-color: rgba(68, 68, 68, 0.556);
 }
 
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+}
+
+/*
+img::after {
+display: inline-block;
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+font-family: 'Material Design Icons';
+content: '&#xF6EC;';
+background-color: rgba(0, 0, 0, 0.4);
+
+} */
+
 .icon-zoom {
+  font-family: 'Material Design Icons';
   color: #fff;
   font-size: 50px;
   opacity: .7;

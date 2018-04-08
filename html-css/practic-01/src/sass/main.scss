@@ -1,0 +1,30 @@
+// MAIN css
+body {
+  margin: 0;
+  padding: 0;
+  background-color: $main-background-color;
+}
+
+.container {
+  margin: auto;
+  max-width: 1170px;
+}
+
+
+//--display setting
+
+.flex {
+  display: flex;
+}
+
+.none {
+  display: none;
+}
+
+.inline {
+  display: inline;
+}
+
+.block {
+  display: block;
+}

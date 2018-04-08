@@ -1,0 +1,48 @@
+/* Container Section */
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Heading */
+
+.heading {
+  text-align: center;
+
+  &__caption {
+    display: block;
+    color: #333;
+    font-family: 'Kaushan Script', cursive;
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 23px;
+  }
+  &__title {
+    margin: 0;
+    color: #333;
+    font-family: "Montserrat", sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  &__title::after {
+    display: block;
+    content: '';
+    width: 60px;
+    height: 3px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 43px;
+    background-color: #f38181;
+  }
+  &__text {
+    margin: 0;
+    margin-top: 46px;
+    color: #999;
+    font-family: "Roboto", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+}

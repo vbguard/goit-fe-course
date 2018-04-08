@@ -1,0 +1,29 @@
+// RESET
+// html box-sizing
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+//margin reset for h1,h2,h3,h4,h5,h6
+
+h1 {
+  margin: 0;
+}
+
+//all image fix
+
+img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+//reset for link tag a decoration, add color default: white
+
+a {
+  text-decoration: none;
+}

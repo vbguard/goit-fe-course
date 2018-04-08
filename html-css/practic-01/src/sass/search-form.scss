@@ -1,0 +1,25 @@
+.search-form {
+  display: flex;
+}
+
+.search-form input {
+  display: block;
+  height: 100%;
+  padding-right: 40px;
+}
+
+.search-form label {
+  position: relative;
+
+  &::after {
+    display: inline-block;
+    position: absolute;
+    content: '';
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 15px;
+    background-color: red;
+  }
+}

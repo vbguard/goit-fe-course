@@ -1,0 +1,60 @@
+/**
+* MASTHEAD Section
+*/
+
+a {
+  color: #fff;
+}
+
+//--Top Masthead
+.top-mastheader {
+  min-width: 100vw;
+  min-height: 54px;
+  background-color: $header-top-bgc;
+}
+
+.site-options__list {
+  margin: 0;
+  padding: 0;
+  max-width: 264px;
+  list-style: none;
+}
+
+.site-options__item {
+  display: inline-block;
+  border-right: 1px solid #e1e1e1;
+}
+
+.currency__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.currency__icon {
+  fill: $white-color;
+}
+
+.currency__link {
+  color: $white-text-color;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.currency__list:nth-child(1) > .currency__icon {
+  
+}
+// -- Middle Masthead
+.middle-mastheader {
+  width: 100vw;
+  background-color: $header-middle-bgc;
+}
+
+// Navigation of Site - Main Menu
+.main-menu {
+  width: 100vw;
+  background-color: $main-menu-bgc;
+  box-shadow: 0px 4px 6px 0px rgba(1, 2, 2, 0.2);
+}

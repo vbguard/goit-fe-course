@@ -1,0 +1,104 @@
+a {
+  text-decoration: none;
+}
+.container {
+  min-width: 20rem;
+  max-width: 58.75rem;
+}
+.section {
+  padding: 0 1.25rem;
+}
+.masthead-wrap {
+  background-image: url(../img/masthead-bg.svg);
+  background-color: #1a1915;
+  background-repeat: no-repeat;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position: center;
+  background-size: cover;
+  background-size: cover;
+  padding-bottom: 8.625rem;
+}
+
+/* header item */
+
+.logo {
+  color: #fff;
+  font-family: Montserrat;
+  font-size: 1.25rem;
+  text-decoration: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .1875rem;
+}
+
+.user-sing {
+  margin-bottom: 6.875rem;
+  display: flex;
+  justify-content: center;
+  flex-basis: 100%;
+  align-self: stretch;
+}
+
+.user-sing-link {
+  padding: .375rem 1.4375rem;
+  border: 2px solid transparent;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: .875rem;
+  ;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.user-sing-link:hover {
+  border: 2px solid #fff;
+  border-radius: 1.125rem;
+}
+
+
+.hero-title {
+  margin: auto;
+  margin-bottom: 1.25rem;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.875rem;
+  ;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  margin: auto;
+  margin-bottom: 1.25rem;
+  width: 70%;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.125rem;
+  ;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+/* hero button */
+
+.hero-btn {
+  display: inline-block;
+  margin: auto;
+  width: 17.5rem;
+  padding: .625rem 2.875rem;
+  background-color: #ff4e50;
+  border-radius: 20px;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: .875rem;
+  font-weight: 700;
+  text-decoration: none;
+  line-height: 1.25rem;
+}
+
+.hero-btn:hover {
+  background-color: #fff;
+  color: #ff4e50;
+}

@@ -1,0 +1,122 @@
+/* Section TEAM */
+
+.team {
+  padding-top: 90px;
+  padding-bottom: 83px;
+}
+
+/* team list */
+
+.team__list {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 92px;
+}
+
+.team__item {
+  flex: 0 0 30%;
+}
+
+.team-card {
+  background-color: #95e1d3;
+}
+
+.team-card:hover .team-card__content {
+  transform: translate(-10px, -10px);
+}
+
+.team-card:hover .team-card__content::after {
+  opacity: 1;
+}
+
+.team-card:hover .team-card__icons {
+  opacity: 1;
+}
+
+.team-card__content {
+  position: relative;
+  transition: transform 0.2s linear;
+
+}
+
+.team-card__content::after {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  content: '';
+  background-image: linear-gradient( to top, rgba(252, 227, 138, 0.81) 0%, rgba(243, 129, 129, 0.81) 100%);
+  transition: opacity 0.2s linear;
+}
+
+.team-card__icons {
+   display: flex;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  transition: opacity 0.2s linear;
+}
+
+.team-card__icon {
+  display: inline-block;
+  margin-right: 1px;
+  width: 56px;
+  height: 56px;
+  padding: 15px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #fce38a;
+}
+
+.team-card__icon:last-child {
+  margin-right: 0;
+}
+
+.team-card__icon:hover {
+  background-color: #f38181;
+}
+
+.team-card__icon:hover>svg {
+  fill: #fff;
+}
+
+.team-card__icon>svg {
+  display: inline-block;
+  height: 26px;
+  width: 26px;
+  fill: #f38181;
+}
+
+.team-card__meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 31px 0;
+  background-color: #ffffff;
+}
+
+.team-card__name {
+  display: block;
+  margin-bottom: 16px;
+  color: #333;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.team-card__pos {
+  display: block;
+  color: #999;
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 24px;
+}
