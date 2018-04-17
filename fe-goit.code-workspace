@@ -2,6 +2,12 @@
 	"folders": [
 		{
 			"path": "."
+		},
+		{
+			"path": "/Users/izer/Documents/GitHub/goit-project-tripwire"
+		},
+		{
+			"path": "/Users/izer/Documents/GitHub/gulp-starter-kit"
 		}
 	],
 	"settings": {
