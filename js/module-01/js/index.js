@@ -1,147 +1,123 @@
-"use strict";
-// TourAgency Start reservation place
-let welcomeMessage = confirm('Hello, Welcome to TourAgency. If you want to reserved a place please push OK ( Enter - in Win or Return - in mac). If you don\'t reserved place push Cancel or Esc - button on your keyboard');
-if (welcomeMessage) {
-  // We have 3 group with limited places
-  let groupSharmPlaces = 15;
-  let groupHurgadaPlaces = 25;
-  let groupTabaPlaces = 6;
-  // Max Number of places from all group Have
-  let maxGroupPlaces = groupSharmPlaces + groupHurgadaPlaces + groupTabaPlaces;
-  // Get number of places users want
-  let userPlaces = prompt(`How much place you want to reserved? Max number of place ${maxGroupPlaces}`);
-  // Validation for user input
+'use strict';
+
+let groupSharmPlaces = 15;
+let groupHurgadaPlaces = 25;
+let groupTabaPlaces = 6;
+
+let reservingConfirm = confirm(
+  "Hello, Welcome to TourAgency. If you want to reserved a place please push OK ( Enter - in Win or Return - in mac). If you don't reserved place push Cancel or Esc - button on your keyboard",
+);
+
+if (reservingConfirm) {
+  let userPlaces = prompt(
+    `How much place you want to reserved? Max number of place ${Math.max(
+      groupSharmPlaces,
+      groupHurgadaPlaces,
+      groupTabaPlaces,
+    )}`,
+  );
   const isInRange = userPlaces >= 1;
-  // не null
   const isNotNull = userPlaces !== null;
-  // не NaN
   const isNumber = !Number.isNaN(userPlaces);
-  // не null И число И в отрезке
   const isValidInput = isNotNull && isNumber && isInRange;
+
   if (isValidInput) {
-    // When user input correct data, conduct checks on free space in group
-    console.log('Yep!: ' + userPlaces);
-    // If Validation input well done Get Number typeof Number
-    let userNumPlaceDone = Number(userPlaces);
+    userPlaces = Number(userPlaces);
     // Get Name of Group Choised
-    let getNameGroup;
-    switch (true) {
-      case (userNumPlaceDone <= groupTabaPlaces):
-        getNameGroup = 'Taba';
-        break;
-      case (userNumPlaceDone <= groupSharmPlaces):
-        getNameGroup = 'Sharm';
-        break;
-      case (userNumPlaceDone <= groupHurgadaPlaces):
-        getNameGroup = 'Hurgada';
-        break;
-      default:
-        console.log('switch not work in Group choise Name: ' + getNameGroup);
-    }
+    let groupName;
     let userChoisedGroup;
-    switch (true) {
-      case (userNumPlaceDone <= groupTabaPlaces):
-        userChoisedGroup = confirm(`In group ${getNameGroup} have a ${userPlaces} place. You'e confirm this or choise next group?`);
-        if (userChoisedGroup) {
-          alert(`Happy traveling in group ${getNameGroup}`);
-          groupTabaPlaces = groupTabaPlaces - userNumPlaceDone;
-          console.log('New data of place after resevation: ' + groupTabaPlaces);
-        } else {
-          console.log('after Cancel in Taba - choise next Group');
-          switch (true) {
-            case (userNumPlaceDone <= groupSharmPlaces):
-              userChoisedGroup = confirm(`In group Sharm have a ${userPlaces} place. You'e confirm this or choise next group?`);
-              if (userChoisedGroup) {
-                alert(`Happy traveling in group Sharm`);
-                groupSharmPlaces = groupSharmPlaces - userNumPlaceDone;
-                console.log('New data of place after resevation: ' + groupSharmPlaces);
-              } else {
-                switch (true) {
-                  case (userNumPlaceDone <= groupHurgadaPlaces):
-                    userChoisedGroup = confirm(`In group Hurgada have a ${userPlaces} place. You'e confirm this choise or exit?`);
-                    if (userChoisedGroup) {
-                      alert(`Happy traveling in group Hurgada`);
-                      groupHurgadaPlaces = groupHurgadaPlaces - userNumPlaceDone;
-                      console.log('New data of place after resevation: ' + groupHurgadaPlaces);
-                    } else {
-                      alert('Нажаль ви невибрали нічого, Дякуємо. До зустрічі');
-                    }
-                    break;
-                  default:
-                    console.log('It\'s very well');
-                }
-              }
-              break;
-            default:
-              console.log('some well))');
-          }
-        }
-        break;
-      case (userNumPlaceDone <= groupSharmPlaces):
-        userChoisedGroup = confirm(`In group ${getNameGroup} have a ${userPlaces} place. You'e confirm this or choise next group?`);
-        if (userChoisedGroup) {
-          alert(`Happy traveling in group ${getNameGroup}`);
-          groupSharmPlaces = groupSharmPlaces - userNumPlaceDone;
-          console.log('New data of place after resevation: ' + groupSharmPlaces);
-        } else {
-          switch (true) {
-            case (userNumPlaceDone <= groupHurgadaPlaces):
-              userChoisedGroup = confirm(`In group Hurgada have a ${userPlaces} place. You'e confirm this choise or exit?`);
-              if (userChoisedGroup) {
-                alert(`Happy traveling in group Hurgada`);
-                groupHurgadaPlaces = groupHurgadaPlaces - userNumPlaceDone;
-                console.log('New data of place after resevation: ' + groupHurgadaPlaces);
-              } else {
-                alert('Нажаль ви невибрали нічого, Дякуємо. До зустрічі');
-              }
-              break;
-            default:
-              console.log('It\'s very well');
-          }
-        }
-        break;
-      case (userNumPlaceDone <= groupHurgadaPlaces):
-        userChoisedGroup = confirm(`In group ${getNameGroup} have a ${userPlaces} place. You'e confirm this choise or exit?`);
-        if (userChoisedGroup) {
-          alert(`Happy traveling in group ${getNameGroup}`);
-          groupHurgadaPlaces = groupHurgadaPlaces - userNumPlaceDone;
-          console.log('New data of place after resevation: ' + groupHurgadaPlaces);
-        } else {
-          alert('Нажаль ви невибрали нічого, Дякуємо. До зустрічі');
-        }
-        break;
-      case (userNumPlaceDone <= maxGroupPlaces):
-        userChoisedGroup = confirm(`In all group have a ${userPlaces} places. You'e confirm this?`);
-        if (userChoisedGroup) {
-          alert(`Happy traveling in group Taba:${groupTabaPlaces}, Sharm:  `);
-          maxGroupPlaces = maxGroupPlaces - userNumPlaceDone;
-          console.log('New data of place after resevation: ' + maxGroupPlaces);
-        } else {
-          alert('Sorry, to see you latter');
-        }
-        break;
-      default:
-        console.log('Hmm... something went wrong ;)');
-    }
-    // If user input over 46 get
-    if (userPlaces >= 47) {
-      let dataBigger = confirm(`Вибачте але на таку кількість осіб немає вільних місць. У нас вільних місць залишилось ${maxGroupPlaces}, ви можете підтвердити для введення данних ще раз, або Відміну для закриття. Дякуємо!`);
-      if (dataBigger) {
-        document.location.reload(true);
+    if (userPlaces <= groupTabaPlaces) {
+      groupName = 'Taba';
+      userChoisedGroup = confirm(
+        `In group ${groupName} have a ${userPlaces} place. You'e confirm this or choise next group?`,
+      );
+      if (userChoisedGroup) {
+        alert(`Happy traveling in group ${groupName}`);
+        groupTabaPlaces = groupTabaPlaces - userPlaces;
+        console.log('New data of place after resevation: ' + groupTabaPlaces);
       } else {
-        alert('Thanks, Goodbay!');
+        console.log('after Cancel in Taba - choise next Group');
+        userChoisedGroup = confirm(
+          `In group Sharm have a ${userPlaces} place. You'e confirm this or choise next group?`,
+        );
+        if (userChoisedGroup) {
+          alert(`Happy traveling in group Sharm`);
+          groupSharmPlaces = groupSharmPlaces - userPlaces;
+          console.log(
+            'New data of place after resevation: ' + groupSharmPlaces,
+          );
+        } else {
+          userChoisedGroup = confirm(
+            `In group Hurgada have a ${userPlaces} place. You'e confirm this choise or exit?`,
+          );
+          if (userChoisedGroup) {
+            alert(`Happy traveling in group Hurgada`);
+            groupHurgadaPlaces = groupHurgadaPlaces - userPlaces;
+            console.log(
+              'New data of place after resevation: ' + groupHurgadaPlaces,
+            );
+          } else {
+            alert('We are sorry, but you do not choise any thing. Bye');
+          }
+        }
       }
+    } else if (userPlaces <= groupSharmPlaces) {
+      groupName = 'Sharm';
+      userChoisedGroup = confirm(
+        `In group ${groupName} have a ${userPlaces} place. You'e confirm this or choise next group?`,
+      );
+      if (userChoisedGroup) {
+        alert(`Happy traveling in group ${groupName}`);
+        groupSharmPlaces = groupSharmPlaces - userPlaces;
+        console.log('New data of place after resevation: ' + groupSharmPlaces);
+      } else {
+        userChoisedGroup = confirm(
+          `In group Hurgada have a ${userPlaces} place. You'e confirm this choise or exit?`,
+        );
+        if (userChoisedGroup) {
+          alert(`Happy traveling in group Hurgada`);
+          groupHurgadaPlaces = groupHurgadaPlaces - userPlaces;
+          console.log(
+            'New data of place after resevation: ' + groupHurgadaPlaces,
+          );
+        } else {
+          alert('We are sorry, but you do not choise any thing. Bye');
+        }
+      }
+    } else if (userPlaces <= groupHurgadaPlaces) {
+      userChoisedGroup = confirm(
+        `In group ${groupName} have a ${userPlaces} place. You'e confirm this choise or exit?`,
+      );
+      if (userChoisedGroup) {
+        alert(`Happy traveling in group ${groupName}`);
+        groupHurgadaPlaces = groupHurgadaPlaces - userPlaces;
+        console.log(
+          'New data of place after resevation: ' + groupHurgadaPlaces,
+        );
+      } else {
+        alert('We are sorry, but you do not choise any thing. Bye');
+      }
+    } else {
+      alert('Sorry we have not places');
     }
   } else {
     // If user input incorect data we get alert after sending for user confirm data
-    alert(`Sorry, you wasn\'t input a number of place can reserved. Or input incorrect Data (latter or number not include in range from 1 to ${maxGroupPlaces}. You can true again`);
-    let userReactOnInData = confirm('You are really want to continuies plese push Enter or OK. If you are not continiues push Cancel or ESC');
+    alert(
+      `Sorry, you wasn't input a number of place can reserved. Or input incorrect Data (latter or number not include in range from 1 to ${Math.max(
+        groupSharmPlaces,
+        groupHurgadaPlaces,
+        groupTabaPlaces,
+      )}. You can true again`,
+    );
+    let userReactOnInData = confirm(
+      'You are really want to continuies plese push Enter or OK. If you are not continiues push Cancel or ESC',
+    );
     if (userReactOnInData) {
       document.location.reload(true);
     } else {
-      alert('Дякуємо. Допобачення!!!');
+      alert('Thanks. GoodBye!!!');
     }
   }
 } else {
-  alert('Дякуємо, що відвідали нашу сторінку. До Зустрічі');
+  alert('Thanks for visit ours pages. See you Next time');
 }
