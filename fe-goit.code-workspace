@@ -8,6 +8,9 @@
 		},
 		{
 			"path": "/Users/izer/Documents/GitHub/gulp-starter-kit"
+		},
+		{
+			"path": "/Users/izer/Documents/GitHub/js-group-3-4"
 		}
 	],
 	"settings": {
@@ -30,6 +33,7 @@
 			"typescript",
 			"typescriptreact",
 			"yml"
-		]
+		],
+		"git.ignoreLimitWarning": true
 	}
 }
