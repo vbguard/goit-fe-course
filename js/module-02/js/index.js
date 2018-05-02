@@ -6,9 +6,9 @@ let isValidInput;
 do {
   userInput = prompt('Введіть будьласка число :first', '');
   let counter = 0;
-  const isNumber = !isNaN(Number(userInput));
-  const isEmptyInput = userInput === '';
-  const isCancel = userInput === null;
+  let isNumber = !isNaN(Number(userInput));
+  let isEmptyInput = userInput === '';
+  let isCancel = userInput === null;
 
   if (isCancel) {
     break;
@@ -19,9 +19,9 @@ do {
 
     do {
       userInput = prompt('Введіть будьласка число :second', '');
-      const isNumber = !isNaN(Number(userInput));
-      const isEmptyInput = userInput === '';
-      const isCancel = userInput === null;
+      let isNumber = !isNaN(Number(userInput));
+      let isEmptyInput = userInput === '';
+      let isCancel = userInput === null;
 
       if (isCancel) {
         break;
@@ -30,7 +30,7 @@ do {
       if (isEmptyInput || !isNumber) {
         alert('Было введено не число, попробуйте еще раз : second');
       }
-    } while (!isNumber || !isEmptyInput || !isCancel);
+    } while (!isNumber || !isEmptyInput);
   }
 
   numbers.push(Number(userInput));
