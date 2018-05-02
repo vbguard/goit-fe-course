@@ -13,7 +13,7 @@ if (reservingConfirm) {
     `How much place you want to reserved? Max number of place ${Math.max(
       groupSharmPlaces,
       groupHurgadaPlaces,
-      groupTabaPlaces,
+      groupTabaPlaces
     )}`,
   );
   const isInRange = userPlaces >= 1;
@@ -23,94 +23,94 @@ if (reservingConfirm) {
 
   if (isValidInput) {
     userPlaces = Number(userPlaces);
-    // Get Name of Group Choised
+    // Get Name of Group Choice
     let groupName;
-    let userChoisedGroup;
+    let userChoiceGroup;
     if (userPlaces <= groupTabaPlaces) {
       groupName = 'Taba';
-      userChoisedGroup = confirm(
-        `In group ${groupName} have a ${userPlaces} place. You'e confirm this or choise next group?`,
+      userChoiceGroup = confirm(
+        `In group ${groupName} have a ${userPlaces} place. You're confirm this or choice next group?`
       );
-      if (userChoisedGroup) {
+      if (userChoiceGroup) {
         alert(`Happy traveling in group ${groupName}`);
         groupTabaPlaces = groupTabaPlaces - userPlaces;
-        console.log('New data of place after resevation: ' + groupTabaPlaces);
+        console.log('New data of place after reservation: ' + groupTabaPlaces);
       } else {
-        console.log('after Cancel in Taba - choise next Group');
-        userChoisedGroup = confirm(
-          `In group Sharm have a ${userPlaces} place. You'e confirm this or choise next group?`,
+        console.log('after Cancel in Taba - choice next Group');
+        userChoiceGroup = confirm(
+          `In group Sharm have a ${userPlaces} place. You're confirm this or choice next group?`
         );
-        if (userChoisedGroup) {
+        if (userChoiceGroup) {
           alert(`Happy traveling in group Sharm`);
           groupSharmPlaces = groupSharmPlaces - userPlaces;
           console.log(
-            'New data of place after resevation: ' + groupSharmPlaces,
+            'New data of place after reservation: ' + groupSharmPlaces,
           );
         } else {
-          userChoisedGroup = confirm(
-            `In group Hurgada have a ${userPlaces} place. You'e confirm this choise or exit?`,
+          userChoiceGroup = confirm(
+            `In group Hurgada have a ${userPlaces} place. You're confirm this choice or exit?`
           );
-          if (userChoisedGroup) {
+          if (userChoiceGroup) {
             alert(`Happy traveling in group Hurgada`);
             groupHurgadaPlaces = groupHurgadaPlaces - userPlaces;
             console.log(
-              'New data of place after resevation: ' + groupHurgadaPlaces,
+              'New data of place after reservation: ' + groupHurgadaPlaces,
             );
           } else {
-            alert('We are sorry, but you do not choise any thing. Bye');
+            alert('We are sorry, but you do not choice any thing. Bye');
           }
         }
       }
     } else if (userPlaces <= groupSharmPlaces) {
       groupName = 'Sharm';
-      userChoisedGroup = confirm(
-        `In group ${groupName} have a ${userPlaces} place. You'e confirm this or choise next group?`,
+      userChoiceGroup = confirm(
+        `In group ${groupName} have a ${userPlaces} place. You're confirm this or choice next group?`
       );
-      if (userChoisedGroup) {
+      if (userChoiceGroup) {
         alert(`Happy traveling in group ${groupName}`);
         groupSharmPlaces = groupSharmPlaces - userPlaces;
-        console.log('New data of place after resevation: ' + groupSharmPlaces);
+        console.log('New data of place after reservation: ' + groupSharmPlaces);
       } else {
-        userChoisedGroup = confirm(
-          `In group Hurgada have a ${userPlaces} place. You'e confirm this choise or exit?`,
+        userChoiceGroup = confirm(
+          `In group Hurgada have a ${userPlaces} place. You're confirm this choice or exit?`
         );
-        if (userChoisedGroup) {
+        if (userChoiceGroup) {
           alert(`Happy traveling in group Hurgada`);
           groupHurgadaPlaces = groupHurgadaPlaces - userPlaces;
           console.log(
-            'New data of place after resevation: ' + groupHurgadaPlaces,
+            'New data of place after reservation: ' + groupHurgadaPlaces,
           );
         } else {
-          alert('We are sorry, but you do not choise any thing. Bye');
+          alert('We are sorry, but you do not choice any thing. Bye');
         }
       }
     } else if (userPlaces <= groupHurgadaPlaces) {
-      userChoisedGroup = confirm(
-        `In group ${groupName} have a ${userPlaces} place. You'e confirm this choise or exit?`,
+      userChoiceGroup = confirm(
+        `In group ${groupName} have a ${userPlaces} place. You're confirm this choice or exit?`
       );
-      if (userChoisedGroup) {
+      if (userChoiceGroup) {
         alert(`Happy traveling in group ${groupName}`);
         groupHurgadaPlaces = groupHurgadaPlaces - userPlaces;
         console.log(
-          'New data of place after resevation: ' + groupHurgadaPlaces,
+          'New data of place after reservation: ' + groupHurgadaPlaces,
         );
       } else {
-        alert('We are sorry, but you do not choise any thing. Bye');
+        alert('We are sorry, but you do not choice any thing. Bye');
       }
     } else {
       alert('Sorry we have not places');
     }
   } else {
-    // If user input incorect data we get alert after sending for user confirm data
+    // If user input incorrect data we get alert after sending for user confirm data
     alert(
       `Sorry, you wasn't input a number of place can reserved. Or input incorrect Data (latter or number not include in range from 1 to ${Math.max(
         groupSharmPlaces,
         groupHurgadaPlaces,
-        groupTabaPlaces,
-      )}. You can true again`,
+        groupTabaPlaces
+      )}. You can true again`
     );
     let userReactOnInData = confirm(
-      'You are really want to continuies plese push Enter or OK. If you are not continiues push Cancel or ESC',
+      'You are really want to continuies plese push Enter or OK. If you are not continiues push Cancel or ESC'
     );
     if (userReactOnInData) {
       document.location.reload(true);
