@@ -1,39 +1,26 @@
 let userInput;
 const numbers = [];
 let total = 0;
-let isValidInput;
 
 do {
-  userInput = prompt('Введіть будьласка число :first', '');
+  userInput = prompt('Введіть будьласка число', '');
   let counter = 0;
   let isNumber = !isNaN(Number(userInput));
   let isEmptyInput = userInput === '';
   let isCancel = userInput === null;
-
   if (isCancel) {
     break;
   }
-
   if (isEmptyInput || !isNumber) {
-    alert('Было введено не число, попробуйте еще раз : first');
-
-    do {
-      userInput = prompt('Введіть будьласка число :second', '');
-      let isNumber = !isNaN(Number(userInput));
-      let isEmptyInput = userInput === '';
-      let isCancel = userInput === null;
-
-      if (isCancel) {
-        break;
-      }
-
-      if (isEmptyInput || !isNumber) {
-        alert('Было введено не число, попробуйте еще раз : second');
-      }
-    } while (!isNumber || !isEmptyInput);
+    alert('Было введено не число, попробуйте еще раз');
+    userInput = prompt('Введіть будьласка число', '');
+    if (isCancel) {
+      break;
+    }
   }
-
-  numbers.push(Number(userInput));
+  if (isNumber && !isCancel && !isEmptyInput) {
+    numbers.push(Number(userInput));
+  }
 } while (true);
 
 if (numbers.length > 0) {
