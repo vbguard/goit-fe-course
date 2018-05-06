@@ -1,179 +1,137 @@
-"use strict";
+'use strict';
 
-// В переменные получаем установленные пакеты
-const gulp = require("gulp");
-const sass = require("gulp-sass");
-const postcss = require("gulp-postcss");
-const autoprefixer = require("autoprefixer");
-const cssnano = require("gulp-cssnano");
-const mmq = require("gulp-merge-media-queries");
-const del = require("del");
-const htmlmin = require("gulp-htmlmin");
-const posthtml = require("gulp-posthtml");
-const include = require("posthtml-include");
-const imagemin = require("gulp-imagemin");
-const webp = require("gulp-webp");
-const svgstore = require("gulp-svgstore");
-const plumber = require("gulp-plumber");
-const stylelint = require("gulp-stylelint");
-const rename = require("gulp-rename");
-const server = require("browser-sync").create();
-const sequence = require("run-sequence");
+const gulp = require('gulp');
+const sass = require('gulp-sass');
+const postcss = require('gulp-postcss');
+const autoprefixer = require('autoprefixer');
+const cssnano = require('gulp-cssnano');
+const gcmq = require('gulp-group-css-media-queries');
+const del = require('del');
+const htmlmin = require('gulp-htmlmin');
+const imagemin = require('gulp-imagemin');
+const svgstore = require('gulp-svgstore');
+const plumber = require('gulp-plumber');
+const rigger = require('gulp-rigger');
+const stylelint = require('gulp-stylelint');
+const babel = require('gulp-babel');
+const uglify = require('gulp-uglify');
+const concat = require('gulp-concat');
+const rename = require('gulp-rename');
+const browserSync = require('browser-sync').create();
+const sequence = require('run-sequence');
 
-// Создаем таск для сборки html файлов
-gulp.task("html", () => {
-  // Берем все файлы с расширением html в папке src
-  return (
-    gulp
-      .src("./src/*.html")
-      // обратаываем все include теги через posthtml для инлайн спрайтов
-      // если таковые есть
-      .pipe(posthtml([include()]))
-      // минифицируем html
-      .pipe(
-        htmlmin({
-          collapseWhitespace: true
-        })
-      )
-      // выкидываем html в папку build
-      .pipe(gulp.dest("./build"))
-      // говорим browser-sync о том что пора перезагрузить барузер, так как файл изменился
-      .pipe(server.stream())
-  );
-});
+gulp.task('html', () =>
+  gulp
+    .src('./src/*.html')
+    .pipe(rigger())
+    .pipe(
+      htmlmin({
+        collapseWhitespace: true,
+      }),
+    )
+    .pipe(gulp.dest('./build')),
+);
 
-// Создаем таск для сборки css файлов
-gulp.task("css", () => {
-  // Берем только файл styles.scss в папке src, в который все импортируется
-  return (
-    gulp
-      .src("./src/sass/styles.scss")
-      .pipe(plumber())
-      // Проверяем качество кода с помощью stylelint
-      .pipe(
-        stylelint({
-          reporters: [{ formatter: "string", console: true }]
-        })
-      )
-      // Преобразовываем sass в css
-      .pipe(sass())
-      // Создаем вендорные префиксы
-      .pipe(postcss([autoprefixer()]))
-      // Группируем медиа правила
-      .pipe(mmq({ log: false }))
-      // Выкидываем css в папку build
-      .pipe(gulp.dest("./build/css"))
-      // Минифицируем css
-      .pipe(cssnano())
-      // Переименовываем добавляя .min
-      .pipe(rename("styles.min.css"))
-      // Выкидываем минифицированный css в папку build
-      .pipe(gulp.dest("./build/css"))
-      // Говорим browser-sync о том что пора перезагрузить барузер так как файл изменился
-      .pipe(server.stream())
-  );
-});
+gulp.task('styles', () =>
+  gulp
+    .src('./src/scss/styles.scss')
+    .pipe(plumber())
+    .pipe(
+      stylelint({
+        reporters: [{ formatter: 'string', console: true }],
+      }),
+    )
+    .pipe(sass())
+    .pipe(postcss([autoprefixer()]))
+    .pipe(gcmq())
+    .pipe(gulp.dest('./build/css'))
+    .pipe(cssnano())
+    .pipe(rename('styles.min.css'))
+    .pipe(gulp.dest('./build/css'))
+    .pipe(browserSync.stream()),
+);
 
-// Переводим png и jpg в webP
-gulp.task("webp", () => {
-  return gulp
-    .src("./src/img/**/*.{png,jpg,jpeg}")
-    .pipe(webp({ quality: 90 }))
-    .pipe(gulp.dest("./build/img"));
-});
+gulp.task('scripts', () =>
+  gulp
+    .src('./src/js/**/*.js')
+    .pipe(plumber())
+    .pipe(
+      babel({
+        presets: ['env'],
+      }),
+    )
+    .pipe(concat('scripts.js'))
+    .pipe(gulp.dest('./build/js'))
+    .pipe(uglify())
+    .pipe(rename('scripts.min.js'))
+    .pipe(gulp.dest('./build/js')),
+);
 
-// Создаем svg спрайт
-gulp.task("svg-sprite", () => {
-  return gulp
-    .src("./src/img/**/*.svg")
+gulp.task('svg-sprite', () =>
+  gulp
+    .src('./src/img/sprite/**/*.svg')
     .pipe(
       svgstore({
-        inlineSvg: true
-      })
+        inlineSvg: true,
+      }),
     )
-    .pipe(rename("sprite.svg"))
-    .pipe(gulp.dest("./build/img"));
+    .pipe(rename('sprite.svg'))
+    .pipe(gulp.dest('./build/img')),
+);
+
+gulp.task('images', () =>
+  gulp
+    .src(['./src/img/**/*.{png,jpg,jpeg,svg}', '!./src/img/sprite/**/*.*'])
+    .pipe(
+      imagemin([
+        imagemin.jpegtran({ progressive: true }),
+        imagemin.optipng({ optimizationLevel: 3 }),
+        imagemin.svgo({
+          plugins: [{ removeViewBox: false }, { cleanupIDs: false }],
+        }),
+      ]),
+    )
+    .pipe(gulp.dest('./build/img')),
+);
+
+gulp.task('fonts', () =>
+  gulp.src('./src/fonts/**/*.{woff,woff2}').pipe(gulp.dest('./build/fonts')),
+);
+
+gulp.task('watch', () => {
+  gulp.watch('src/**/*.html', ['html']).on('change', browserSync.reload);
+  gulp.watch('src/scss/**/*.scss', ['styles']);
+  gulp.watch('src/js/**/*.js', ['scripts']);
 });
 
-// Создаем таск для оптимизации картинок
-gulp.task("images", () => {
-  // Берем все картинки из папки img
-  return (
-    gulp
-      .src("./src/img/**/*.{png,jpg,jpeg,svg}")
-      // Пробуем оптимизировать
-      .pipe(
-        imagemin([
-          imagemin.jpegtran({ progressive: true }),
-          imagemin.optipng({ optimizationLevel: 3 }),
-          imagemin.svgo({
-            plugins: [{ removeViewBox: false }, { cleanupIDs: false }]
-          })
-        ])
-      )
-      // Выкидываем в папку build/img
-      .pipe(gulp.dest("./build/img"))
-  );
-});
-
-// Таск копирования всех шрифтов из папки fonts в build/fonts
-gulp.task("fonts", () => {
-  return gulp
-    .src("./src/fonts/**/*.{woff,woff2}")
-    .pipe(gulp.dest("./build/fonts"));
-});
-
-// Таск слежения за изменениями файлов
-gulp.task("watch", () => {
-  // Следим за изменениями в любом html файле и вызываем таск 'html' на каждом изменении
-  gulp.watch("./src/*.html", ["html"]);
-  // Следим за изменениями в любом sass файле и вызываем таск 'css' на каждом изменении
-  gulp.watch("./src/sass/**/*.scss", ["css"]);
-  // Следим за изменениями картинок и вызываем таск 'img' на каждом изменении
-  // gulp.watch("./src/img/**/*.*", ["webp", "img"]);
-});
-
-// Таск создания и запуска веб-сервера
-gulp.task("server", () => {
-  server.init({
-    server: {
-      // указываем из какой папки "поднимать" сервер
-      baseDir: "./build"
-    },
-    // Говорим спрятать надоедливое окошко обновления в браузере
+gulp.task('serve', ['styles'], () =>
+  browserSync.init({
+    server: './build',
     notify: false,
     open: true,
     cors: true,
-    ui: false
-  });
-});
+    ui: false,
+    logPrefix: 'DevServer',
+    host: 'localhost',
+    port: 3000,
+  }),
+);
 
-// Таск удаления папки build, будем вызывать 1 раз перед началом сборки
-gulp.task("del:build", () => {
-  return del("./build");
-});
+gulp.task('del:build', () => del('./build'));
 
-// Главный таск для создания сборки в деплой,
-// сначала удаляет папку build, потом собирает статику
-// Таск который 1 раз собирает все статические файлы
-// Запускается из корня проекта командой npm run build
-gulp.task("build", function(done) {
+gulp.task('prepare', () => del(['**/.gitkeep', 'README.md', 'banner.png']));
+
+gulp.task('build', cb =>
   sequence(
-    "del:build",
-    "svg-sprite",
-    "webp",
-    "images",
-    "fonts",
-    "css",
-    "html",
-    done
-  );
-});
+    'del:build',
+    'svg-sprite',
+    'images',
+    'fonts',
+    'styles',
+    'html',
+    'scripts',
+    cb,
+  ),
+);
 
-// Главный таск для разработки, сначала удаляет папку build,
-// потом собирает статику, после чего поднимает сервер
-// и запускает слежение за файлами
-// Запускается из корня проекта командой npm start
-gulp.task("start", function(done) {
-  sequence("build", "server", "watch");
-});
+gulp.task('start', cb => sequence('build', 'serve', 'watch'));

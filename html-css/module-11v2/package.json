@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "prepare": "gulp prepare",
     "start": "gulp start",
     "build": "gulp build",
     "svg-sprite": "gulp svg-sprite",
-    "images": "gulp webp && gulp img"
+    "images": "gulp images"
   },
   "repository": {
     "type": "git",
@@ -21,24 +22,27 @@
   "homepage": "https://github.com/axZerk/gulp-starter-kit#readme",
   "devDependencies": {
     "autoprefixer": "^8.0.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
     "browser-sync": "^2.23.6",
     "del": "^3.0.0",
     "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.1",
+    "gulp-concat": "^2.6.1",
     "gulp-cssnano": "^2.1.2",
+    "gulp-group-css-media-queries": "^1.2.2",
     "gulp-htmlmin": "^4.0.0",
     "gulp-imagemin": "^4.1.0",
-    "gulp-merge-media-queries": "^0.2.1",
     "gulp-plumber": "^1.2.0",
     "gulp-postcss": "^7.0.1",
-    "gulp-posthtml": "^3.0.4",
     "gulp-rename": "^1.2.2",
-    "gulp-sass": "^3.1.0",
-    "gulp-stylelint": "^6.0.0",
+    "gulp-rigger": "^0.5.8",
+    "gulp-sass": "^4.0.1",
+    "gulp-stylelint": "^7.0.0",
     "gulp-svgstore": "^6.1.1",
-    "gulp-webp": "^3.0.0",
-    "posthtml-include": "^1.1.0",
+    "gulp-uglify": "^3.0.0",
     "run-sequence": "^2.2.1",
-    "stylelint": "^9.1.1",
-    "normalize.css": "^8.0.0"
-  }
+    "stylelint": "^9.1.1"
+  },
+  "dependencies": {}
 }
