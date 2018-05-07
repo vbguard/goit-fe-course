@@ -1,3 +1,5 @@
+'use strict';
+
 let userInput;
 const numbers = [];
 let total = 0;
