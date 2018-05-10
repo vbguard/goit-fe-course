@@ -20,13 +20,13 @@ function addLogin() {
   if (!checkLoginValidity(login)) {
     return alert('Ошибка! Логин должен быть от 4 до 16 символов');
   }
+
   if (checkIfLoginExists(logins, login)) {
-    alert('Такой логин уже используется!');
+    return alert('Такой логин уже используется!');
   }
-  if (!checkIfLoginExists(logins, login)) {
-    alert('Логин успешно добавлен!');
-    logins.push(login);
-  }
+
+  logins.push(login);
+  alert('Логин успешно добавлен!');
 };
 
 addLogin(logins, login);
