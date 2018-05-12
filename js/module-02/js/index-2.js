@@ -24,25 +24,20 @@ let limitInputCounter = 3;
 
 do {
   let userInputPass = prompt(`Введіть пароль`, '');
+  const inputIncudes = passwords.includes(userInputPass);
   if (userInputPass === null) {
     break;
   }
-  if (passwords.includes(userInputPass)) {
+  if (inputIncudes) {
     alert('Добро пожаловать!');
     break;
   }
-  if (!passwords.includes(userInputPass)) {
+  if (!inputIncudes) {
     limitInputCounter -= 1;
-    if (userInputPass === null) {
-      break;
-    }
     if (limitInputCounter === 0) {
       alert('У вас закончились попытки, аккаунт заблокирован!');
       break;
     }
     alert(`Неверный пароль, у вас осталось ${limitInputCounter} попыток`);
-    if (userInputPass === null) {
-      break;
-    }
   }
 } while (true);
