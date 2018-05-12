@@ -56,8 +56,6 @@ function Cashier(name, products) {
     return customerMoney;
   };
   this.countChange = function () {
-    console.log(customerMoney);
-    console.log(totalPrice);
     const changeCustomerShop = customerMoney - totalPrice;
     return changeAmount = changeCustomerShop;
   };
@@ -72,7 +70,7 @@ function Cashier(name, products) {
       changeAmount = 0
     };
   };
-  this.serve = function (order) {
+  this.serve = function () {
     this.countTotalPrice(order);
     if (this.getCustomerMoney() === null) {
       this.reset();
@@ -86,9 +84,9 @@ function Cashier(name, products) {
 
 const order = {
   bread: 2,
-  milk: 4,
+  milk: 2,
   apples: 1,
-  cheese: 3
+  cheese: 1
 };
 
 const order2 = {
@@ -100,5 +98,5 @@ const order2 = {
 
 const cashier = new Cashier('Mango', products);
 cashier.serve(order);
-const cashier2 = new Cashier('Tago', products);
-cashier2.serve(order);
+// const cashier2 = new Cashier('Tago', products);
+// cashier2.serve(order);
