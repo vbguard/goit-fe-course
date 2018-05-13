@@ -1,0 +1,36 @@
+{
+  "name": "js-webpack",
+  "version": "1.0.0",
+  "description": "for goit-JS-course",
+  "main": "src/js/app.js",
+  "scripts": {
+    "dev": "webpack-dev-server --mode development --open",
+    "build": "webpack",
+    "watch": "webpack --watch"
+  },
+  "author": "Viktor Bulvarenko",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-3": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.19",
+    "copy-webpack-plugin": "^4.5.1",
+    "css-loader": "^0.28.11",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "file-loader": "^1.1.11",
+    "imagemin-webpack-plugin": "^2.1.5",
+    "img-loader": "^3.0.0",
+    "node-sass": "^4.9.0",
+    "path": "^0.12.7",
+    "postcss-loader": "^2.1.5",
+    "sass-loader": "^7.0.1",
+    "style-loader": "^0.21.0",
+    "svg-url-loader": "^2.3.2",
+    "uglifyjs-webpack-plugin": "^1.2.5",
+    "webpack": "^4.8.2",
+    "webpack-cli": "^2.1.3",
+    "webpack-dev-server": "^3.1.4"
+  }
+}
