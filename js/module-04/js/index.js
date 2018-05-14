@@ -19,17 +19,16 @@ function Cashier(name, products) {
   this.changeAmount = 0;
   this.customerMoney = 0;
 
-  this.countTotalPrice = function () {
-    console.log(arguments);
-    const getOrderList = arguments[0];
+  this.countTotalPrice = function (order) {
+    this.order = order;
     for (const key in this.products) {
-      if (products.hasOwnProperty(key)) {
+      if (this.products.hasOwnProperty(key)) {
         const productsKeys = key;
         const productsElement = this.products[key];
-        for (const key in getOrderList) {
-          if (order.hasOwnProperty(key)) {
+        for (const key in this.order) {
+          if (this.order.hasOwnProperty(key)) {
             const orderKeys = key;
-            const elementFromOrder = getOrderList[key];
+            const elementFromOrder = this.order[key];
             if (productsKeys === orderKeys) {
               const getSummOrderProducts = productsElement * elementFromOrder;
               this.totalPrice += getSummOrderProducts;
@@ -40,7 +39,6 @@ function Cashier(name, products) {
     }
   };
   this.getCustomerMoney = function () {
-
     do {
       this.customerMoney = prompt(`Вас вітає касир ${this.name}. Загальна сумма ${this.totalPrice}, скільки грошей ви даєте?`, '');
       const isInRange = this.totalPrice <= Number(this.customerMoney);
@@ -56,26 +54,21 @@ function Cashier(name, products) {
     } while (true);
   };
   this.countChange = function () {
-    const changeCustomerShop = this.customerMoney - this.totalPrice;
-    this.changeAmount = changeCustomerShop;
+    this.changeAmount = this.customerMoney - this.totalPrice;
   };
   this.reset = function () {
-    if (this.totalPrice > 0) {
-      this.totalPrice = 0;
-    };
-    if (this.customerMoney > 0) {
-      this.customerMoney = 0;
-    };
-    if (this.changeAmount > 0) {
-      this.changeAmount = 0
-    };
+    this.totalPrice = 0;
+    this.customerMoney = 0;
+    this.changeAmount = 0;
   };
-  this.serve = function () {
-    this.countTotalPrice(arguments[0]);
-    this.getCustomerMoney()
+  this.serve = function (order) {
+    this.order = order;
+    this.countTotalPrice(this.order);
+    this.getCustomerMoney();
     if (this.customerMoney === null) {
       this.reset();
-      return alert('Очень жаль, что-то пошло не так, приходите еще');
+      alert('Очень жаль, что-то пошло не так, приходите еще');
+      return null;
     }
     this.countChange();
     alert(`Спасибо за покупку, ваша сдача ${this.changeAmount}`);
@@ -99,5 +92,5 @@ const order2 = {
 const cashier = new Cashier('Mango', products);
 cashier.serve(order);
 
-const cashier2 = new Cashier('Tago', products);
-cashier2.serve(order2);
+// const cashier2 = new Cashier('Tago', products);
+// cashier2.serve(order2);
