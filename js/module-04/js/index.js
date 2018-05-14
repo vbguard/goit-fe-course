@@ -45,9 +45,6 @@ function Cashier(name, products) {
     // }
     //========================
     const keys = Object.keys(order);
-
-    console.log('keys const: ', keys);
-
     for (let key of keys) {
       this.totalPrice += this.order[key] * this.products[key];
     }
