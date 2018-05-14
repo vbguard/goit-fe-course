@@ -21,20 +21,25 @@ function Cashier(name, products) {
 
   this.countTotalPrice = function (order) {
     this.order = order;
-    for (const key in this.products) {
-      if (this.products.hasOwnProperty(key)) {
-        const productsKeys = key;
-        const productsElement = this.products[key];
-        for (const key in this.order) {
-          if (this.order.hasOwnProperty(key)) {
-            const orderKeys = key;
-            const elementFromOrder = this.order[key];
-            if (productsKeys === orderKeys) {
-              const getSummOrderProducts = productsElement * elementFromOrder;
-              this.totalPrice += getSummOrderProducts;
-            }
-          }
-        }
+    // for (const key in this.products) {
+    //   if (this.products.hasOwnProperty(key)) {
+    //     const productsKeys = key;
+    //     const productsElement = this.products[key];
+    //     for (const key in this.order) {
+    //       if (this.order.hasOwnProperty(key)) {
+    //         const orderKeys = key;
+    //         const elementFromOrder = this.order[key];
+    //         if (productsKeys === orderKeys) {
+    //           const getSummOrderProducts = productsElement * elementFromOrder;
+    //           this.totalPrice += getSummOrderProducts;
+    //         }
+    //       }
+    //     }
+    //   }
+    // }
+    for (const key in this.order) {
+      if (this.order.hasOwnProperty(key)) {
+        this.totalPrice += this.order[key] * this.products[key];
       }
     }
   };
