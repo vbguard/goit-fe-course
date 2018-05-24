@@ -21,15 +21,35 @@ function Cashier(name, products) {
 
   this.countTotalPrice = function(order) {
     this.order = order;
-
+    // for (const key in this.products) {
+    //   if (this.products.hasOwnProperty(key)) {
+    //     const productsKeys = key;
+    //     const productsElement = this.products[key];
+    //     for (const key in this.order) {
+    //       if (this.order.hasOwnProperty(key)) {
+    //         const orderKeys = key;
+    //         const elementFromOrder = this.order[key];
+    //         if (productsKeys === orderKeys) {
+    //           const getSummOrderProducts = productsElement * elementFromOrder;
+    //           this.totalPrice += getSummOrderProducts;
+    //         }
+    //       }
+    //     }
+    //   }
+    // }
+    //========================
+    // for (const key in this.order) {
+    //   if (this.order.hasOwnProperty(key)) {
+    //     this.totalPrice += this.order[key] * this.products[key];
+    //   }
+    // }
+    //========================
     const keys = Object.keys(order);
     for (let key of keys) {
       this.totalPrice += this.order[key] * this.products[key];
     }
   };
-
   this.getCustomerMoney = function() {
-
     do {
       this.customerMoney = prompt(
         `Вас вітає касир ${this.name}. Загальна сумма ${
@@ -37,43 +57,35 @@ function Cashier(name, products) {
         }, скільки грошей ви даєте?`,
         '',
       );
-
       const isInRange = this.totalPrice <= Number(this.customerMoney);
       const isNumber = !Number.isNaN(Number(this.customerMoney));
       let isValidInput = isInRange && isNumber;
-
       if (this.customerMoney === null) {
         return null;
       }
-
       if (isValidInput) {
         this.customerMoney = Number(this.customerMoney);
         break;
       }
     } while (true);
   };
-
   this.countChange = function() {
     this.changeAmount = this.customerMoney - this.totalPrice;
   };
-
   this.reset = function() {
     this.totalPrice = 0;
     this.customerMoney = 0;
     this.changeAmount = 0;
   };
-
   this.serve = function(order) {
     this.order = order;
     this.countTotalPrice(this.order);
     this.getCustomerMoney();
-
     if (this.customerMoney === null) {
       this.reset();
       alert('Очень жаль, что-то пошло не так, приходите еще');
       return null;
     }
-
     this.countChange();
     alert(`Спасибо за покупку, ваша сдача ${this.changeAmount}`);
     this.reset();

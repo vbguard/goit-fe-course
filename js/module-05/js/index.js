@@ -5,14 +5,13 @@ function SocialBook(users = [], posts = {}) {
   this.posts = posts;
   //user Method
   this.getAllUsers = () => this.users;
+
   this.getUserByLogin = login =>
-    this.users.filter(getUser => getUser.login === login);
+    this.users.find(getUser => getUser.login === login);
+
   this.getUserStatus = userId =>
-    this.users
-      .filter(getUserId => getUserId.id === userId)
-      .some(userStat => userStat.isActive === true)
-      ? 'active'
-      : 'inactive';
+    this.users.find(getUser => getUser.id === userId).isActive ? 'active' : 'inactive';
+
   this.addUser = function(user) {
     const getId = () =>
       '-' +
@@ -23,14 +22,18 @@ function SocialBook(users = [], posts = {}) {
       id: getId(),
       isActive: true,
     };
-    this.users.push(Object.assign(newUserPattern, user));
+    this.users.push({...newUserPattern, ...user});
   };
+
   this.removeUserById = function(userId) {
-    this.users.filter(removeById => removeById.id !== userId);
+    delete this.users[this.users.findIndex(user => user.id === userId)];
   };
+
   this.getUsersCount = () => this.users.length;
+
   //post Method
   this.getUserPosts = userId => this.posts[userId];
+
   this.addPost = function(userId, post) {
     if (!this.posts.hasOwnProperty(userId)) {
       this.posts[userId] = [];
@@ -42,22 +45,28 @@ function SocialBook(users = [], posts = {}) {
         .toString(36)
         .substr(2, 9);
     const postPattern = { id: getId(), likes: 0 };
-    getUserPosts.push(Object.assign(postPattern, post));
+    getUserPosts.push({...postPattern, ...post});
   };
-  this.removePost = function(userId, postId) {
-    const getIndexPost = this.posts[userId].map(x => x.id).indexOf(postId);
-    this.posts[userId].splice(getIndexPost, 1);
-  };
+
+  this.removePost = (userId, postId) =>
+    this.posts[userId] = this.posts[userId].filter(post => post.id !== postId);
+
   this.getAllLikes = userId =>
-    this.posts[userId].reduce((acc, user) => acc + user.likes, 0);
+    this.posts[userId].reduce((acc, post) => acc + post.likes, 0);
 
   this.addPostLike = function(userId, postId) {
-    this.posts[userId][
-      this.posts[userId].map(post => post.id).indexOf(postId)
-    ].likes = this.posts[userId][
-      this.posts[userId].map(post => post.id).indexOf(postId)
-    ].likes += 1;
+    this.posts[userId] = this.posts[userId].map(post => {
+      if (post.id === postId) {
+        return {
+          ...post,
+          likes: post.likes + 1,
+        };
+      }
+
+      return post;
+    });
   };
+
   this.getPostsCount = userId => this.posts[userId].length;
 }
 
@@ -131,8 +140,9 @@ const social1 = new SocialBook(initialUsers, initialPosts);
 console.log(social1.getAllUsers());
 console.log(social1.getUserByLogin('polysweet@skynet.ze'));
 console.log(social1.getUserStatus('-e51cpd4di'));
-console.log(social1.getUserStatus('-qkpzenjxe'));
-console.log(social1.addUser({login: 'mazafix@fix.hot', password: 'owKAdoka21'}));
+console.log(
+  social1.addUser({ login: 'mazafix@fix.hot', password: 'owKAdoka21' }),
+);
 console.log(social1.removeUserById('-qkpzenjxe'));
 console.log(social1.getUsersCount('-s19a6hqce'));
 console.log(social1.getUserPosts('-e51cpd4di'));
