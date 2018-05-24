@@ -26,7 +26,7 @@ function SocialBook(users = [], posts = {}) {
   };
 
   this.removeUserById = function(userId) {
-    delete this.users[this.users.findIndex(user => user.id === userId)];
+    this.users = this.users.filter( user => user.id !== userId);
   };
 
   this.getUsersCount = () => this.users.length;
