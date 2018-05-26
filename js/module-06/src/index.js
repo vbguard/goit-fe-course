@@ -1,4 +1,3 @@
-
 class Hamburger {
   constructor({
     size,
@@ -55,49 +54,44 @@ class Hamburger {
     },
   };
 
-  addTopping = function (topping) {
-    if (this.toppings.length === 0) {
-      return this.toppings.push(topping);
+  addTopping(topping) {
+    if (this.toppings.length > 0) {
+      this.toppings.includes(topping) ? console.log(`you want add ${topping} his we Have`) : this.toppings.push(topping);
     }
 
-    return this.toppings.filter(key => key !== topping ? this.toppings.push(topping) : console.log(`you want add topping his we Have`));
-
-  }
-
-  removeTopping = function (topping) {
     if (this.toppings.length === 0) {
-      return console.log('Nozing remove, fist add you topping');
+      this.toppings.push(topping);
     }
-
-    return this.toppings = this.toppings.filter(key => key !== topping);
   }
 
-  getToppings = function () {
+  removeTopping(topping) {
+    this.toppings = this.toppings.filter(key => key !== topping);
+  }
+
+  getToppings() {
     return this.toppings;
   }
 
-  getSize = function () {
+  getSize() {
     return this.size;
   }
 
-  getStuffing = function () {
+  getStuffing() {
     return this.stuffing;
   }
 
-  calculatePrice = function () {
+  calculatePrice() {
     let totalPrice = 0;
-    let totalToppingsPrice = 0;
-    const getToppingsValuePrice = this.toppings.filter(value => totalToppingsPrice += Hamburger.TOPPINGS[value].price);
-    totalPrice += Hamburger.SIZES[this.size].price + Hamburger.STUFFINGS[this.stuffing].price + totalToppingsPrice;
+    const getTotalToppingsPrice = this.toppings.reduce((acc, value) => acc + Hamburger.TOPPINGS[value].price, 0);
+    totalPrice = Hamburger.SIZES[this.size].price + Hamburger.STUFFINGS[this.stuffing].price + getTotalToppingsPrice;
 
     return totalPrice;
   }
 
-  calculateCalories = function () {
+  calculateCalories() {
     let totalCalories = 0;
-    let totalToppingsCalories = 0;
-    const getToppingsValueCalories = this.toppings.filter(value => totalToppingsCalories += Hamburger.TOPPINGS[value].price);
-    totalCalories += Hamburger.SIZES[this.size].calories + Hamburger.STUFFINGS[this.stuffing].calories + totalToppingsCalories;
+    const getTotalToppingsCalories = this.toppings.reduce((acc, value) => acc + Hamburger.TOPPINGS[value].calories, 0);
+    totalCalories = Hamburger.SIZES[this.size].calories + Hamburger.STUFFINGS[this.stuffing].calories + getTotalToppingsCalories;
 
     return totalCalories;
   }

@@ -2,76 +2,83 @@
 
 var _Hamburger$SIZES, _Hamburger$STUFFINGS, _Hamburger$TOPPINGS;
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Hamburger = function Hamburger(_ref) {
-  var size = _ref.size,
-      stuffing = _ref.stuffing;
+var Hamburger = function () {
+  function Hamburger(_ref) {
+    var size = _ref.size,
+        stuffing = _ref.stuffing;
 
-  _classCallCheck(this, Hamburger);
+    _classCallCheck(this, Hamburger);
 
-  this.addTopping = function (topping) {
-    var _this = this;
+    this.size = size;
+    this.stuffing = stuffing;
+    this.toppings = [];
+  }
 
-    if (this.toppings.length === 0) {
-      return this.toppings.push(topping);
+  _createClass(Hamburger, [{
+    key: 'addTopping',
+    value: function addTopping(topping) {
+      if (this.toppings.length > 0) {
+        this.toppings.includes(topping) ? console.log('you want add ' + topping + ' his we Have') : this.toppings.push(topping);
+      }
+
+      if (this.toppings.length === 0) {
+        this.toppings.push(topping);
+      }
     }
-
-    return this.toppings.filter(function (key) {
-      return key !== topping ? _this.toppings.push(topping) : console.log('you want add topping his we Have');
-    });
-  };
-
-  this.removeTopping = function (topping) {
-    if (this.toppings.length === 0) {
-      return console.log('Nozing remove, fist add you topping');
+  }, {
+    key: 'removeTopping',
+    value: function removeTopping(topping) {
+      this.toppings = this.toppings.filter(function (key) {
+        return key !== topping;
+      });
     }
+  }, {
+    key: 'getToppings',
+    value: function getToppings() {
+      return this.toppings;
+    }
+  }, {
+    key: 'getSize',
+    value: function getSize() {
+      return this.size;
+    }
+  }, {
+    key: 'getStuffing',
+    value: function getStuffing() {
+      return this.stuffing;
+    }
+  }, {
+    key: 'calculatePrice',
+    value: function calculatePrice() {
+      var totalPrice = 0;
+      var getTotalToppingsPrice = this.toppings.reduce(function (acc, value) {
+        return acc + Hamburger.TOPPINGS[value].price;
+      }, 0);
+      totalPrice = Hamburger.SIZES[this.size].price + Hamburger.STUFFINGS[this.stuffing].price + getTotalToppingsPrice;
 
-    return this.toppings = this.toppings.filter(function (key) {
-      return key !== topping;
-    });
-  };
+      return totalPrice;
+    }
+  }, {
+    key: 'calculateCalories',
+    value: function calculateCalories() {
+      var totalCalories = 0;
+      var getTotalToppingsCalories = this.toppings.reduce(function (acc, value) {
+        return acc + Hamburger.TOPPINGS[value].calories;
+      }, 0);
+      totalCalories = Hamburger.SIZES[this.size].calories + Hamburger.STUFFINGS[this.stuffing].calories + getTotalToppingsCalories;
 
-  this.getToppings = function () {
-    return this.toppings;
-  };
+      return totalCalories;
+    }
+  }]);
 
-  this.getSize = function () {
-    return this.size;
-  };
-
-  this.getStuffing = function () {
-    return this.stuffing;
-  };
-
-  this.calculatePrice = function () {
-    var totalPrice = 0;
-    var totalToppingsPrice = 0;
-    var getToppingsValuePrice = this.toppings.filter(function (value) {
-      return totalToppingsPrice += Hamburger.TOPPINGS[value].price;
-    });
-    totalPrice += Hamburger.SIZES[this.size].price + Hamburger.STUFFINGS[this.stuffing].price + totalToppingsPrice;
-
-    return totalPrice;
-  };
-
-  this.calculateCalories = function () {
-    var totalCalories = 0;
-    var totalToppingsCalories = 0;
-    var getToppingsValueCalories = this.toppings.filter(function (value) {
-      return totalToppingsCalories += Hamburger.TOPPINGS[value].price;
-    });
-    totalCalories += Hamburger.SIZES[this.size].calories + Hamburger.STUFFINGS[this.stuffing].calories + totalToppingsCalories;
-
-    return totalCalories;
-  };
-
-  this.size = size;
-  this.stuffing = stuffing;
-  this.toppings = [];
-};
+  return Hamburger;
+}();
 
 Hamburger.SIZE_SMALL = 'SIZE_SMALL';
 Hamburger.SIZE_LARGE = 'SIZE_LARGE';
