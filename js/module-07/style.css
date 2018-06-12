@@ -1,0 +1,102 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: "PT Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.post-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.post {
+  flex: 0 0 400px;
+  margin-right: 20px;
+  padding: 10px;
+  box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+  color: #212121;
+}
+
+.post__image {
+  margin-bottom: 20px;
+}
+
+.post__title {
+  margin: 0;
+  margin-bottom: 5px;
+  font-size: 28px;
+}
+
+.post__text {
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.post__actions {
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+}
+
+.actions {
+  margin: 0;
+  padding: 0;
+}
+
+.actions__item {
+  margin-left: 10px;
+}
+
+.actions__count {
+  margin-top: 5px;
+  font-size: 20px;
+}
+
+.actions__btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: none;
+  margin: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.actions__icon {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.actions__icon--like {
+  background-image: url("https://image.flaticon.com/icons/png/512/656/656742.png");
+}
+
+.actions__icon--dislike {
+  background-image: url("https://image.flaticon.com/icons/png/512/656/656741.png");
+}
+
+.actions__icon--fav {
+  background-image: url("https://image.flaticon.com/icons/png/512/276/276049.png");
+}
