@@ -14,75 +14,68 @@ var Gallery = function () {
 
     this._items = items;
     this._parentNode = parentNode;
-    this._defaultActiveItem = defaultActiveItem;
-    this._list = document.createElement('ul');
+    this._defaultActiveItem = defaultActiveItem - 1;
+    this._listPreview = null;
+    this._listPreviewItems = null;
+    this._fullviewWrap = null;
+    this._fullviewImg = null;
+
+    this.createGalleryElement();
   }
 
   _createClass(Gallery, [{
-    key: 'getListPreview',
-    value: function getListPreview() {
-      var list = this._list;
-      list.classList.add('preview');
-      console.log('in CreatePrev: ', list);
+    key: 'createGalleryElement',
+    value: function createGalleryElement() {
+      this.createListPreview();
+      this.createDefaultFullview();
+      this.changeFullviewOnClick();
+      this._parentNode.classList.add('image-gallery');
+      this._parentNode.append(this._fullviewWrap, this._listPreview);
+    }
+  }, {
+    key: 'createDefaultFullview',
+    value: function createDefaultFullview() {
+      this._fullviewWrap = document.createElement('div');
+      this._fullviewWrap.classList.add('fullpreview');
+
+      this._fullviewImg = document.createElement('img');
+      this._fullviewWrap.appendChild(this._fullviewImg);
+
+      var getAttForFullImg = Array.from(this._listPreview.childNodes)[this._defaultActiveItem].firstChild;
+      this._fullviewImg.src = getAttForFullImg.dataset.fullview;
+      this._fullviewImg.alt = getAttForFullImg.alt;
+    }
+  }, {
+    key: 'createListPreview',
+    value: function createListPreview() {
+      var _this = this;
+
+      this._listPreview = document.createElement('ul');
+      this._listPreview.classList.add('preview');
+
       this._items.forEach(function (item) {
-        var listItem = document.createElement('li');
+        _this._listPreviewItems = document.createElement('li');
         var previewImg = document.createElement('img');
         previewImg.src = item.preview;
         previewImg.alt = item.alt;
         previewImg.dataset.fullview = item.fullview;
-        listItem.append(previewImg);
-        list.appendChild(listItem);
+        _this._listPreviewItems.append(previewImg);
+        _this._listPreview.appendChild(_this._listPreviewItems);
       });
-      return list;
-    }
-  }, {
-    key: 'getDefaultFullview',
-    value: function getDefaultFullview() {
-      var _this = this;
-
-      var wrap = document.createElement('div');
-      wrap.classList.add('fullpreview');
-
-      var fullviewImg = document.createElement('img');
-      wrap.appendChild(fullviewImg);
-
-      setTimeout(function () {
-        var setDefaultFullviewImg = Array.from(_this._list.childNodes)[_this._defaultActiveItem - 1].childNodes;
-        fullviewImg.src = setDefaultFullviewImg[0].dataset.fullview;
-        fullviewImg.alt = setDefaultFullviewImg[0].alt;
-      }, 0);
-
-      return wrap;
     }
   }, {
     key: 'changeFullviewOnClick',
     value: function changeFullviewOnClick() {
-      this._list.addEventListener('click', handlePreviewClick);
+      var _this2 = this;
 
-      function handlePreviewClick(event) {
-        console.log('handleClick first: ', event.target);
-
+      this._parentNode.addEventListener('click', function (event) {
         var nodeName = event.target.nodeName;
-        var getFullviewImg = document.querySelector('.fullpreview > img');
 
-        getFullviewImg.src = event.target.dataset.fullview;
-        getFullviewImg.alt = event.alt;
+        _this2._fullviewImg.src = event.target.dataset.fullview;
+        _this2._fullviewImg.alt = event.target.alt;
 
-        console.log('handleClick second: ', event.target.nodeName);
-        console.log('handleClick second: ', event);
-
-        if (nodeName !== 'IMG') {
-          return console.log('not work');
-        }
-      }
-    }
-  }, {
-    key: 'getGallery',
-    value: function getGallery() {
-      this._parentNode.classList.add('image-gallery');
-      this._parentNode.append(this.getDefaultFullview(), this.getListPreview());
-      this.changeFullviewOnClick();
-      console.log(this._parentNode);
+        if (nodeName !== 'IMG') return;
+      });
     }
   }]);
 
@@ -128,5 +121,3 @@ var secondGallery = new Gallery({
   parentNode: document.querySelector('.js-second-gallery'),
   defaultActiveItem: 3
 });
-mainGallery.getGallery();
-secondGallery.getGallery();
