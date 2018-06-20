@@ -31,7 +31,7 @@ var Stopwatch = function () {
     key: 'createLayout',
     value: function createLayout() {
       this.parentNode.classList.add('clock');
-      // Function for create SUPER Secondomizer ))
+
       this.createTimerDisplay();
       this.createBtnStart();
       this.createBtnStop();
@@ -74,27 +74,21 @@ var Stopwatch = function () {
       var _this = this;
 
       this.startBtn.addEventListener('click', function (e) {
-        // if () провірка на текст який є PAUSE CONTINUE. Якщо перший то роби то якщо другий то те
         var getStartBtnText = _this.startBtn.textContent;
-        // textContent = START
+
         if (getStartBtnText === 'start') {
-          console.log('push start');
-          //start timer + change textContent
           _this.startTimer();
           _this.startBtn.textContent = 'pause';
         }
-        //textContent = PAUSE
+
         if (getStartBtnText === 'pause') {
-          console.log('push pause');
           _this.startBtn.textContent = 'continue';
           _this.stopBtn.textContent = 'lap';
-          console.log(_this.diffTime);
           _this.timeClearInterval();
           _this.pauseTime = _this.diffTime;
         }
-        //textContent = CONTINUE
+
         if (getStartBtnText === 'continue') {
-          console.log('push continue');
           _this.startBtn.textContent = 'pause';
           _this.stopBtn.textContent = 'reset';
           _this.startTimer();
@@ -107,7 +101,6 @@ var Stopwatch = function () {
       var _this2 = this;
 
       this.stopBtn.addEventListener('click', function (e) {
-
         var getStopBtnText = _this2.stopBtn.textContent;
 
         if (getStopBtnText === 'reset') {
@@ -115,7 +108,6 @@ var Stopwatch = function () {
         }
 
         if (getStopBtnText === 'lap') {
-          console.log('lap Push Value to list change');
           _this2.stopBtn.textContent = 'reset';
           _this2.addTimeValueToLaps();
         }
@@ -146,10 +138,9 @@ var Stopwatch = function () {
   }, {
     key: 'reset',
     value: function reset() {
-      console.log('it RESET -> ', this.parentNode);
       this.startBtn.textContent = 'start';
       this.timeDisplay.textContent = '00:00.0';
-
+      this.timeClearInterval();
       this.laps.remove();
       this.timerId = null;
       this.isActive = false;
@@ -160,7 +151,6 @@ var Stopwatch = function () {
     value: function addTimeValueToLaps() {
       this.lapsItems = document.createElement('li');
       this.lapsItems.textContent = this.convertTime(this.pauseTime);
-
       this.laps.appendChild(this.lapsItems);
     }
   }, {
@@ -174,9 +164,6 @@ var Stopwatch = function () {
     value: function diffTimer() {
       this.diffTime = this.pauseTime + (this.nextTime - this.startTime);
     }
-  }, {
-    key: 'addNextTimeAfterPause',
-    value: function addNextTimeAfterPause() {}
   }, {
     key: 'convertTime',
     value: function convertTime(val) {

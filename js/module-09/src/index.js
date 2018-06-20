@@ -33,7 +33,6 @@ class Stopwatch {
 
     this.parentNode.append(this.timeDisplay, this.startBtn, this.stopBtn, this.laps);
   }
-
   createTimerDisplay() {
     this.timeDisplay = document.createElement('p');
     this.timeDisplay.classList.add('js-time', 'time');
@@ -90,7 +89,6 @@ class Stopwatch {
       }
     });
   }
-
   startTimer() {
     if (!this.isActive) {
       this.isActive = true;
@@ -103,16 +101,14 @@ class Stopwatch {
       }, 100);
     }
   }
-
   timeClearInterval() {
     clearInterval(this.timerId);
     this.isActive = false;
   }
   reset() {
-    console.log('it RESET -> ', this.parentNode);
     this.startBtn.textContent = 'start';
     this.timeDisplay.textContent = '00:00.0';
-
+    this.timeClearInterval();
     this.laps.remove();
     this.timerId = null;
     this.isActive = false;
