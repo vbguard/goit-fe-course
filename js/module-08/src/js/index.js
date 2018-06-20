@@ -32,9 +32,13 @@ class Gallery {
     this._fullviewImg = document.createElement('img');
     this._fullviewWrap.appendChild(this._fullviewImg);
 
-    const getAttForFullImg = Array.from(this._listPreview.childNodes)[this._defaultActiveItem].firstChild;
-    this._fullviewImg.src = getAttForFullImg.dataset.fullview;
-    this._fullviewImg.alt = getAttForFullImg.alt;
+    // const getAttForFullImg = Array.from(this._listPreview.childNodes)[this._defaultActiveItem].firstChild;
+    // this._fullviewImg.src = getAttForFullImg.dataset.fullview;
+    // this._fullviewImg.alt = getAttForFullImg.alt;
+
+    const { fullview, alt } = this._items[this._defaultActiveItem];
+    this._fullviewImg.src = fullview;
+    this._fullviewImg.alt = alt;
   }
 
   createListPreview() {

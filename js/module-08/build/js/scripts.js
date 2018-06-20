@@ -41,9 +41,16 @@ var Gallery = function () {
       this._fullviewImg = document.createElement('img');
       this._fullviewWrap.appendChild(this._fullviewImg);
 
-      var getAttForFullImg = Array.from(this._listPreview.childNodes)[this._defaultActiveItem].firstChild;
-      this._fullviewImg.src = getAttForFullImg.dataset.fullview;
-      this._fullviewImg.alt = getAttForFullImg.alt;
+      // const getAttForFullImg = Array.from(this._listPreview.childNodes)[this._defaultActiveItem].firstChild;
+      // this._fullviewImg.src = getAttForFullImg.dataset.fullview;
+      // this._fullviewImg.alt = getAttForFullImg.alt;
+
+      var _items$_defaultActive = this._items[this._defaultActiveItem],
+          fullview = _items$_defaultActive.fullview,
+          alt = _items$_defaultActive.alt;
+
+      this._fullviewImg.src = fullview;
+      this._fullviewImg.alt = alt;
     }
   }, {
     key: 'createListPreview',
