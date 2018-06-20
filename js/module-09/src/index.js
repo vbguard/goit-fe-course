@@ -23,7 +23,7 @@ class Stopwatch {
 
   createLayout() {
     this.parentNode.classList.add('clock');
-    // Function for create SUPER Secondomizer ))
+
     this.createTimerDisplay();
     this.createBtnStart();
     this.createBtnStop();
@@ -55,27 +55,21 @@ class Stopwatch {
   }
   startBtnClick() {
     this.startBtn.addEventListener('click', (e) => {
-      // if () провірка на текст який є PAUSE CONTINUE. Якщо перший то роби то якщо другий то те
       const getStartBtnText = this.startBtn.textContent;
-      // textContent = START
+
       if (getStartBtnText === 'start') {
-        console.log('push start');
-        //start timer + change textContent
         this.startTimer();
         this.startBtn.textContent = 'pause';
       }
-      //textContent = PAUSE
+
       if (getStartBtnText === 'pause') {
-        console.log('push pause');
         this.startBtn.textContent = 'continue';
         this.stopBtn.textContent = 'lap';
-        console.log(this.diffTime);
         this.timeClearInterval();
         this.pauseTime = this.diffTime;
       }
-      //textContent = CONTINUE
+
       if (getStartBtnText === 'continue') {
-        console.log('push continue');
         this.startBtn.textContent = 'pause';
         this.stopBtn.textContent = 'reset';
         this.startTimer();
@@ -84,7 +78,6 @@ class Stopwatch {
   }
   stopBtnClick() {
     this.stopBtn.addEventListener('click', (e) => {
-
       const getStopBtnText = this.stopBtn.textContent;
 
       if (getStopBtnText === 'reset') {
@@ -92,7 +85,6 @@ class Stopwatch {
       }
 
       if (getStopBtnText === 'lap') {
-        console.log('lap Push Value to list change');
         this.stopBtn.textContent = 'reset';
         this.addTimeValueToLaps();
       }
@@ -129,7 +121,6 @@ class Stopwatch {
   addTimeValueToLaps() {
     this.lapsItems = document.createElement('li');
     this.lapsItems.textContent = this.convertTime(this.pauseTime);
-
     this.laps.appendChild(this.lapsItems);
   }
   updateTimeDisplay() {
@@ -137,36 +128,32 @@ class Stopwatch {
     this.timeDisplay.textContent = this.timer;
   }
   diffTimer() {
-     this.diffTime = this.pauseTime + (this.nextTime - this.startTime);
+    this.diffTime = this.pauseTime + (this.nextTime - this.startTime);
   }
-  addNextTimeAfterPause() {
-
-  }
-  convertTime(val){
+  convertTime(val) {
     const date = new Date(val);
     let min = date.getMinutes();
     let sec = date.getSeconds();
     let ms = date.getMilliseconds();
-    if ( min < 10 ) {
+    if (min < 10) {
       min = `0${min}`;
     }
-    if ( sec < 10 ) {
+    if (sec < 10) {
       sec = `0${sec}`;
     }
     return `${min}:${sec}.${Number.parseInt(ms / 100)}`;
   }
-
   checkingConstructor() {
     console.log('this.counter: ', this.counter);
     console.log('this.timerId: ', this.timerId);
     console.log('this.timer: ', this.timer);
     console.log('this.time: ', this.time);
     console.log('this.startTime: ', this.startTime);
-    console.log('this.pauseTime: ',this.pauseTime);
-    console.log('this.lapTime: ',this.lapTime);
+    console.log('this.pauseTime: ', this.pauseTime);
+    console.log('this.lapTime: ', this.lapTime);
     console.log('this.startTime: ', this.startTime);
     console.log('this.nextTime: ', this.nextTime);
-    console.log('this.pauseTime: ',this.pauseTime);
+    console.log('this.pauseTime: ', this.pauseTime);
   }
 }
 
