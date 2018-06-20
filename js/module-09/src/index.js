@@ -1,60 +1,163 @@
-/*
-  Создайте скрипт приложения-секундомера.
+'use strict';
 
-  Изначально в HTML есть разметка:
+class Stopwatch {
+  constructor({
+    parentNode
+  }) {
+    this.parentNode = parentNode;
+    this.isActive = false;
+    this.timeDisplay = null;
+    this.startBtn = null;
+    this.stopBtn = null;
+    this.laps = null;
+    this.lapsItems = null;
+    this.counter = 0;
+    this.timerId = null;
+    this.timer = 1;
+    this.startTime = null;
+    this.pauseTime = null;
 
-  <div class="stopwatch">
-    <p class="time js-time">00:00.0</p>
-    <button class="btn js-start">Start</button>
-    <button class="btn js-reset">Reset</button>
-  </div>
-  <ul class="laps js-laps"></ul>
+    this.createLayout();
+  }
 
-  Добавьте следующий функционал:
+  createLayout() {
+    this.parentNode.classList.add('clock');
+    // Function for create SUPER Secondomizer ))
+    this.createTimerTab();
+    this.createBtnStart();
+    this.createBtnStop();
+    this.createLapsList();
+    this.startBtnClick();
+    this.stopBtnClick();
 
-  - При нажатии на кнопку button.js-start, запускается таймер, который считает время
-    со старта и до текущего момента времени, обновляя содержимое DOM-узла p.js-time
-    новым значение времени в формате xx:xx.x
+    this.parentNode.append(this.timeDisplay, this.startBtn, this.stopBtn, this.laps);
+  }
 
-    🔔 Подсказка: вам понадобится буль который описывает состояние таймера активен/неактивен.
+  createTimerTab() {
+    this.timeDisplay = document.createElement('p');
+    this.timeDisplay.classList.add('js-time', 'time');
+    this.timeDisplay.textContent = '00:00.0';
+  }
+  createBtnStart() {
+    this.startBtn = document.createElement('button');
+    this.startBtn.classList.add('btn', 'js-start');
+    this.startBtn.textContent = 'start';
+  }
+  createBtnStop() {
+    this.stopBtn = document.createElement('button');
+    this.stopBtn.classList.add('btn', 'js-stop');
+    this.stopBtn.textContent = 'reset';
+  }
+  createLapsList() {
+    this.laps = document.createElement('ul');
+    this.laps.classList.add('laps', 'js-laps');
+  }
+  startBtnClick() {
+    this.startBtn.addEventListener('click', (e) => {
+      // if () провірка на текст який є PAUSE CONTINUE. Якщо перший то роби то якщо другий то те
+      const getStartBtnText = this.startBtn.textContent;
+      // textContent = START
+      if (getStartBtnText === 'start') {
+        console.log('push start');
+        //start timer + change textContent
+        this.startTimer();
+        this.startBtn.textContent = 'pause';
 
-  - Когда секундомер запущен, текст кнопки button.js-start меняется на 'Pause',
-    а функционал при клике превращается в оставновку секундомера без сброса
-    значений времени.
+      }
+      if (getStartBtnText === 'pause') {
+        console.log('push pause');
+        this.startBtn.textContent = 'continue';
+        this.stopBtn.textContent = 'lap';
+        this.timeClearInterval();
+      }
+      if (getStartBtnText === 'continue') {
+        console.log('push continue');
+        this.startBtn.textContent = 'pause';
+        this.stopBtn.textContent = 'reset';
+        this.startTimer();
+      }
+    });
+  }
+  stopBtnClick() {
+    this.stopBtn.addEventListener('click', (e) => {
 
-  - Если секундомер находится в состоянии паузы, текст на кнопке button.js-start
-    меняется на 'Continue', и таймер продолжает отсчет времени, как будто паузы
-    небыло. То есть если во время нажатия 'Pause' прошло 6 секунд со старта,
-    то при нажатии 'Continue' 10 секунд спустя, секундомер продолжит отсчет времени
-    с 6 секунд и дальше, а не с 16.
+      const getStopBtnText = this.stopBtn.textContent;
 
-    🔔 Подсказка: сохраните время паузы и используйте его при рассчете текущего времени.
+      if (getStopBtnText === 'reset') {
+        this.reset();
+      }
 
-  - Если секундомер находится в активном состоянии, текст кнопки button.js-reset
-    должен быть 'Reset', а функционал при клике - остановка таймера и сброс всех
-    полей в исходное состояние.
+      if (getStopBtnText === 'lap') {
+        console.log('lap Push Value to list change');
+        this.stopBtn.textContent = 'reset';
+        this.pauseTime = this.timeDisplay.textContent;
+        this.addTimeValueToLaps();
+      }
+    });
+  }
 
-  - Если секундомер находится в состоянии паузы, текст кнопки button.js-reset должен
-    быть 'Lap', а функционал при клике - сохранение текущего времени секундомера в массив
-    и добавление в ul.js-laps нового li с сохраненным временем в формате xx:xx.x
-*/
+  startTimer() {
+    if (!this.isActive) {
+      this.isActive = true;
+      this.timerId = setInterval(() => {
+        this.timeDisplay.textContent = `00:${this.timer.toFixed(1)}`;
+        this.timer += 0.1;
+      }, 100);
+    }
+  }
+  timeClearInterval() {
+    clearInterval(this.timerId);
+    this.isActive = false;
+  }
+  reset() {
+    console.log('it RESET -> ', this.parentNode);
+    this.startBtn.textContent = 'start';
+    this.timeDisplay.textContent = '00:00.0';
+    //stop interval --->
+    //cler ListLaps items --->
+    clearInterval(this.timerId);
+    this.timerId = null;
+    this.isActive = false;
+    this.checkingConstructor();
+  }
+  addTimeValueToLaps() {
+    this.lapsItems = document.createElement('li');
+    this.lapsItems.textContent = this.pauseTime;
 
-/*
-  ⚠️ ЗАДАНИЕ ПОВЫШЕННОЙ СЛОЖНОСТИ - ВЫПОЛНЯТЬ ПО ЖЕЛАНИЮ
+    this.laps.appendChild(this.lapsItems);
+  }
+  updateTimeDisplay() {
 
-  Выполните домашнее задание используя класс с полями и методами.
+  }
+  convertTime() {
 
-  На вход класс Stopwatch принимает только ссылку на DOM-узел в котором будет
-  динамически создана вся разметка для секундомера.
+  }
 
-  Должна быть возможность создать сколько угодно экземпляров секундоментов
-  на странице и все они будут работать независимо.
+  checkingConstructor() {
+    console.log('this.isActive: ', this.isActive);
+    console.log('this.timeTab: ', this.timeDisplay);
+    console.log('this.startBtn: ', this.startBtn);
+    console.log('this.stopBtn: ', this.stopBtn);
+    console.log('this.laps: ', this.laps);
+    console.log('this.lapsItems: ', this.lapsItems);
+    console.log('this.counter: ', this.counter);
+    console.log('this.timerId: ', this.timerId);
+    console.log('this.timer: ', this.timer);
+    console.log('this.time: ', this.time);
 
-  К примеру:
+  }
+}
 
-  new Stopwatch(parentA);
-  new Stopwatch(parentB);
-  new Stopwatch(parentC);
+const parentA = {
+  parentNode: document.querySelector('.parentA')
+};
+const parentB = {
+  parentNode: document.querySelector('.parentB')
+};
+const parentC = {
+  parentNode: document.querySelector('.parentC')
+};
 
-  Где parent* это существующий DOM-узел.
-*/
+const clock1 = new Stopwatch(parentA);
+const clock2 = new Stopwatch(parentB);
+const clock3 = new Stopwatch(parentC);

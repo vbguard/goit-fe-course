@@ -23,8 +23,6 @@ class Gallery {
     this.changeFullviewOnClick();
     this._parentNode.classList.add('image-gallery');
     this._parentNode.append(this._fullviewWrap, this._listPreview);
-
-
   }
 
   createDefaultFullview() {
@@ -37,7 +35,6 @@ class Gallery {
     const getAttForFullImg = Array.from(this._listPreview.childNodes)[this._defaultActiveItem].firstChild;
     this._fullviewImg.src = getAttForFullImg.dataset.fullview;
     this._fullviewImg.alt = getAttForFullImg.alt;
-
   }
 
   createListPreview() {
