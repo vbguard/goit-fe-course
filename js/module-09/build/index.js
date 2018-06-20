@@ -17,11 +17,12 @@ var Stopwatch = function () {
     this.stopBtn = null;
     this.laps = null;
     this.lapsItems = null;
-    this.counter = 0;
     this.timerId = null;
-    this.timer = 1;
+    this.timer = null;
     this.startTime = null;
-    this.pauseTime = null;
+    this.nextTime = null;
+    this.pauseTime = 0;
+    this.diffTime = null;
 
     this.createLayout();
   }
@@ -31,7 +32,7 @@ var Stopwatch = function () {
     value: function createLayout() {
       this.parentNode.classList.add('clock');
       // Function for create SUPER Secondomizer ))
-      this.createTimerTab();
+      this.createTimerDisplay();
       this.createBtnStart();
       this.createBtnStop();
       this.createLapsList();
@@ -41,8 +42,8 @@ var Stopwatch = function () {
       this.parentNode.append(this.timeDisplay, this.startBtn, this.stopBtn, this.laps);
     }
   }, {
-    key: 'createTimerTab',
-    value: function createTimerTab() {
+    key: 'createTimerDisplay',
+    value: function createTimerDisplay() {
       this.timeDisplay = document.createElement('p');
       this.timeDisplay.classList.add('js-time', 'time');
       this.timeDisplay.textContent = '00:00.0';
@@ -82,12 +83,16 @@ var Stopwatch = function () {
           _this.startTimer();
           _this.startBtn.textContent = 'pause';
         }
+        //textContent = PAUSE
         if (getStartBtnText === 'pause') {
           console.log('push pause');
           _this.startBtn.textContent = 'continue';
           _this.stopBtn.textContent = 'lap';
+          console.log(_this.diffTime);
           _this.timeClearInterval();
+          _this.pauseTime = _this.diffTime;
         }
+        //textContent = CONTINUE
         if (getStartBtnText === 'continue') {
           console.log('push continue');
           _this.startBtn.textContent = 'pause';
@@ -112,7 +117,6 @@ var Stopwatch = function () {
         if (getStopBtnText === 'lap') {
           console.log('lap Push Value to list change');
           _this2.stopBtn.textContent = 'reset';
-          _this2.pauseTime = _this2.timeDisplay.textContent;
           _this2.addTimeValueToLaps();
         }
       });
@@ -124,9 +128,12 @@ var Stopwatch = function () {
 
       if (!this.isActive) {
         this.isActive = true;
+        this.startTime = Date.now();
+
         this.timerId = setInterval(function () {
-          _this3.timeDisplay.textContent = '00:' + _this3.timer.toFixed(1);
-          _this3.timer += 0.1;
+          _this3.nextTime = Date.now();
+          _this3.diffTimer();
+          _this3.updateTimeDisplay();
         }, 100);
       }
     }
@@ -142,40 +149,62 @@ var Stopwatch = function () {
       console.log('it RESET -> ', this.parentNode);
       this.startBtn.textContent = 'start';
       this.timeDisplay.textContent = '00:00.0';
-      //stop interval --->
-      //cler ListLaps items --->
-      clearInterval(this.timerId);
+
+      this.laps.remove();
       this.timerId = null;
       this.isActive = false;
-      this.checkingConstructor();
+      // this.checkingConstructor();
     }
   }, {
     key: 'addTimeValueToLaps',
     value: function addTimeValueToLaps() {
       this.lapsItems = document.createElement('li');
-      this.lapsItems.textContent = this.pauseTime;
+      this.lapsItems.textContent = this.convertTime(this.pauseTime);
 
       this.laps.appendChild(this.lapsItems);
     }
   }, {
     key: 'updateTimeDisplay',
-    value: function updateTimeDisplay() {}
+    value: function updateTimeDisplay() {
+      this.timer = this.convertTime(this.diffTime);
+      this.timeDisplay.textContent = this.timer;
+    }
+  }, {
+    key: 'diffTimer',
+    value: function diffTimer() {
+      this.diffTime = this.pauseTime + (this.nextTime - this.startTime);
+    }
+  }, {
+    key: 'addNextTimeAfterPause',
+    value: function addNextTimeAfterPause() {}
   }, {
     key: 'convertTime',
-    value: function convertTime() {}
+    value: function convertTime(val) {
+      var date = new Date(val);
+      var min = date.getMinutes();
+      var sec = date.getSeconds();
+      var ms = date.getMilliseconds();
+      if (min < 10) {
+        min = '0' + min;
+      }
+      if (sec < 10) {
+        sec = '0' + sec;
+      }
+      return min + ':' + sec + '.' + Number.parseInt(ms / 100);
+    }
   }, {
     key: 'checkingConstructor',
     value: function checkingConstructor() {
-      console.log('this.isActive: ', this.isActive);
-      console.log('this.timeTab: ', this.timeDisplay);
-      console.log('this.startBtn: ', this.startBtn);
-      console.log('this.stopBtn: ', this.stopBtn);
-      console.log('this.laps: ', this.laps);
-      console.log('this.lapsItems: ', this.lapsItems);
       console.log('this.counter: ', this.counter);
       console.log('this.timerId: ', this.timerId);
       console.log('this.timer: ', this.timer);
       console.log('this.time: ', this.time);
+      console.log('this.startTime: ', this.startTime);
+      console.log('this.pauseTime: ', this.pauseTime);
+      console.log('this.lapTime: ', this.lapTime);
+      console.log('this.startTime: ', this.startTime);
+      console.log('this.nextTime: ', this.nextTime);
+      console.log('this.pauseTime: ', this.pauseTime);
     }
   }]);
 

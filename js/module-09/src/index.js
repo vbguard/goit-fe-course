@@ -11,11 +11,12 @@ class Stopwatch {
     this.stopBtn = null;
     this.laps = null;
     this.lapsItems = null;
-    this.counter = 0;
     this.timerId = null;
-    this.timer = 1;
+    this.timer = null;
     this.startTime = null;
-    this.pauseTime = null;
+    this.nextTime = null;
+    this.pauseTime = 0;
+    this.diffTime = null;
 
     this.createLayout();
   }
@@ -23,7 +24,7 @@ class Stopwatch {
   createLayout() {
     this.parentNode.classList.add('clock');
     // Function for create SUPER Secondomizer ))
-    this.createTimerTab();
+    this.createTimerDisplay();
     this.createBtnStart();
     this.createBtnStop();
     this.createLapsList();
@@ -33,7 +34,7 @@ class Stopwatch {
     this.parentNode.append(this.timeDisplay, this.startBtn, this.stopBtn, this.laps);
   }
 
-  createTimerTab() {
+  createTimerDisplay() {
     this.timeDisplay = document.createElement('p');
     this.timeDisplay.classList.add('js-time', 'time');
     this.timeDisplay.textContent = '00:00.0';
@@ -62,14 +63,17 @@ class Stopwatch {
         //start timer + change textContent
         this.startTimer();
         this.startBtn.textContent = 'pause';
-
       }
+      //textContent = PAUSE
       if (getStartBtnText === 'pause') {
         console.log('push pause');
         this.startBtn.textContent = 'continue';
         this.stopBtn.textContent = 'lap';
+        console.log(this.diffTime);
         this.timeClearInterval();
+        this.pauseTime = this.diffTime;
       }
+      //textContent = CONTINUE
       if (getStartBtnText === 'continue') {
         console.log('push continue');
         this.startBtn.textContent = 'pause';
@@ -90,7 +94,6 @@ class Stopwatch {
       if (getStopBtnText === 'lap') {
         console.log('lap Push Value to list change');
         this.stopBtn.textContent = 'reset';
-        this.pauseTime = this.timeDisplay.textContent;
         this.addTimeValueToLaps();
       }
     });
@@ -99,12 +102,16 @@ class Stopwatch {
   startTimer() {
     if (!this.isActive) {
       this.isActive = true;
+      this.startTime = Date.now();
+
       this.timerId = setInterval(() => {
-        this.timeDisplay.textContent = `00:${this.timer.toFixed(1)}`;
-        this.timer += 0.1;
+        this.nextTime = Date.now();
+        this.diffTimer();
+        this.updateTimeDisplay();
       }, 100);
     }
   }
+
   timeClearInterval() {
     clearInterval(this.timerId);
     this.isActive = false;
@@ -113,38 +120,53 @@ class Stopwatch {
     console.log('it RESET -> ', this.parentNode);
     this.startBtn.textContent = 'start';
     this.timeDisplay.textContent = '00:00.0';
-    //stop interval --->
-    //cler ListLaps items --->
-    clearInterval(this.timerId);
+
+    this.laps.remove();
     this.timerId = null;
     this.isActive = false;
-    this.checkingConstructor();
+    // this.checkingConstructor();
   }
   addTimeValueToLaps() {
     this.lapsItems = document.createElement('li');
-    this.lapsItems.textContent = this.pauseTime;
+    this.lapsItems.textContent = this.convertTime(this.pauseTime);
 
     this.laps.appendChild(this.lapsItems);
   }
   updateTimeDisplay() {
+    this.timer = this.convertTime(this.diffTime);
+    this.timeDisplay.textContent = this.timer;
+  }
+  diffTimer() {
+     this.diffTime = this.pauseTime + (this.nextTime - this.startTime);
+  }
+  addNextTimeAfterPause() {
 
   }
-  convertTime() {
-
+  convertTime(val){
+    const date = new Date(val);
+    let min = date.getMinutes();
+    let sec = date.getSeconds();
+    let ms = date.getMilliseconds();
+    if ( min < 10 ) {
+      min = `0${min}`;
+    }
+    if ( sec < 10 ) {
+      sec = `0${sec}`;
+    }
+    return `${min}:${sec}.${Number.parseInt(ms / 100)}`;
   }
 
   checkingConstructor() {
-    console.log('this.isActive: ', this.isActive);
-    console.log('this.timeTab: ', this.timeDisplay);
-    console.log('this.startBtn: ', this.startBtn);
-    console.log('this.stopBtn: ', this.stopBtn);
-    console.log('this.laps: ', this.laps);
-    console.log('this.lapsItems: ', this.lapsItems);
     console.log('this.counter: ', this.counter);
     console.log('this.timerId: ', this.timerId);
     console.log('this.timer: ', this.timer);
     console.log('this.time: ', this.time);
-
+    console.log('this.startTime: ', this.startTime);
+    console.log('this.pauseTime: ',this.pauseTime);
+    console.log('this.lapTime: ',this.lapTime);
+    console.log('this.startTime: ', this.startTime);
+    console.log('this.nextTime: ', this.nextTime);
+    console.log('this.pauseTime: ',this.pauseTime);
   }
 }
 
