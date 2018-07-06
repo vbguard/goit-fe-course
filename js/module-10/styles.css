@@ -1,0 +1,71 @@
+@import 'reset';
+body {
+  padding-top: 50px;
+}
+.wrapper {
+  margin: auto;
+  max-width: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.form {
+  flex-shrink: 3;
+  display: inline-block;
+  padding: 5px;
+  border: 1px solid #000000;
+}
+
+.form:first-child {
+  flex-shrink: 1;
+}
+
+h4 {
+  font-size: 18px;
+  font-family: monospace;
+}
+.input {
+  width: calc(100% - 5px);
+  height: 20px;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.input::-webkit-input-placeholder {
+  font-size: 18px;
+}
+
+.result-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  padding: 5px 0 5px 0;
+  border-bottom: 1px solid #000000;
+}
+li:last-child {
+  border-bottom: none;
+}
+
+h5 {
+  margin: 0;
+  font-size: auto;
+}
+
+h6 {
+  margin: 0;
+  margin-top: 5px;
+}
+
+button {
+  width: 100%;
+  height: auto;
+  font-size: 18px;
+  font-family: monospace;
+}

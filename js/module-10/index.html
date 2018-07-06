@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>js-module-10</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <form class="form form-getall">
+      <h4>Get All Users</h4>
+      <button class="button js-button-getall">Get All Users</button>
+      <ul class="result-list js-result-getall-list"></ul>
+    </form>
+
+    <form class="form form-getbyid">
+      <h4>Get User by ID</h4>
+      <input type="text" class="input js-input-byid" placeholder="write some">
+      <button class="button js-button-byid">Get User</button>
+      <div class="result-getuser js-result-getuser"></div>
+    </form>
+
+    <form class="form form-adduser">
+      <h4>Add User</h4>
+      <input type="text" class="input js-inputaddname" placeholder="User Name">
+      <input type="text" class="input js-inputaddage" placeholder="User Age">
+      <button class="button js-button-adduser">Add User</button>
+    </form>
+    <form class="form form-removeuser">
+      <h4>Remove User</h4>
+      <input type="text" class="input js-input-remove" placeholder="User Id from DELETE">
+      <button class="button js-button-remove">Remove User</button>
+    </form>
+
+    <form class="form form-updateuser">
+      <h4>Update User</h4>
+      <input type="text" class="input js-input-update-id" placeholder="User Id">
+      <input type="text" class="input js-input-update-name" placeholder="User Name Update">
+      <input type="text" class="input js-input-update-age" placeholder="User Age Update">
+      <button class="button js-button-update">Update User</button>
+    </form>
+  </div>
+  <script src="index.js"></script>
+</body>
+
+</html>
