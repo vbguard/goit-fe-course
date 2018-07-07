@@ -54,7 +54,7 @@ function handleSubmitById(e) {
 
 function getUserById(value) {
   let userDataFind;
-  // const inputValueById = inputById.value;
+
   const getUser = value.filter(ifIdInDB)[0];
   addToResultDiv(getUser);
 }
@@ -106,7 +106,6 @@ function handleSubmitAddUser(e) {
 
 function fetchAddUser(param, apiOption) {
   return fetch(apiUrl, apiOption).then(response => {
-    console.log('before if: ', response);
     if (response.ok) {
       return response.json();
     }
@@ -124,11 +123,11 @@ function handleSubmitRemove(e) {
 
   const inputValueRemoveUserId = inputRemove.value;
 
-  fetchRemoveUser(e, inputValueRemoveUserId).then(data => {
-    console.log(data.data);
+  fetchRemoveUser(e, inputValueRemoveUserId).then(
     alert('User has been DELETE from DB');
   });
 }
+
 function fetchRemoveUser(param, id) {
   return fetch(apiUrl + id, {
     method: "DELETE"
@@ -156,20 +155,23 @@ function handleSubmitUpdateUser(e) {
 
   fetchUpdateUser(e, inputValueUpdateUserId, newUserName, newUserAge).then(alert('User Data Update!'));
 }
+
 function fetchUpdateUser(param, id, name, age) {
   return fetch(apiUrl + id, {
-    method: 'PUT',
-    body: JSON.stringify({ name: name, age: age}),
-    headers: {
-      'Content-Type': 'application/json',
-    }
-  })
-    .then( response => {
-        if (response.ok) {
-          return response.json();
-        }
-        throw new Error('Error' + response.statusText);
+      method: 'PUT',
+      body: JSON.stringify({
+        name: name,
+        age: age
+      }),
+      headers: {
+        'Content-Type': 'application/json',
       }
-    )
+    })
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error('Error' + response.statusText);
+    })
     .catch(err => console.log(err));
 }
