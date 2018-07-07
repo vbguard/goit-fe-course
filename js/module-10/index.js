@@ -124,8 +124,8 @@ function handleSubmitRemove(e) {
   const inputValueRemoveUserId = inputRemove.value;
 
   fetchRemoveUser(e, inputValueRemoveUserId).then(
-    alert('User has been DELETE from DB');
-  });
+    alert('User has been DELETE from DB')
+  );
 }
 
 function fetchRemoveUser(param, id) {
