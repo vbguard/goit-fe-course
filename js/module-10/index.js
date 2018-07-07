@@ -151,11 +151,19 @@ function handleSubmitUpdateUser(e) {
   e.preventDefault();
 
   const inputValueUpdateUserId = inputUpdateId.value;
+  const newUserName = inputUpdateName.value;
+  const newUserAge = inputUpdateAge.value;
 
-  fetchUpdateUser(e, inputValueUpdateUserId).then(updateUserData).then(alert('User Data Update!'));
+  fetchUpdateUser(e, inputValueUpdateUserId, newUserName, newUserAge).then(alert('User Data Update!'));
 }
-function fetchUpdateUser(param, id) {
-  return fetch(apiUrl + id)
+function fetchUpdateUser(param, id, name, age) {
+  return fetch(apiUrl + id, {
+    method: 'PUT',
+    body: JSON.stringify({ name: name, age: age}),
+    headers: {
+      'Content-Type': 'application/json',
+    }
+  })
     .then( response => {
         if (response.ok) {
           return response.json();
@@ -164,9 +172,4 @@ function fetchUpdateUser(param, id) {
       }
     )
     .catch(err => console.log(err));
-}
-function updateUserData (value) {
-  console.log(value);
-  value.data.name = inputUpdateName.value;
-  value.data.age = inputUpdateAge.value;
 }
