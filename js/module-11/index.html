@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>js-module-11</title>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <div class="card-place">
+    <section class="filter">
+      <form class="form js-form">
+        <section>
+          <h2>Screen size</h2>
+          <ul>
+            <li>
+              <label>
+                <input type="checkbox" name="size" value="13"> 13"</label>
+            </li>
+            <li>
+              <label>
+                <input type="checkbox" name="size" value="15"> 15"</label>
+            </li>
+            <li>
+              <label>
+                <input type="checkbox" name="size" value="17"> 17"</label>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Color</h2>
+          <ul>
+            <li>
+              <label>
+                <input type="checkbox" name="color" value="white"> white</label>
+            </li>
+            <li>
+              <label>
+                <input type="checkbox" name="color" value="gray"> gray</label>
+            </li>
+            <li>
+              <label>
+                <input type="checkbox" name="color" value="black"> black</label>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Release date</h2>
+          <ul>
+            <li>
+              <label>
+                <input type="checkbox" name="release_date" value="2015"> 2015</label>
+            </li>
+            <li>
+              <label>
+                <input type="checkbox" name="release_date" value="2016"> 2016</label>
+            </li>
+            <li>
+              <label>
+                <input type="checkbox" name="release_date" value="2017"> 2017</label>
+            </li>
+          </ul>
+        </section>
+        <button type="submit">Filter</button>
+        <button type="reset">Clear</button>
+      </form>
+    </section>
+    <section class="shoping-card">
+      <ul class="list list-card js-list-card">
+      </ul>
+    </section>
+  </div>
+
+  <template id="card-list-tpl">
+    {{#each this}}
+    <li class="list-item card">
+        <a href="#" class="card-link">
+          <h3 class="card-title">{{name}}</h3>
+          <img src="{{img}}" alt="PC" width="300" class="card-image">
+          <div class="card-tech">
+            <span>size: {{size}}</span>
+            <span>color: {{color}}</span>
+            <span>releaseDate: {{releaseDate}}</span>
+          </div>
+          <div class="card-price">
+            <span>PRICE: </span>
+            <span>{{price}}</span>
+          </div>
+          <p class="card-descr">{{descr}}</p>
+        </a>
+      </li>
+    {{/each}}
+  </template>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+  <script src="js/handlebars-v4.0.11.js"></script>
+  <script src="js/index.js"></script>
+</body>
+
+</html>
