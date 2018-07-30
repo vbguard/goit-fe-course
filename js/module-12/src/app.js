@@ -8,7 +8,7 @@ import listUrlItemTpl from './template/list-url-item.hbs';
 const listUrl = document.querySelector('.js-url-list');
 const form = document.querySelector('.js-form');
 
-const dbUrl = 'http://5.58.94.188:3000/bookmarks';
+const dbUrl = 'https://5.58.94.188:3000/bookmarks';
 const API_KEY = '5b50c178979045e4507c81f1110cd99f1dc04cae81ff5';
 const urls = {bookmarks: []};
 let filtredUrls = [];
