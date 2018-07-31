@@ -4,7 +4,7 @@ const API_KEY = '5b50c178979045e4507c81f1110cd99f1dc04cae81ff5';
 
 const LinkView = ({userUrl, listUrl, urls, ViewUpdate, setLocalStorage}) => {
 
-  axios.get(`http://api.linkpreview.net/?key=${API_KEY}&q=${userUrl}`)
+  axios.get(`https://api.linkpreview.net/?key=${API_KEY}&q=${userUrl}`)
     .then(response => {
       const data = {
         title: response.data.title,
