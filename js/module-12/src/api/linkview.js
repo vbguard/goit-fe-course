@@ -10,7 +10,8 @@ const LinkView = ({userUrl, listUrl, urls, ViewUpdate, setLocalStorage}) => {
         title: response.data.title,
         image: response.data.image,
         url: response.data.url,
-        description: response.data.description
+        description: response.data.description,
+        createDate: Date.now()
       };
       set({data, listUrl, urls, ViewUpdate, setLocalStorage});
     })

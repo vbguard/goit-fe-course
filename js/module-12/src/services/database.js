@@ -33,7 +33,8 @@ export const get = ({ urls, ViewUpdate, listUrl, setLocalStorage }) => {
         description: doc.data().description,
         title: doc.data().title,
         image: doc.data().image,
-        url: doc.data().url
+        url: doc.data().url,
+        createDate: doc.data().createDate
       }
       urls.bookmarks.push(url);
     });
