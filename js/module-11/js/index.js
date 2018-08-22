@@ -1,15 +1,13 @@
 'use strict';
 
-const laptops = [
-  {
+const laptops = [{
     size: 13,
     color: 'white',
     price: 28000,
     releaseDate: 2015,
     name: 'Macbook Air White 13"',
     img: 'http://demo.posthemes.com/pos_zadademo/images/placeholder.png',
-    descr:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.',
+    descr: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.',
   },
   {
     size: 13,
@@ -18,8 +16,7 @@ const laptops = [
     releaseDate: 2016,
     name: 'Macbook Air Gray 13"',
     img: 'http://demo.posthemes.com/pos_zadademo/images/placeholder.png',
-    descr:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.',
+    descr: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.',
   },
   {
     size: 13,
@@ -28,8 +25,7 @@ const laptops = [
     releaseDate: 2017,
     name: 'Macbook Air Black 13"',
     img: 'http://demo.posthemes.com/pos_zadademo/images/placeholder.png',
-    descr:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.',
+    descr: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.',
   },
   {
     size: 15,
@@ -38,8 +34,7 @@ const laptops = [
     releaseDate: 2015,
     name: 'Macbook Air White 15"',
     img: 'http://demo.posthemes.com/pos_zadademo/images/placeholder.png',
-    descr:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.',
+    descr: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.',
   },
   {
     size: 15,
@@ -48,8 +43,7 @@ const laptops = [
     releaseDate: 2016,
     name: 'Macbook Pro Gray 15"',
     img: 'http://demo.posthemes.com/pos_zadademo/images/placeholder.png',
-    descr:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.',
+    descr: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.',
   },
   {
     size: 15,
@@ -58,8 +52,7 @@ const laptops = [
     releaseDate: 2017,
     name: 'Macbook Pro Black 15"',
     img: 'http://demo.posthemes.com/pos_zadademo/images/placeholder.png',
-    descr:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.',
+    descr: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.',
   },
   {
     size: 17,
@@ -68,8 +61,7 @@ const laptops = [
     releaseDate: 2015,
     name: 'Macbook Air White 17"',
     img: 'http://demo.posthemes.com/pos_zadademo/images/placeholder.png',
-    descr:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.',
+    descr: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.',
   },
   {
     size: 17,
@@ -78,8 +70,7 @@ const laptops = [
     releaseDate: 2016,
     name: 'Macbook Pro Gray 17"',
     img: 'http://demo.posthemes.com/pos_zadademo/images/placeholder.png',
-    descr:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.',
+    descr: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.',
   },
   {
     size: 17,
@@ -88,8 +79,7 @@ const laptops = [
     releaseDate: 2017,
     name: 'Macbook Pro Black 17"',
     img: 'http://demo.posthemes.com/pos_zadademo/images/placeholder.png',
-    descr:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.',
+    descr: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.',
   },
 ];
 
@@ -125,17 +115,26 @@ function handleSubmit(evt) {
   });
 
   const applyFilter = laptops.filter(
-    laptop =>
-      filter.size.includes(String(laptop.size)) ||
-      filter.color.includes(laptop.color) ||
-      filter.release_date.includes(String(laptop.releaseDate)),
-  );
+    laptop => {
+      const matchedSize = filter.size.length !== 0 ?
+        filter.size.includes(String(laptop.size)) :
+        true;
+      const matchedColor = filter.color.length !== 0 ?
+        filter.color.includes(laptop.color) :
+        true;
+      const matchedReleaseDate = filter.release_date.length !== 0 ?
+        filter.release_date.includes(String(laptop.releaseDate)) :
+        true;
+      return matchedSize && matchedColor && matchedReleaseDate;
+    });
 
-  console.log('applyFilter: ', applyFilter.length, applyFilter);
   if (applyFilter.length > 0) {
     const filtredMarkup = template(applyFilter);
 
     list.innerHTML = filtredMarkup;
+  }
+  if (applyFilter.length === 0) {
+    list.innerHTML = '<li><h3>Soory, but your choiced filter not found laptops</h3></li>';
   }
 }
 

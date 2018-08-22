@@ -15,7 +15,12 @@ const setLocalStorage = () => {
   localStorage.setItem('urls', JSON.stringify(urls.bookmarks))
 };
 
-db.get({urls, ViewUpdate, listUrl, setLocalStorage });
+db.get({
+  urls,
+  ViewUpdate,
+  listUrl,
+  setLocalStorage
+});
 
 form.addEventListener('submit', handlerSubmit);
 listUrl.addEventListener('click', handleDeleteItem);
@@ -23,12 +28,28 @@ listUrl.addEventListener('click', handleDeleteItem);
 function handlerSubmit(evt) {
   evt.preventDefault();
   const userUrl = String(evt.target[0].value);
-  LinkView({ userUrl, listUrl, urls, ViewUpdate, setLocalStorage });
+  LinkView({
+    userUrl,
+    listUrl,
+    urls,
+    ViewUpdate,
+    setLocalStorage
+  });
+
+  setTimeout(() => {
+    evt.target[0].value = '';
+  }, 1000);
 };
 
 function handleDeleteItem(evt) {
   evt.preventDefault();
 
   const getIdItem = evt.path[2].value;
-  db.del({getIdItem, urls, ViewUpdate, listUrl, setLocalStorage });
+  db.del({
+    getIdItem,
+    urls,
+    ViewUpdate,
+    listUrl,
+    setLocalStorage
+  });
 };
