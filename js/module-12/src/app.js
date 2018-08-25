@@ -53,3 +53,5 @@ function handleDeleteItem(evt) {
     setLocalStorage
   });
 };
+
+module.exports
