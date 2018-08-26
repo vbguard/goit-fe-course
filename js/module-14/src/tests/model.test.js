@@ -17,7 +17,8 @@ describe('Model class', () => {
       url: 'url to site',
       userValue: 'user input url',
     };
-    expect(model.addBookmark(newBookmark, jest.fn(), 'https://dada.com'));
+    model.addBookmark(newBookmark, jest.fn(), 'https://dada.com');
+    expect(model.bookmarks.length).toBe(1);
   });
 
   it('should init Application with data', () => {
@@ -49,8 +50,8 @@ describe('Model class', () => {
       },
     ]);
 
-    const localStorage = jest.fn();
+    model.removeBookmark('1dsawq', () => true);
 
-    expect(model.removeBookmark()).toHaveBeenCalledTimes(1);
+    expect(model.bookmarks.length).toBe(0);
   });
 });
