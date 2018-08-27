@@ -1,0 +1,45 @@
+/* Container Section */
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Heading */
+
+.heading {
+  text-align: center;
+
+  &__caption {
+    display: block;
+    color: $heading-caption-color;
+    margin-bottom: 23px;
+    @include text-decor($heading-caption-font-famiy, 24px, 400);
+  }
+
+  &__title {
+    margin: 0;
+    color: $heading-title-color;
+    text-transform: uppercase;
+    @include text-decor($heading-title-font-family, 30px, 700);
+  }
+
+  &__title::after {
+    display: block;
+    content: '';
+    width: 60px;
+    height: 3px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 43px;
+    background-color: #f38181;
+  }
+  
+  &__text {
+    margin: 0;
+    margin-top: 46px;
+    color: $heading-text-color;
+    line-height: 24px;
+    @include text-decor($hrading-text-font-family, 15px, 400);
+  }
+}

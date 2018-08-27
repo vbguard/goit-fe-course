@@ -1,4 +1,16 @@
 /*
    Import partials below
 */
+
 @import 'normalize';
+@import '_reset';
+// import Variable
+@import 'vars';
+// import Mixin (tamplates)
+@import 'mixin';
+// Styling for Page
+@import 'main';
+@import 'masthead';
+@import 'services';
+@import 'team';
+@import 'mastfoot';

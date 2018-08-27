@@ -1,0 +1,229 @@
+/* MASTHEAD wrapper */
+
+/* background */
+
+.masthead-wrap {
+  background-image: linear-gradient(to top, rgba(252, 227, 138, 0.81) 0%, rgba(243, 129, 129, 0.81) 100%), url(../img/masthead-bg.png);
+  background-blend-mode: normal;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media (min-resolution: 144dpi), 
+  (min-resolution: 1.5dppx) {
+  .masthead-wrap {
+    background-image: linear-gradient(to top, rgba(252, 227, 138, 0.81) 0%, rgba(243, 129, 129, 0.81) 100%), url("../img/masthead-bg@1,5x.png");
+    background-blend-mode: normal;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+@media ( min-resolution: 192dpi ),
+  (min-resolution: 2dppx) {
+  .masthead-wrap {
+    background-image: linear-gradient(to top, rgba(252, 227, 138, 0.81) 0%, rgba(243, 129, 129, 0.81) 100%), url(../img/masthead-bg@2x.png);
+    background-blend-mode: normal;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+@media (min-resolution: 480dpi),
+  (min-resolution: 5dppx) {
+  .masthead-wrap {
+    background-image: linear-gradient(to top, rgba(252, 227, 138, 0.81) 0%, rgba(243, 129, 129, 0.81) 100%), url("../img/masthead-bg@5x.png");
+    background-blend-mode: normal;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+.banner {
+  min-height: 1000px;
+}
+
+/* header */
+
+.masthead {
+  margin-bottom: 164px;
+}
+
+.masthead__nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav {
+  min-height: 65px;
+}
+
+/* header logo */
+
+.logo {
+  display: inline-block;
+  margin: 0;
+  color: $primary-color;
+  text-decoration: none;
+  letter-spacing: -4px;
+  @include text-decor ($montserrat, 30px, 700);
+}
+
+.logo:hover {
+  color: $logo-color;
+}
+
+.nav__logo {
+  flex: 0 0 95px;
+  margin-right: 492px;
+}
+
+.logo__letter--big {
+  text-transform: uppercase;
+}
+
+/* header navigation menu */
+
+.nav__menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu {
+  flex: 0 0 490px;
+  margin-right: 52px;
+}
+
+.menu__item {
+  display: inline-block;
+}
+
+.menu__link {
+  display: block;
+  padding: 12px 0;
+  border-bottom: 3px solid transparent;
+  color: $primary-color;
+  text-transform: uppercase;
+  text-decoration: none;
+  @include text-decor($montserrat, 14px, 400);
+  
+  &:hover {
+    border-bottom-color: $gold-color;
+    color: $gold-color;
+  }
+}
+
+/* header user-navigation */
+
+.nav__user-navigation {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-navigation {
+  flex: 0 0 75px;
+}
+
+.user-navigation__link {
+  display: inline-block;
+  text-decoration: none;
+
+  &:hover>.user-navigation__icon {
+    fill: $gold-color;
+  }
+}
+
+.user-navigation__icon {
+  fill: $primary-color;
+}
+
+/* option search FORM */
+
+.search {
+  position: relative;
+
+  &:focus + &-form {
+    display: block;
+  }
+}
+
+.search-form {
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: 65px;
+}
+
+.search-form--position {
+  position: relative;
+}
+
+.search-form__input {
+  border: 1px solid $primary-color;
+  border-radius: 25px;
+  padding-left: 10px;
+  padding-right: 25px;
+  outline: 0;
+}
+
+.search-form__input::placeholder {
+  color: $pink-color;
+  @include text-decor($roboto, 14px, 400);
+}
+
+.search-form__btn {
+  position: absolute;
+  top: 3px;
+  right: 7px;
+}
+
+.magnify-icon-btn {
+  fill: $grey-color;
+}
+
+/* Hero */
+
+.hero {
+  text-align: center;
+}
+
+.hero--size {
+  max-width: 821px;
+}
+
+.hero--position {
+  margin: auto;
+}
+
+.hero__caption {
+  display: block;
+  color: $primary-color;
+  @include text-decor($kaushan, 72px, 400);
+}
+
+.hero__title {
+  margin-top: 42px;
+  margin-bottom: 125px;
+  color: $primary-color;
+  line-height: 140px;
+  text-transform: uppercase;
+  @include text-decor($montserrat, 145px, 700);
+}
+
+.hero__btn {
+  display: block;
+  margin: auto;
+  width: 164px;
+  height: 44px;
+  line-height: 40px;
+  color: $primary-color;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 3px solid $primary-color;
+  @include text-decor($montserrat, 14px, 700);
+}
