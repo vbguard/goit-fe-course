@@ -12,21 +12,25 @@ function SocialBook(users = [], posts = {}) {
   this.getUserStatus = userId =>
     this.users.find(getUser => getUser.id === userId).isActive ? 'active' : 'inactive';
 
-  this.addUser = function(user) {
+  this.addUser = function (user) {
     const getId = () =>
       '-' +
       Math.random()
-        .toString(36)
-        .substr(2, 9);
+      .toString(36)
+      .substr(2, 9);
     const newUserPattern = {
       id: getId(),
       isActive: true,
     };
-    this.users.push({...newUserPattern, ...user});
+    this.users.push({ ...newUserPattern,
+      ...user
+    });
+    return 'User succeful Added';
   };
 
-  this.removeUserById = function(userId) {
-    this.users = this.users.filter( user => user.id !== userId);
+  this.removeUserById = function (userId) {
+    this.users = this.users.filter(user => user.id !== userId);
+    return 'User succeful Removed';
   };
 
   this.getUsersCount = () => this.users.length;
@@ -34,7 +38,7 @@ function SocialBook(users = [], posts = {}) {
   //post Method
   this.getUserPosts = userId => this.posts[userId];
 
-  this.addPost = function(userId, post) {
+  this.addPost = function (userId, post) {
     if (!this.posts.hasOwnProperty(userId)) {
       this.posts[userId] = [];
     }
@@ -42,10 +46,15 @@ function SocialBook(users = [], posts = {}) {
     const getId = () =>
       '-' +
       Math.random()
-        .toString(36)
-        .substr(2, 9);
-    const postPattern = { id: getId(), likes: 0 };
-    getUserPosts.push({...postPattern, ...post});
+      .toString(36)
+      .substr(2, 9);
+    const postPattern = {
+      id: getId(),
+      likes: 0
+    };
+    getUserPosts.push({ ...postPattern,
+      ...post
+    });
   };
 
   this.removePost = (userId, postId) =>
@@ -54,7 +63,7 @@ function SocialBook(users = [], posts = {}) {
   this.getAllLikes = userId =>
     this.posts[userId].reduce((acc, post) => acc + post.likes, 0);
 
-  this.addPostLike = function(userId, postId) {
+  this.addPostLike = function (userId, postId) {
     this.posts[userId] = this.posts[userId].map(post => {
       if (post.id === postId) {
         return {
@@ -70,8 +79,7 @@ function SocialBook(users = [], posts = {}) {
   this.getPostsCount = userId => this.posts[userId].length;
 }
 
-const initialUsers = [
-  {
+const initialUsers = [{
     id: '-s19a6hqce',
     login: 'mangozedog@mail.com',
     password: 'qwe123zv',
@@ -92,8 +100,7 @@ const initialUsers = [
 ];
 
 const initialPosts = {
-  '-s19a6hqce': [
-    {
+  '-s19a6hqce': [{
       id: '-5sgljaskg',
       text: 'post #1',
       likes: 3,
@@ -109,8 +116,7 @@ const initialPosts = {
       likes: 13,
     },
   ],
-  '-qkpzenjxe': [
-    {
+  '-qkpzenjxe': [{
       id: '-5tu69g5rf',
       text: 'post #1',
       likes: 8,
@@ -121,8 +127,7 @@ const initialPosts = {
       likes: 15,
     },
   ],
-  '-e51cpd4di': [
-    {
+  '-e51cpd4di': [{
       id: '-9y6nkmlj4',
       text: 'post #1',
       likes: 18,
@@ -141,12 +146,17 @@ console.log(social1.getAllUsers());
 console.log(social1.getUserByLogin('polysweet@skynet.ze'));
 console.log(social1.getUserStatus('-e51cpd4di'));
 console.log(
-  social1.addUser({ login: 'mazafix@fix.hot', password: 'owKAdoka21' }),
+  social1.addUser({
+    login: 'mazafix@fix.hot',
+    password: 'owKAdoka21'
+  }),
 );
 console.log(social1.removeUserById('-qkpzenjxe'));
 console.log(social1.getUsersCount('-s19a6hqce'));
 console.log(social1.getUserPosts('-e51cpd4di'));
-console.log(social1.addPost('-e51cpd4di2', { text: 'post #3' }));
+console.log(social1.addPost('-e51cpd4di2', {
+  text: 'post #3'
+}));
 console.log(social1.removePost('-qkpzenjxe', '-5tu69g5rf'));
 console.log(social1.getAllLikes('-s19a6hqce'));
 console.log(social1.addPostLike('-s19a6hqce', '-199hb6igr'));

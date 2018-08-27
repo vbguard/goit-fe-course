@@ -35,11 +35,10 @@ var Stopwatch = function () {
       this.createTimerDisplay();
       this.createBtnStart();
       this.createBtnStop();
-      this.createLapsList();
       this.startBtnClick();
       this.stopBtnClick();
 
-      this.parentNode.append(this.timeDisplay, this.startBtn, this.stopBtn, this.laps);
+      this.parentNode.append(this.timeDisplay, this.startBtn, this.stopBtn);
     }
   }, {
     key: 'createTimerDisplay',
@@ -67,6 +66,7 @@ var Stopwatch = function () {
     value: function createLapsList() {
       this.laps = document.createElement('ul');
       this.laps.classList.add('laps', 'js-laps');
+      this.parentNode.insertAdjacentElement('beforeend', this.laps);
     }
   }, {
     key: 'startBtnClick',
@@ -78,6 +78,7 @@ var Stopwatch = function () {
 
         if (getStartBtnText === 'start') {
           _this.startTimer();
+          _this.createLapsList();
           _this.startBtn.textContent = 'pause';
         }
 

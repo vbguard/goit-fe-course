@@ -27,37 +27,43 @@ class Stopwatch {
     this.createTimerDisplay();
     this.createBtnStart();
     this.createBtnStop();
-    this.createLapsList();
     this.startBtnClick();
     this.stopBtnClick();
 
-    this.parentNode.append(this.timeDisplay, this.startBtn, this.stopBtn, this.laps);
+    this.parentNode.append(this.timeDisplay, this.startBtn, this.stopBtn);
   }
+
   createTimerDisplay() {
     this.timeDisplay = document.createElement('p');
     this.timeDisplay.classList.add('js-time', 'time');
     this.timeDisplay.textContent = '00:00.0';
   }
+
   createBtnStart() {
     this.startBtn = document.createElement('button');
     this.startBtn.classList.add('btn', 'js-start');
     this.startBtn.textContent = 'start';
   }
+
   createBtnStop() {
     this.stopBtn = document.createElement('button');
     this.stopBtn.classList.add('btn', 'js-stop');
     this.stopBtn.textContent = 'reset';
   }
+
   createLapsList() {
     this.laps = document.createElement('ul');
     this.laps.classList.add('laps', 'js-laps');
+    this.parentNode.insertAdjacentElement('beforeend', this.laps);
   }
+
   startBtnClick() {
     this.startBtn.addEventListener('click', (e) => {
       const getStartBtnText = this.startBtn.textContent;
 
       if (getStartBtnText === 'start') {
         this.startTimer();
+        this.createLapsList();
         this.startBtn.textContent = 'pause';
       }
 
@@ -75,6 +81,7 @@ class Stopwatch {
       }
     });
   }
+
   stopBtnClick() {
     this.stopBtn.addEventListener('click', (e) => {
       const getStopBtnText = this.stopBtn.textContent;
@@ -89,6 +96,7 @@ class Stopwatch {
       }
     });
   }
+
   startTimer() {
     if (!this.isActive) {
       this.isActive = true;
@@ -101,10 +109,12 @@ class Stopwatch {
       }, 100);
     }
   }
+
   timeClearInterval() {
     clearInterval(this.timerId);
     this.isActive = false;
   }
+
   reset() {
     this.startBtn.textContent = 'start';
     this.timeDisplay.textContent = '00:00.0';
@@ -114,18 +124,22 @@ class Stopwatch {
     this.isActive = false;
     // this.checkingConstructor();
   }
+
   addTimeValueToLaps() {
     this.lapsItems = document.createElement('li');
     this.lapsItems.textContent = this.convertTime(this.pauseTime);
     this.laps.appendChild(this.lapsItems);
   }
+
   updateTimeDisplay() {
     this.timer = this.convertTime(this.diffTime);
     this.timeDisplay.textContent = this.timer;
   }
+
   diffTimer() {
     this.diffTime = this.pauseTime + (this.nextTime - this.startTime);
   }
+
   convertTime(val) {
     const date = new Date(val);
     let min = date.getMinutes();
@@ -139,6 +153,7 @@ class Stopwatch {
     }
     return `${min}:${sec}.${Number.parseInt(ms / 100)}`;
   }
+
   checkingConstructor() {
     console.log('this.counter: ', this.counter);
     console.log('this.timerId: ', this.timerId);
